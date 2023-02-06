@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "list-goods-item": "/df-components/global-components/list-goods-item",
+    "null-block": "/df-components/undefined-image/index",
+    "to-top-btn": "/df-components/to-top-btn/index",
+    "login-fn": "/df-components/loginFn/index",
+    "goods-spec": "/df-components/global-components/goods-spec"
+  }
+}

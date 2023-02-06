@@ -1,0 +1,300 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-c555a54c {
+  color: #374050;
+}
+.grey2-color.data-v-c555a54c {
+  color: #91939c;
+}
+.page.data-v-c555a54c {
+  background: #ffffff;
+}
+.time-block.data-v-c555a54c {
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  width: 100%;
+  height: 88rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.time-block image.data-v-c555a54c {
+  width: 154rpx;
+  height: 88rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.success-block.data-v-c555a54c {
+  padding-bottom: 55rpx;
+}
+.success-block .tip-title.data-v-c555a54c {
+  color: #ff6128;
+  font-size: 36rpx;
+  font-weight: 600;
+  line-height: 116rpx;
+  text-align: center;
+}
+.success-block .tip-num.data-v-c555a54c {
+  line-height: 100rpx;
+  font-size: 26rpx;
+  color: #91939c;
+  text-align: center;
+}
+.success-block .tip-num text.data-v-c555a54c {
+  color: #ff6128;
+}
+.success-block .user-image-block.data-v-c555a54c {
+  text-align: center;
+  margin-top: 30rpx;
+  margin-bottom: 40rpx;
+}
+.success-block .user-image-block .user-image.data-v-c555a54c {
+  margin: 20rpx;
+  display: inline-block;
+  width: 100rpx;
+  height: 100rpx;
+}
+.success-block .user-image-block .user-image image.data-v-c555a54c {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.success-block .share-btn.data-v-c555a54c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 704rpx;
+  height: 84rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+  background-image: linear-gradient(90deg, #6ccc4f, #60c669);
+}
+.line-tip.data-v-c555a54c {
+  text-align: center;
+  font-size: 23rpx;
+  color: #91939c;
+  line-height: 64rpx;
+  background: #f5f5f5;
+}
+.pintuan-info-block .line-block.data-v-c555a54c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90rpx;
+  border-bottom: 1px solid #f8f8f8;
+}
+.pintuan-info-block .line-block .left-tip-text.data-v-c555a54c {
+  font-size: 26rpx;
+  color: #91939c;
+}
+.pintuan-info-block .line-block .right-tip-text.data-v-c555a54c {
+  font-size: 26rpx;
+  color: #374050;
+}
+.pintuan-info-block .line-block .right-tip-text .text.data-v-c555a54c {
+  display: inline-block;
+  max-width: 20em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.pintuan-info-block .progress-bar-block.data-v-c555a54c {
+  margin-top: 40rpx;
+}
+.do-you-like-block.data-v-c555a54c {
+  background: #f5f5f5;
+}
+.do-you-like-block .tip-title.data-v-c555a54c {
+  font-weight: 600;
+  font-size: 26rpx;
+  color: #374050;
+  text-align: center;
+  line-height: 88rpx;
+}
+.do-you-like-block .item.data-v-c555a54c {
+  display: inline-block;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+  width: 340rpx;
+  height: 540rpx;
+  background: #ffffff;
+}
+.do-you-like-block .item.data-v-c555a54c:nth-child(2n) {
+  margin-right: 0;
+}
+.do-you-like-block .item .goods-image-block.data-v-c555a54c {
+  width: 342rpx;
+  height: 320rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.do-you-like-block .item .goods-image-block image.data-v-c555a54c {
+  width: 310rpx;
+  height: 310rpx;
+}
+.do-you-like-block .item .goods-name.data-v-c555a54c,
+.do-you-like-block .item .goods-description.data-v-c555a54c,
+.do-you-like-block .item .price-wrap.data-v-c555a54c,
+.do-you-like-block .item .num-block.data-v-c555a54c {
+  margin-left: 20rpx;
+}
+.do-you-like-block .item .goods-name.data-v-c555a54c {
+  max-width: 8em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 600;
+  line-height: 64rpx;
+  height: 64rpx;
+  font-size: 30rpx;
+  color: #374050;
+}
+.do-you-like-block .item .goods-description.data-v-c555a54c {
+  max-width: 12em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 25rpx;
+  color: #91939c;
+  height: 1.4em;
+}
+.do-you-like-block .item .price-wrap.data-v-c555a54c {
+  height: 66rpx;
+  display: flex;
+  align-items: center;
+}
+.do-you-like-block .item .price-wrap .shop-price-block-lr.data-v-c555a54c {
+  white-space: nowrap;
+  display: inline-block;
+}
+.do-you-like-block .item .price-wrap .shop-price-block-lr .origin-price.data-v-c555a54c {
+  white-space: nowrap;
+  display: inline-block;
+  color: #ea3a37;
+  font-size: 18rpx;
+  font-weight: 900;
+}
+.do-you-like-block .item .price-wrap .shop-price-block-lr .origin-price text.data-v-c555a54c {
+  color: #ea3a37;
+  font-size: 28rpx;
+}
+.do-you-like-block .item .price-wrap .shop-price-block-lr .line-price.data-v-c555a54c {
+  white-space: nowrap;
+  display: inline-block;
+  text-indent: 0.6em;
+  font-size: 24rpx;
+  color: #91939c;
+  text-decoration: line-through;
+}
+.do-you-like-block .item .price-wrap .tag-block.data-v-c555a54c {
+  margin-left: 0.5em;
+}
+.do-you-like-block .item .num-block.data-v-c555a54c {
+  font-size: 24rpx;
+  color: #91939c;
+}
+.do-you-like-block .item .pintuan-btn.data-v-c555a54c {
+  width: 68rpx;
+  height: 68rpx;
+  position: absolute;
+  right: 20rpx;
+  bottom: 34rpx;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  color: #ffffff;
+}
+.share-modal-block.data-v-c555a54c {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 300;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+}
+.share-modal-block.showShareModal.data-v-c555a54c {
+  top: 0;
+}
+.share-modal-block.hideShareModal.data-v-c555a54c {
+  top: 100vh;
+}
+.share-modal-block .cancel-block.data-v-c555a54c {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex: 1;
+}
+.share-modal-block .cancel-block view.data-v-c555a54c {
+  line-height: 112rpx;
+  color: #ffffff;
+  font-size: 36rpx;
+}
+.share-modal-block .share-btn-block.data-v-c555a54c {
+  height: 425rpx;
+  padding-top: 54rpx;
+  background: #ffffff;
+}
+.share-modal-block .share-btn-block .tip-title.data-v-c555a54c {
+  font-weight: 600;
+  font-size: 36rpx;
+  color: #374050;
+  line-height: 75rpx;
+  text-align: center;
+}
+.share-modal-block .share-btn-block .tip-title text.data-v-c555a54c {
+  color: #ff6128;
+}
+.share-modal-block .share-btn-block .image-block.data-v-c555a54c {
+  height: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.share-modal-block .share-btn-block .image-block image.data-v-c555a54c {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.share-modal-block .share-btn-block .progress-text.data-v-c555a54c {
+  text-align: center;
+  font-size: 23rpx;
+  font-weight: 600;
+  color: #374050;
+}
+.share-modal-block .share-btn-block .progress-text text.data-v-c555a54c {
+  color: #ff6128;
+}

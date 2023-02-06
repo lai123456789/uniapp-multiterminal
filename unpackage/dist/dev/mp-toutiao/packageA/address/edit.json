@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "编辑收货地址",
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "loading-css": "/df-components/loading-image/loader-css"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "拼团",
+  "usingComponents": {
+    "yve-icon": "/df-components/yve-icon/yve-icon",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "vip-card": "/pages/order/order-components/vip-card"
+  }
+}

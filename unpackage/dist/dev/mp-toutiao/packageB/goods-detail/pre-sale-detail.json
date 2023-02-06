@@ -1,0 +1,21 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "navigationBarBackgroundColor": "#f5f5f5",
+  "usingComponents": {
+    "login-fn": "/df-components/loginFn/index",
+    "loading-image": "/df-components/loading-image/index",
+    "share-code-img": "/df-components/share-code-img/share-code-img",
+    "back-btn": "/packageB/goods-detail/goods-detail-components/back-btn",
+    "goods-detail-swiper": "/packageB/goods-detail/goods-detail-components/goods-detail-swiper",
+    "recommend-eat": "/packageB/goods-detail/goods-detail-components/recommend-eat",
+    "recommend-goods": "/packageB/goods-detail/goods-detail-components/recommend-goods",
+    "comment": "/packageB/goods-detail/goods-detail-components/comment",
+    "detail-shopping-records": "/packageB/goods-detail/goods-detail-components/detail-shopping-records",
+    "seller-promise-price-show": "/packageB/goods-detail/goods-detail-components/seller-promise-price-show",
+    "open-vip-page": "/packageB/goods-detail/goods-detail-components/to-vip-page",
+    "pre-sale-bottom-add-cart-bar": "/packageB/goods-detail/goods-detail-components/pre-sale-bottom-add-cart-bar",
+    "pre-sale-detail-goods-spec": "/packageB/goods-detail/goods-detail-components/pre-sale-detail-goods-spec",
+    "coupon-bar": "/packageB/goods-detail/goods-detail-components/coupon-bar",
+    "play-buy-history": "/df-components/global-components/play-buy-history"
+  }
+}

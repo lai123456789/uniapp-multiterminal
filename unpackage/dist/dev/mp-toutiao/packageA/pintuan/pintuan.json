@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "拼团列表",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "null-block": "/df-components/undefined-image/index",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "login-fn": "/df-components/loginFn/index"
+  }
+}

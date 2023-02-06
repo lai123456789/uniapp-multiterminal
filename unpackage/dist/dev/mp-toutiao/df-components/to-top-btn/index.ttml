@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['toTopFn',['$event']]]]]}}" class="{{(((('to-top-btn')+' '+'border-radius')+' '+'data-v-0de567b1')+' '+(flag?'':'at_right'))}}" bindtap="__e"><view class="iconfont icon-fanhuidingbu data-v-0de567b1" style="font-size:30rpx;color:#374050;"></view><text class="data-v-0de567b1">顶部</text></view>

@@ -1,0 +1,32 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#64c860",
+  "navigationBarTitleText": "首页",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "title-bar": "/df-components/title-bar/title-bar",
+    "all-components": "/df-components/all-component/all-components",
+    "to-top-btn": "/df-components/to-top-btn/index",
+    "login-fn": "/df-components/loginFn/index",
+    "goods-spec": "/df-components/global-components/goods-spec",
+    "hans-tabbar": "/df-components/hans-tabbar/hans-tabbar",
+    "home-top-show-address": "/pages/index/index-components/home-top-show-address",
+    "home-search": "/pages/index/index-components/home-search",
+    "home-swiper": "/pages/index/index-components/home-swiper",
+    "home-top-coupon": "/pages/index/index-components/home-top-coupon",
+    "home-platform-icon": "/pages/index/index-components/home-platform-icon",
+    "home-news": "/pages/index/index-components/home-news",
+    "home-type-btns": "/pages/index/index-components/home-type-btns",
+    "home-hot-scroll-goods": "/pages/index/index-components/home-hot-scroll-goods",
+    "home-miaosha-caichang": "/pages/index/index-components/home-miaosha-caichang",
+    "bottom-goods-class-nav-bar": "/pages/index/index-components/bottom-goods-class-nav-bar",
+    "bottom-goods-list": "/pages/index/index-components/bottom-goods-list",
+    "home-coupon-modal": "/pages/index/index-components/home-coupon-modal-components/home-coupon-modal",
+    "home-ad-modal": "/pages/index/index-components/home-ad-modal",
+    "first-screen-gjp": "/pages/index/index-components/first-screen-gjp",
+    "play-buy-history": "/df-components/global-components/play-buy-history",
+    "address-out-of-range-modal": "/pages/index/index-components/address-out-of-range-modal"
+  }
+}

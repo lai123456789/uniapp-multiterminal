@@ -1,0 +1,1 @@
+<view hidden="{{!(isShowGif)}}" class="loading-image"><image src="{{$root.m0}}" mode></image></view>

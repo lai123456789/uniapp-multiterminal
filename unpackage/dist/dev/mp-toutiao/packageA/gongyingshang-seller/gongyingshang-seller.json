@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "null-block": "/df-components/undefined-image/index",
+    "login-fn": "/df-components/loginFn/index",
+    "goods-spec": "/df-components/global-components/goods-spec",
+    "home-news": "/pages/index/index-components/home-news",
+    "show-goods": "/packageA/gongyingshang-seller/gongyingshang-seller-components/show-goods"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "订单",
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "uni-steps": "/components/uni-steps/uni-steps",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "login-fn": "/df-components/loginFn/index",
+    "user-address": "/pages/order/order-components/user-address",
+    "zitidian-show": "/pages/order/order-components/duozitidian/zitidian-show",
+    "zitidian-show-seller": "/pages/order/order-components/zitidian-show-seller",
+    "payment-type-modal": "/pages/order-state/order-components/payment-type-modal"
+  }
+}

@@ -1,0 +1,910 @@
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+{
+	// ↓↓↓ 主包的页面配置
+	"pages": [
+		// 首页
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#64c860",
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark",
+				"navigationStyle": "custom"
+			},
+			"onReachBottomDistance": 300
+		}
+		// 商品分类
+		, {
+			"path": "pages/class/class",
+			"style": {
+				"navigationBarTitleText": "分类",
+				"disableScroll": true
+			}
+		}
+		// 吃什么
+		, {
+			"path": "pages/eat/eat",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark"
+
+			}
+		}
+		// 购物车
+		, {
+			"path": "pages/cart/cart",
+			"style": {
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark",
+				"navigationBarTitleText": "购物车"
+			}
+		}
+		// 订单页面的商品列表页面
+		, {
+			"path": "pages/order/goods-list-page",
+			"style": {
+				"navigationBarTitleText": "商品清单"
+			}
+		}
+		// 确认订单页面-普通商品
+		, {
+			"path": "pages/order/index",
+			"style": {
+				"navigationBarTitleText": "确认订单"
+			}
+		}
+		// 提交订单页面-多门店版本
+		, {
+			"path": "pages/order/submit-order",
+			"style": {
+				"navigationBarTitleText": "提交订单"
+			}
+		}
+		// 确认订单页面-积分兑换商品
+		, {
+			"path": "pages/order/jifenduihuan",
+			"style": {
+				"navigationBarTitleText": "积分兑换"
+			}
+		}
+		// 确认订单页面-拼团商品
+		, {
+			"path": "pages/order/pintuan",
+			"style": {
+				"navigationBarTitleText": "拼团"
+			}
+		}
+		// 订单支付
+		, {
+			"path": "pages/order-state/zhifu",
+			"style": {
+				"navigationBarTitleText": "订单"
+			}
+		}
+		// 订单详情
+		, {
+			"path": "pages/order-state/dingdan-state",
+			"style": {
+				"navigationBarTitleText": "订单"
+			}
+		}
+		// 我的
+		, {
+			"path": "pages/my/my",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}
+		// 订单列表
+		, {
+			"path": "pages/my/dingdan/index",
+			"style": {
+				"navigationBarTitleText": "我的订单",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark"
+			}
+		}
+		// 商品评价
+		, {
+			"path": "pages/my/dingdan/pingjia",
+			"style": {
+				"navigationBarTitleText": "评价"
+			}
+		}
+		// 取消订单
+		, {
+			"path": "pages/my/dingdan/qvxiao",
+			"style": {
+				"navigationBarTitleText": "取消订单"
+			}
+		}
+		// 售后订单列表
+		, {
+			"path": "pages/my/shouhou/index",
+			"style": {
+				"navigationBarTitleText": "订单售后",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark"
+			}
+		}
+		// 申请售后表单页面
+		, {
+			"path": "pages/my/shouhou/shenqingshouhuo",
+			"style": {
+				"navigationBarTitleText": "申请售后"
+			}
+		}
+		// 退款详情页面
+		, {
+			"path": "pages/my/shouhou/tuikuan",
+			"style": {
+				"navigationBarTitleText": "退款详情"
+			}
+		}
+		// 商品列表-菜场查看更多
+		, {
+			"path": "pages/list-page/index",
+			"style": {
+				"navigationBarTitleText": "商品",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark"
+			}
+		}
+		// 商品列表-轮播图点击进入
+		, {
+			"path": "pages/list-page/home-swiper",
+			"style": {
+				"navigationBarTitleText": "商品",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark"
+			}
+		}
+		// 商品列表-优惠券可用商品范围
+		, {
+			"path": "pages/list-page/youhuiquan",
+			"style": {
+				"navigationBarTitleText": "商品",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark"
+			}
+		}
+		// 商品列表-首页的热销商品查看更多
+		, {
+			"path": "pages/list-page/index-hot",
+			"style": {
+				"navigationBarTitleText": "商品",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark"
+			}
+		}
+	],
+	// ↓↓↓ 全局的默认样式
+	"globalStyle": {
+		// #ifdef H5
+		"navigationStyle": "custom",
+		// #endif
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF",
+		"backgroundColorTop": "#e6e6e6"
+	},
+	// ↓↓↓ tabBar 配置
+	"tabBar": {
+		"color": "#91939c",
+		"selectedColor": "#6ccc4e",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index/index"
+		}, {
+			"pagePath": "pages/class/class"
+		}, {
+			"pagePath": "pages/eat/eat"
+		}, {
+			"pagePath": "pages/cart/cart"
+		}, {
+			"pagePath": "pages/my/my"
+		}]
+	},
+	// ↓↓↓ 分包配置
+	"subpackages": [{
+			// ↓↓↓ 分包B相关页面
+			"root": "packageB",
+			"pages": [
+				// 商品详情-普通商品
+				{
+					"path": "goods-detail/goods-detail",
+					"style": {
+						"navigationBarTitleText": "商品详情",
+						"navigationBarBackgroundColor":"#f5f5f5"
+					}
+				}
+				// 商品详情-秒杀商品
+				, {
+					"path": "goods-detail/goods-detail-seckill",
+					"style": {
+						"navigationBarTitleText": "商品详情",
+						"navigationBarBackgroundColor":"#f5f5f5"
+					}
+					
+				}
+				// 商品详情里商品评价列表页面
+				, {
+					"path": "goods-detail/goods-detail-page/goods-comment",
+					"style": {
+						"navigationBarTitleText": "评论",
+						"enablePullDownRefresh": true, //开启下拉刷新
+						"backgroundTextStyle": "dark" //dark (深色有动画)  light(白色没动画)
+					}
+				}
+				// 商品详情-积分商品
+				, {
+					"path": "goods-detail/jifen-goods-detail",
+					"style": {
+						"navigationBarTitleText": "商品详情",
+						"navigationBarBackgroundColor":"#f5f5f5"
+					}
+					
+				}
+				// 商品详情-拼团商品
+				, {
+					"path": "goods-detail/pintuan-detail",
+					"style": {
+						"navigationBarTitleText": "商品详情",
+						"navigationBarBackgroundColor":"#f5f5f5"
+					}
+				}
+				// 商品详情-预售商品
+				, {
+					"path": "goods-detail/pre-sale-detail",
+					"style": {
+						"navigationBarTitleText": "商品详情",
+						"navigationBarBackgroundColor":"#f5f5f5"
+					}
+				}
+				// 预售商品确认订单
+				, {
+					"path": "order/pre-sale-order",
+					"style": {}
+				}
+				// 预售商品付尾款确认订单
+				, {
+					"path": "order/pre-sale-order-weikuan",
+					"style": {}
+				}
+				// 预售商品列表
+				, {
+					"path": "pre-sale-list/pre-sale-list",
+					"style": {
+						"navigationBarTitleText": "预售 支付定金立享折扣"
+					}
+				}
+			]
+		},
+
+		// ↓↓↓ 分包A相关页面
+		{
+			"root": "packageA",
+			"pages": [
+				// 分销中心
+				{
+					"path": "fenxiao/fenxiao",
+					"style": {
+						"navigationBarTitleText": "分销中心"
+					}
+				}
+				// 分销粉丝
+				, {
+					"path": "fenxiao/fensi",
+					"style": {
+						"navigationBarTitleText": "我的粉丝",
+						"enablePullDownRefresh": true, //开启下拉刷新
+						"backgroundTextStyle": "dark" //dark三个小点  light啥也没有
+
+					}
+				}
+				// 分销奖励提现
+				, {
+					"path": "fenxiao/tixian",
+					"style": {
+						"navigationBarTitleText": "提现"
+					}
+				}
+				// 提现记录
+				, {
+					"path": "fenxiao/tixianjilu",
+					"style": {
+						"navigationBarTitleText": "提现记录",
+						"enablePullDownRefresh": true, //开启下拉刷新
+						"backgroundTextStyle": "dark" //dark三个小点  light啥也没有
+					}
+				}
+				// 推广收益明细
+				, {
+					"path": "fenxiao/tuiguangshouyi",
+					"style": {
+						"navigationBarTitleText": "推广收益",
+						"navigationBarBackgroundColor": "#ea3a37",
+						"navigationBarTextStyle": "black",
+						"enablePullDownRefresh": true, //开启下拉刷新
+						"backgroundTextStyle": "dark" //dark三个小点  light啥也没有
+					}
+				}
+				// 余额充值
+				, {
+					"path": "yve/chongzhi",
+					"style": {
+						"navigationBarTitleText": "充值"
+					}
+				}
+				// 账户余额
+				, {
+					"path": "yve/yve",
+					"style": {
+						"navigationBarTitleText": "账户余额"
+					}
+				}
+				// 账单记录
+				, {
+					"path": "yve/zhangdanjilu",
+					"style": {
+						"navigationBarTitleText": "账单记录",
+						"enablePullDownRefresh": true,
+						"backgroundTextStyle": "dark"
+
+					}
+				}
+				// 邀请得现金
+				, {
+					"path": "tuijianyouli/tuijianyouli",
+					"style": {
+						"navigationBarTitleText": "邀请好友得现金"
+					}
+				}
+				// 邀请好友记录
+				, {
+					"path": "tuijianyouli/list",
+					"style": {
+						"navigationBarTitleText": "_",
+						"enablePullDownRefresh": true, //开启下拉刷新
+						"backgroundTextStyle": "dark" //dark三个小点  light啥也没有
+
+					}
+				}
+				// 分销海报
+				, {
+					"path": "tuijianyouli/canvas",
+					"style": {
+						"navigationBarTitleText": "分销海报"
+					}
+				}
+				// 客服和帮助
+				, {
+					"path": "kefu/kefu",
+					"style": {
+						"navigationBarTitleText": "客服与帮助"
+					}
+				}
+				// 常见问题详情
+				, {
+					"path": "kefu/help-detail"
+				}
+				// 供应商门店
+				, {
+					"path": "gongyingshang-seller/gongyingshang-seller",
+					"style": {
+						"navigationBarTitleText": ""
+					}
+				}
+				// 供应商
+				, {
+					"path": "gongyingshang/gongyingshang",
+					"style": {
+						"navigationBarTitleText": "供应商招募"
+					}
+				}
+				// 设置
+				, {
+					"path": "set/set",
+					"style": {
+						"navigationBarTitleText": "设置"
+					}
+				}
+				// 下载app页面
+				, {
+					"path": "load-app/load-app",
+					"style": {
+						"navigationBarTitleText": "下载app"
+					}
+				}
+				// 直播列表
+				// #ifdef MP-WEIXIN
+				, {
+					"path": "zhibo/zhibo-list",
+					"style": {
+						"navigationBarTitleText": "直播列表",
+						"usingComponents": {
+							"subscribe": "plugin-private://wx2b03c6e691cd7370/components/subscribe/subscribe"
+						}
+					}
+				 }
+				 // 直播回放
+				 , {
+					"path": "zhibo/play-back",
+					"style": {
+						"navigationBarTitleText": "直播回放"
+					}
+				}
+				// #endif
+				// 视频
+				, {
+					"path": "shipin/shipin",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}
+				// 登录(配置短信)
+				, {
+					"path": "tel-login/tel-login",
+					"style": {
+						"navigationBarTitleText": "登录"
+					}
+				}
+				// 注册(配置短信)
+				, {
+					"path": "tel-login/reg",
+					"style": {
+						"navigationBarTitleText": "注册"
+					}
+				}
+				// 个人资料
+				, {
+					"path": "tel-login/user-info",
+					"style": {
+						"navigationBarTitleText": "个人资料"
+					}
+				}
+				// 专题页
+				, {
+					"path": "activity/activity",
+					"style": {
+						"navigationBarTitleText": "活动页标题"
+					}
+				}
+				// 关于我们
+				, {
+					"path": "about/index",
+					"style": {
+						"navigationBarTitleText": "关于我们"
+					}
+				}
+				// 意见与反馈
+				, {
+					"path": "about/yijian",
+					"style": {
+						"navigationBarTitleText": "意见与反馈"
+					}
+				}
+				// 积分商城
+				, {
+					"path": "jifenshangcheng/jifenshangcheng",
+					"style": {
+						"navigationBarTitleText": "积分商城"
+					}
+				}
+				// 积分明细
+				, {
+					"path": "jifenshangcheng/jifenmingxi",
+					"style": {
+						"enablePullDownRefresh": true,
+						"backgroundTextStyle": "dark",
+						"navigationBarTitleText": "积分明细"
+					}
+				}
+				// 收货地址
+				, {
+					"path": "address/index",
+					"style": {
+						"navigationBarTitleText": "收货地址",
+						"enablePullDownRefresh": true,
+						"backgroundTextStyle": "dark"
+					}
+				}
+				// 编辑收货地址
+				, {
+					"path": "address/edit",
+					"style": {
+						"navigationBarTitleText": "编辑收货地址"
+					}
+				}
+				// 新增收货地址
+				, {
+					"path": "address/add",
+					"style": {
+						"navigationBarTitleText": "新增收货地址"
+					}
+				}
+				// 附近地址
+				, {
+					"path": "address/home-select",
+					"style": {
+						"navigationBarTitleText": "附近地址",
+						"backgroundTextStyle": "light"
+					}
+				}
+				// 选择地址
+				, {
+					"path": "address/cart-select",
+					"style": {
+						"navigationBarTitleText": "选择地址",
+						"enablePullDownRefresh": true,
+						"backgroundTextStyle": "dark"
+					}
+				}
+				// 北京世间万象网络科技有限公司介绍页面
+				, {
+					"path": "dev-ad/dev-ad",
+					"style": {
+						"navigationBarTitleText": "北京世间万象",
+						"backgroundTextStyle": "light"
+					}
+				}
+				// 常购商品页面
+				, {
+					"path": "everyday-buy/everyday-buy",
+					"style": {
+						"navigationBarTitleText": "常购商品",
+						"backgroundTextStyle": "light"
+					}
+				}
+				// 优惠券列表
+				, {
+					"path": "youhuiquan/index",
+					"style": {
+						"enablePullDownRefresh": true, //开启下拉刷新
+						"backgroundTextStyle": "dark",
+						"navigationBarTitleText": "优惠券"
+					}
+				}
+				// 商品券列表
+				, {
+					"path": "shangpinquan/index",
+					"style": {
+						"navigationBarTitleText": "商品券",
+						"enablePullDownRefresh": true, //开启下拉刷新
+						"backgroundTextStyle": "dark"
+					}
+				}
+				// 开通会员的充值页面
+				, {
+					"path": "kaitonghuiyuan/index",
+					"style": {
+						"navigationBarTitleText": "开通会员"
+					}
+				}
+				// 会员专属任务 (代码保留暂时没用)
+				, {
+					"path": "kaitonghuiyuan/huiyuanrenwu",
+					"style": {
+						"navigationBarTitleText": "会员专属任务"
+					}
+				}
+				// 会员介绍
+				, {
+					"path": "kaitonghuiyuan/huiyuanjieshao",
+					"style": {
+						"navigationBarTitleText": "会员",
+						"navigationBarBackgroundColor": "#272525",
+						"navigationBarTextStyle": "white"
+					}
+				}
+				// 会员专属商品列表
+				, {
+					"path": "kaitonghuiyuan/vip-goods-list",
+					"style": {
+						"navigationBarTitleText": "会员专享",
+						"enablePullDownRefresh": true,
+						"backgroundTextStyle": "dark"
+					}
+				}
+				// 会员专属商品列表
+				, {
+					"path": "tel-login/apple-check-open/reg",
+					"style": {
+						"navigationBarTitleText": "注册"
+					}
+				}
+				// 会员专属商品列表
+				, {
+					"path": "tel-login/apple-check-open/login",
+					"style": {
+						"navigationBarTitleText": "登录"
+					}
+				}
+				// 吃什么作品详情
+				, {
+					"path": "eat/food-detail/food-detail",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}
+				// 吃什么作品分类
+				, {
+					"path": "eat/menu-class/menu-class",
+					"style": {
+						"navigationBarTitleText": "分类"
+					}
+				}
+				// 吃什么个人中心
+				, {
+					"path": "eat/eat-user/index",
+					"style": {
+						"enablePullDownRefresh": true,
+						"backgroundTextStyle": "dark"
+					}
+				}
+				// 吃什么发布作品
+				, {
+					"path": "eat/fabuzuopin/index",
+					"style": {
+						"navigationBarTitleText": "作品"
+					}
+				}			
+				// 搜索商品吃什么作品
+				, {
+					"path": "eat/search",
+					"style": {
+						"navigationBarTitleText": "搜索"
+					}
+				}
+				// 我的拼团
+				, {
+					"path": "pintuan/pintuan",
+					"style": {
+						"navigationBarTitleText": "拼团列表",
+						"enablePullDownRefresh": true,
+						"backgroundTextStyle": "dark"
+					}
+				}
+				// 拼团商品列表
+				, {
+					"path": "pintuan/home",
+					"style": {
+						"enablePullDownRefresh": true,
+						"backgroundTextStyle": "dark",
+						"navigationBarTitleText": "拼团首页"
+					}
+				}
+				// 团详情
+				, {
+					"path": "pintuan/me",
+					"style": {
+						"navigationBarTitleText": "团详情"
+					}
+				}
+				// 引用外部网页
+				, {
+					"path": "web-view/index",
+					"style": {
+						"navigationBarTitleText": "web-view"
+					}
+				}
+				// 开通定位权限引导
+				, {
+					"path": "set-address-page/index",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}
+				// 用户选地址页面
+				, {
+					"path": "set-address-page/user-select-address",
+					"style": {
+						"navigationBarTitleText": "定位地址"
+					}
+				}
+				// 搜索商品
+				, {
+					"path": "search/index",
+					"style": {
+						"navigationBarTitleText": "搜索"
+					}
+				}
+				// 菜场
+				, {
+					"path": "caichang/index",
+					"style": {
+						"navigationBarTitleText": "菜场"
+					}
+				}
+				// 今日秒杀
+				, {
+					"path": "today-seckill/today-seckill",
+					"style": {
+						"navigationBarTitleText": " ",
+						"navigationBarTextStyle": "white",
+						"navigationBarBackgroundColor": "#6ccc4e",
+						"enablePullDownRefresh": true,
+						"backgroundTextStyle": "dark"
+					}
+				}
+				// 
+				, {
+					"path": "gongyingshang-list/gongyingshang-list",
+					"style": {
+						"navigationBarTitleText": "门店列表"
+					}
+				}
+				
+			
+			
+			] // <-- packageA结束
+		}
+	],
+
+	// ↓↓↓ 测试时直接进入页面 配置 记录
+	"condition": {
+		"current": 6, // 首页
+		// "current": 21, // 供应商招募
+		"list": [{
+				"name": "商品列表页面",
+				"path": "pages/list-page/index-hot",
+				"query": "type_id=5"
+			}, {
+				"name": "拼团首页",
+				"path": "packageA/pintuan/home",
+				"query": ""
+			}, {
+				"name": "活动页面",
+				"path": "packageA/activity/activity",
+				"query": ""
+			}, {
+				"name": "预售商品列表",
+				"path": "packageB/pre-sale-list/pre-sale-list",
+				"query": ""
+			}, {
+				"name": "个人中心页面",
+				"path": "pages/my/my",
+				"query": ""
+			}, {
+				"name": "登录页面",
+				"path": "packageA/tel-login/tel-login",
+				"query": ""
+			}, {
+				"name": "首页",
+				"path": "pages/index/index",
+				"query": ""
+			}, {
+				"name": "分销测试",
+				"path": "packageB/goods-detail/goods-detail",
+				"query": "shareFn=true&scene=MDAwMDAwMDAwMLGhzNo&goods_id=99"
+			}, {
+				"name": "所有订单列表页面",
+				"path": "pages/my/dingdan/index",
+				"query": "act=0"
+			}, {
+				"name": "吃什么",
+				"path": "pages/eat/eat",
+				"query": ""
+			}, {
+				"name": "购物车",
+				"path": "pages/cart/cart",
+				"query": ""
+			}, {
+				"name": "商品列表页面",
+				"path": "pages/list-page/index-hot",
+				"query": "type_id=5"
+			}, {
+				"name": "商品详情页面-拼团页面",
+				"path": "packageB/goods-detail/pintuan-detail",
+				"query": "id=14"
+			}, {
+				"name": "商品详情页面-积分页面",
+				"path": "packageB/goods-detail/jifen-goods-detail",
+				"query": "goods_id=47"
+			}, {
+				"name": "商品详情页面-秒杀页面",
+				"path": "packageB/goods-detail/goods-detail-seckill",
+				"query": "goods_id=1"
+			}, {
+				"name": "商品详情页面-普通商品页面",
+				"path": "packageB/goods-detail/goods-detail",
+				"query": "goods_id=46"
+			}, {
+				"name": "测试的分类页面",
+				"path": "pages/class/class",
+				"query": ""
+			}, {
+				"name": "常购商品页面",
+				"path": "packageA/everyday-buy/everyday-buy",
+				"query": ""
+			}, {
+				"name": "视频页面",
+				"path": "packageA/shipin/shipin",
+				"query": ""
+			}, {
+				"name": "供应商招募",
+				"path": "packageA/gongyingshang/gongyingshang",
+				"query": ""
+			}, {
+				"name": "供应商门店",
+				"path": "packageA/gongyingshang-seller/gongyingshang-seller",
+				"query": "gysMdId=22"
+			}, {
+				"name": "提交订单页面",
+				"path": "pages/order/index",
+				"query": ""
+			}, {
+				"name": "提交订单页面-多门店版本",
+				"path": "pages/order/submit-order",
+				"query": ""
+			}, {
+				"name": "商品列表页面",
+				"path": "pages/order/goods-list-page",
+				"query": ""
+			}, {
+				"name": "苹果审核页面-登录",
+				"path": "packageA/tel-login/apple-check-open/login",
+				"query": ""
+			}, {
+				"name": "苹果审核页面-注册",
+				"path": "packageA/tel-login/apple-check-open/reg",
+				"query": ""
+			}, {
+				"name": "供应商列表页面",
+				"path": "packageA/gongyingshang-list/gongyingshang-list",
+				"query": ""
+			}, {
+				"name": "获取地址权限页面",
+				"path": "packageA/set-address-page/index",
+				"query": ""
+			}, {
+				"name": "选取当前位置页面",
+				"path": "packageA/set-address-page/user-select-address",
+				"query": ""
+			}, {
+				"name": "选地址",
+				"path": "packageA/address/home-select",
+				"query": ""
+			}, {
+				"name": "发布作品",
+				"path": "packageA/eat/fabuzuopin/index",
+				"query": ""
+			}, {
+				"name": "收货地址列表",
+				"path": "packageA/address/index",
+				"query": ""
+			}, {
+				"name": "拼团分享",
+				"path": "packageB/goods-detail/pintuan-detail",
+				"query": "id=21&shareFn=true&scene=MDAwMDAwMDAwMLKLxJY"
+			}, {
+				"name": "搜索商品",
+				"path": "packageA/search/index"
+			}, {
+				"name": "会员模块 vip商品列表",
+				"path": "packageA/kaitonghuiyuan/huiyuanjieshao"
+			}, {
+				"name": "优惠券列表",
+				"path": "packageA/youhuiquan/index"
+			}
+			
+		]
+	}
+
+}
+

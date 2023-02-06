@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "门店列表",
+  "usingComponents": {
+    "img-bg-css": "/df-components/img-bg-css/img-bg-css"
+  }
+}

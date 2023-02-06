@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "预售 支付定金立享折扣",
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "null-block": "/df-components/undefined-image/index",
+    "img-bg-css": "/df-components/img-bg-css/img-bg-css",
+    "fixed-cart-icon": "/df-components/fixed-cart-icon/fixed-cart-icon"
+  }
+}

@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['toBackFn',['$event']]]]]}}" class="to-back data-v-53e7d32c" style="{{'position:'+('fixed')+';'+('top:'+(backIconTop+'px')+';')+('left:'+('12px')+';')}}" bindtap="__e"><image class="image-size data-v-53e7d32c" src="{{$root.m0}}"></image></view>

@@ -1,0 +1,3253 @@
+<!-- 稳定版本 -->
+<template>
+	<view class="page">
+		<loading-css :is-show="isShowLoading"></loading-css>
+
+		<!-- 选择 配送方式 组件 -->
+		<pei-type
+			:pei-type-arr="peiTypeArr"
+			:pei-type-active="peiTypeActive"
+			@setPeiTypeIndexFn="setPeiTypeIndexFn"
+		></pei-type>
+		<!--
+			到店自提 展示的数据
+		-->
+		<zitidian-show-seller
+			v-if="calcPeiTypeId == peiTypeEnumObj[peiTypeZiti]"
+			:seller-image="sellerImage"
+			:seller-name="sellerName"
+			:seller-tel="sellerMobile"
+			:seller-open-time="sellerOpenTime"
+			:seller-address="sellerAddress"
+		></zitidian-show-seller>
+
+		<!-- 展示用户地址组件 -->
+		<user-address
+			:is-show-address="isShowAddress"
+			:address-is-set="addressIsSet"
+			:address-user-name="addressUserName"
+			:address-user-tel="addressUserTel"
+			:address-text="addressText"
+			:address-tag-name="addressTagName"
+		></user-address>
+
+		<!-- 展示在页面上的自提点 -->
+		<zitidian-show
+			v-if="calcPeiTypeId == peiTypeEnumObj[peiTypeDuozitidian]"
+			:zitidian-info="currentzitidianInfo"
+			:zitidian-is-all-not-range="zitidianIsAllNotRange"
+			@openListModalFn="setduozitiModalFlagFn(true)"
+		></zitidian-show>
+
+		<!-- 自提点列表的模态框组件 -->
+		<duoziti-modal
+			:is-show="duozitiModalFlag"
+			:zitidian-list="zitidianList"
+			@closeFn="setduozitiModalFlagFn(false)"
+			@selectZitiFn="selectZitiFn"
+		></duoziti-modal>
+
+		<!-- 可以结算的 商品列表 -->
+		<view class="goods-list-block" v-if="selectGoods.length >= 1">
+			<view class="content-wrap">
+				<!-- 预约配送组件 -->
+				<my-picker-comp
+					:calc-post-type="calcPeiTypeId"
+					:is-openyvyue-fun="isOpenyvyueFun"
+					:yvyue-days="yvyueDays"
+					:hours-arr="hoursArr"
+					:new-to-day-hour-arr="newToDayHourArr"
+					:days-index="daysIndex"
+					:hours-index="hoursIndex"
+					@pickerViewChangeFn="pickerViewChangeFn"
+					@pickerViewClickFn="pickerViewClickFn"
+					@pickerViewCancelFn="pickerViewCancelFn"
+					@pickerViewColumnchangeFn="pickerViewColumnchangeFn"
+					@isTomorrowStrFn="isTomorrowStrFn"
+				></my-picker-comp>
+
+				<view class="goods-list">
+					<view class="item" v-for="(item, index) in selectGoods" :key="index">
+						<view class="item-image-block"><image :src="item.originalImg"></image></view>
+						<view class="item-description-block">
+							<view class="item-name">
+								<text class="name-">{{ item.goodsName }}</text>
+								<text>¥{{ item.shopPrice }}</text>
+							</view>
+							<view class="item-description">
+								<text class="description-">
+									{{ (item.isGuige ? item.keyName : item.goodsRemark) | filterSpecName }}
+								</text>
+								<text>×{{ item.number }}</text>
+							</view>
+
+							<view class="tag-wrap" v-if="item.tagName">
+								<view class="tag-block">{{ item.tagName }}</view>
+							</view>
+							<view class="price-info-block" v-if="item.sale_money > 0">
+								优惠金额:
+								<text class="red-price">¥{{ item.sale_money }}</text>
+								<text></text>
+								优惠后:
+								<text class="red-price">¥{{ item.after_sale_money }}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<!-- 不能结算的 商品列表 -->
+		<view class="goods-list-block" v-if="invalidGoods.length > 0">
+			<view class="content-wrap">
+				<view class="title"><div class="h3">失效商品</div></view>
+
+				<view class="goods-list">
+					<view class="item" v-for="(item, index) in invalidGoods" :key="index">
+						<view class="item-image-block">
+							<image style="opacity: .8;" :src="item.originalImg"></image>
+						</view>
+						<view class="item-description-block">
+							<view class="item-name">
+								<text class="name-">{{ item.goodsName }}</text>
+								<text>¥{{ item.shopPrice }}</text>
+							</view>
+
+							<view class="item-description">
+								<text class="description-">
+									{{ (item.isGuige ? item.keyName : item.goodsRemark) | filterSpecName }}
+								</text>
+								<text>×{{ item.number }}</text>
+							</view>
+
+							<view class="tag-wrap" v-if="item.tagName">
+								<view class="tag-block">{{ item.tagName }}</view>
+							</view>
+
+							<view class="item-description errorText" style="color: #ff6128">{{ item.isShowText }}</view>
+
+							<!-- 
+							<view class="tag-wrap" v-if="item.tag_name">
+								<view class="tag-block">{{ item.tag_name }}</view>
+							</view>
+							<view class="price-info-block" v-if="item.sale_money > 0">
+								优惠金额:
+								<text class="red-price">¥{{ item.sale_money }}</text>
+								<text></text>
+								优惠后:
+								<text class="red-price">¥{{ item.after_sale_money }}</text>
+							</view>
+							 -->
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<!-- 购物车传过来的 商品列表 -->
+		<view class="goods-list-block">
+			<view class="content-wrap">
+				<view class="goods-list order-info-line-wrap">
+					<view class="line-block" v-if="price_hy_yh > 0">
+						<view class="h5">会员优惠</view>
+						<view class="h6 tip-red-text">￥{{ price_hy_yh | filterTransNum }}</view>
+					</view>
+
+					<view class="line-block" v-if="price_goods_spyh > 0">
+						<view class="h5">商品优惠</view>
+						<view class="h6 tip-red-text">￥{{ price_goods_spyh | filterTransNum }}</view>
+					</view>
+
+					<!-- 优惠券wxml -->
+					<view class="line-block" @click="openCouponModalFn">
+						<view class="h5">优惠券</view>
+						<view class="h6">
+							<text class="tip-red-text">
+								<block v-if="coupon.length <= 0">(无可用优惠券)</block>
+								<block v-else>{{ couponMsg }}</block>
+							</text>
+							<!--
+								无可用 优惠券
+								3张优惠券可用
+								已减 ¥22.88
+							 -->
+							<!-- <uni-icons size="13" color="#374050" type="arrowright"></uni-icons> -->
+							<view
+								class="iconfont icon-arrow-right-copy-copy"
+								color="#374050"
+								style="font-size: 16px;"
+							></view>
+						</view>
+					</view>
+
+					<!-- 商品券wxml -->
+					<view class="line-block" @click="openGoodsCouponModalFn">
+						<view class="h5">商品券</view>
+						<view class="h6">
+							<text class="tip-red-text">
+								<block v-if="goods_coupon.length == 0">(无可用商品券)</block>
+								<block v-else>{{ goodsCouponMsg }}</block>
+							</text>
+							<view
+								class="iconfont icon-arrow-right-copy-copy"
+								color="#374050"
+								style="font-size: 16px;"
+							></view>
+						</view>
+					</view>
+
+					<view class="line-block" v-if="calcPeiTypeId != peiTypeEnumObj[peiTypeZiti]">
+						<view class="h5">
+							{{
+								calcPeiTypeId == peiTypeEnumObj[peiTypeDada] ||
+								calcPeiTypeId == peiTypeEnumObj[peiTypeShansong] ||
+								calcPeiTypeId == peiTypeEnumObj[peiTypeShangjia] ||
+								calcPeiTypeId == peiTypeEnumObj[peiTypeDuozitidian]
+									? '配送费'
+									: ''
+							}}
+							{{ calcPeiTypeId == peiTypeEnumObj[peiTypeKuaidi] ? '快递费' : '' }}
+						</view>
+						<view
+							class="h6"
+							v-if="
+								calcPeiTypeId == peiTypeEnumObj[peiTypeShangjia] ||
+									calcPeiTypeId == peiTypeEnumObj[peiTypeDuozitidian]
+							"
+						>
+							<block v-if="mianpeisong">
+								<text class="red-price">¥0.00</text>
+								<block v-if="postFee > 0">订单金额满{{ freePost | filterTransNum }}元</block>
+								已免配送费
+							</block>
+							<block v-else>¥{{ postFee | filterTransNum }}</block>
+						</view>
+						<view class="h6" v-if="calcPeiTypeId == peiTypeEnumObj[peiTypeKuaidi]">
+							<block v-if="miankuaidi">
+								<text class="red-price">¥0.00</text>
+								<block v-if="postage > 0">订单金额满{{ freePostage | filterTransNum }}元</block>
+								已免快递费
+							</block>
+							<block v-else>¥{{ postage | filterTransNum }}</block>
+						</view>
+
+						<view class="h6" v-if="calcPeiTypeId == peiTypeEnumObj[peiTypeDada] && !errorMsg.isHas">
+							¥{{ postFeeData.fee | filterTransNum }}
+						</view>
+						<view class="h6" v-if="calcPeiTypeId == peiTypeEnumObj[peiTypeShansong] && !errorMsg.isHas">
+							¥{{ postFeeData.fee | filterTransNum }}
+						</view>
+						<view
+							class="h6 text-red-price errorMsg"
+							v-if="
+								(calcPeiTypeId == peiTypeEnumObj[peiTypeDada] ||
+									calcPeiTypeId == peiTypeEnumObj[peiTypeShansong]) &&
+									errorMsg.isHas
+							"
+						>
+							{{ errorMsg.msg }}
+						</view>
+					</view>
+
+					<block
+						v-if="
+							calcPeiTypeId == peiTypeEnumObj[peiTypeZiti] ||
+								calcPeiTypeId == peiTypeEnumObj[peiTypeDuozitidian]
+						"
+					>
+						<view class="line-block">
+							<view class="h5">收货人</view>
+							<view class="inp-block">
+								<input type="text" placeholder="收货人" v-model="shouhuoren" />
+							</view>
+						</view>
+
+						<view class="line-block">
+							<view class="h5">手机号码</view>
+							<view class="inp-block"><input type="text" placeholder="手机号码" v-model="haoma" /></view>
+						</view>
+					</block>
+
+					<view class="line-block">
+						<view class="h5">订单备注</view>
+
+						<view class="h6">
+							<view class="input-beizhu-block">
+								<input
+									class="show-style input-beizhu"
+									v-model="textarea"
+									:style="{ opacity: beizhuInputFlag ? 1 : 0 }"
+									type="text"
+									@blur="setBeizhuInputFlagFn(false)"
+									@focus="setBeizhuInputFlagFn(true)"
+								/>
+
+								<view
+									class="show-style input-beizhu-text-view"
+									:style="{ opacity: beizhuInputFlag ? 0 : 1 }"
+								>
+									{{ textarea ? textarea : '示例:订单备注' }}
+								</view>
+							</view>
+						</view>
+					</view>
+					<!--
+					<textarea
+						class="textarea"
+						v-model="textarea"
+						placeholder="示例:订单备注"
+						v-show="calcShowtextarea"
+					/>
+					 -->
+					<view class="line-block" @click="quehuoIsOpen = !quehuoIsOpen">
+						<view class="h5">如遇缺货</view>
+						<view class="h6">
+							{{ quehuo[quehuoCurr].name }}
+							<view
+								class="iconfont icon-arrow-right-copy-copy"
+								:class="[quehuoIsOpen ? 'deg90' : '']"
+								color="#374050"
+								style="font-size: 16px;"
+							></view>
+						</view>
+					</view>
+
+					<view class="line-cont-block" v-if="quehuoIsOpen">
+						<view
+							class="line-cont"
+							v-for="(item, index) in quehuo"
+							:key="item.id"
+							@click="quehuoItemFn(index)"
+						>
+							<text>{{ item.name }}</text>
+							<uni-icons v-show="quehuoCurr != index" size="22" type="circle" color="#c7c7c7"></uni-icons>
+							<uni-icons
+								v-show="quehuoCurr == index"
+								size="22"
+								type="circle-filled"
+								:color="configInfo.web_site_color"
+							></uni-icons>
+						</view>
+					</view>
+
+					<view class="line-block">
+						<view class="h5"></view>
+						<view class="h6">
+							<text>实付金额:</text>
+							<view class="price">¥{{ price_sfje | filterTransNum }}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<!-- 会员卡组件 -->
+		<vip-card
+			@selectVipOptionCardFn="selectVipOptionCardFn"
+			:vipOptionCardIsSelect="vipOptionCardIsSelect"
+			:vipOptionCardIsOpen="vipOptionCardIsOpen"
+			:vipOptionCardId="vipOptionCardId"
+			:vipOptionCardName="vipOptionCardName"
+			:vipOptionCardTagBgColor="vipOptionCardTagBgColor"
+			:vipOptionCardTagIconImg="vipOptionCardTagIconImg"
+			:vipOptionCardTagText="vipOptionCardTagText"
+			:vipOptionCardTagTextColor="vipOptionCardTagTextColor"
+			:vipOptionCardTipBgColor="vipOptionCardTipBgColor"
+			:vipOptionCardTipText="vipOptionCardTipText"
+			:vipOptionCardTipTextColor="vipOptionCardTipTextColor"
+			:vipOptionCardTime="vipOptionCardTime"
+			:vipOptionCardPrice="vipOptionCardPrice"
+		></vip-card>
+
+		<view class="pay-type">
+			<view class="content-wrap">
+				<view class="cont-block">
+					<view class="h3">支付方式</view>
+
+					<view class="line-block-list">
+						<view class="line-block">
+							<view class="content-wrap">
+								<view class="left-block">
+									<view class="image-block"><yve-icon></yve-icon></view>
+
+									<text>
+										储值余额
+										<block v-if="yve > 0">({{ yve | filterTransNum }})</block>
+									</text>
+								</view>
+								<view>
+									<block v-if="yve == 0">{{ yve | filterTransNum }}</block>
+									<switch
+										v-else
+										style="transform: translateX(20rpx) scale(0.7)"
+										:checked="defaultStatus"
+										:color="configInfo.web_site_color"
+										@change="switchChangeFn"
+									></switch>
+								</view>
+							</view>
+						</view>
+
+						<!-- #ifdef MP-WEIXIN -->
+						<view class="line-block" @click="setPayFlagFn(payTypeWxxcx)" v-if="calcWeixinPayMiniprogram">
+							<view class="content-wrap">
+								<view class="left-block">
+									<view class="image-block">
+										<view
+											class="iconfont icon-weixin"
+											style="color: #6ccc4e;font-size: 60rpx;"
+										></view>
+									</view>
+									<text>微信</text>
+								</view>
+								<view>
+									<view
+										v-show="payFlag == payTypeEnumObj[payTypeWxxcx]"
+										class="iconfont icon-circle"
+										:style="{ 'font-size': '22px', color: configInfo.web_site_color }"
+									></view>
+									<view
+										v-show="payFlag != payTypeEnumObj[payTypeWxxcx]"
+										class="iconfont icon-circle1"
+										:style="{ 'font-size': '20px', color: '#c7c7c7' }"
+									></view>
+								</view>
+							</view>
+						</view>
+						<!-- #endif -->
+
+						<!-- #ifdef APP-PLUS -->
+						<view class="line-block" @click="setPayFlagFn(payTypeWxapp)" v-if="calcWeixinPayAndroidApp">
+							<view class="content-wrap">
+								<view class="left-block">
+									<view class="image-block">
+										<view
+											class="iconfont icon-weixin"
+											style="color: #6ccc4e;font-size: 60rpx;"
+										></view>
+									</view>
+									<text>微信</text>
+								</view>
+								<view>
+									<view
+										v-show="payFlag == payTypeEnumObj[payTypeWxapp]"
+										class="iconfont icon-circle"
+										:style="{ 'font-size': '22px', color: configInfo.web_site_color }"
+									></view>
+									<view
+										v-show="payFlag != payTypeEnumObj[payTypeWxapp]"
+										class="iconfont icon-circle1"
+										:style="{ 'font-size': '20px', color: '#c7c7c7' }"
+									></view>
+								</view>
+							</view>
+						</view>
+
+						<view class="line-block" @click="setPayFlagFn(payTypeZfbapp)" v-if="calcZhifubaoPayAndroidApp">
+							<view class="content-wrap">
+								<view class="left-block">
+									<view class="image-block">
+										<view
+											class="iconfont icon-zhifubao"
+											style="color: #5a9ef7;font-size: 60rpx;"
+										></view>
+									</view>
+									<text>支付宝</text>
+								</view>
+								<view>
+									<view
+										v-show="payFlag == payTypeEnumObj[payTypeZfbapp]"
+										class="iconfont icon-circle"
+										:style="{ 'font-size': '22px', color: configInfo.web_site_color }"
+									></view>
+									<view
+										v-show="payFlag != payTypeEnumObj[payTypeZfbapp]"
+										class="iconfont icon-circle1"
+										:style="{ 'font-size': '20px', color: '#c7c7c7' }"
+									></view>
+								</view>
+							</view>
+						</view>
+						<!-- #endif -->
+
+						<!-- #ifdef H5 -->
+						<!-- 公众号微信支付 -->
+						<view
+							class="line-block"
+							:data-f="payFlag"
+							v-if="globalBrowserIsWx && calcWeixinofficialaccount"
+							@click="setPayFlagFn(payTypeWxgzh)"
+						>
+							<view class="content-wrap">
+								<view class="left-block">
+									<view class="image-block">
+										<view
+											class="iconfont icon-weixin"
+											style="color: #6ccc4e;font-size: 60rpx;"
+										></view>
+									</view>
+									<text>微信</text>
+								</view>
+								<view>
+									<view
+										v-show="payFlag == payTypeEnumObj[payTypeWxgzh]"
+										class="iconfont icon-circle"
+										:style="{ 'font-size': '22px', color: configInfo.web_site_color }"
+									></view>
+									<view
+										v-show="payFlag != payTypeEnumObj[payTypeWxgzh]"
+										class="iconfont icon-circle1"
+										:style="{ 'font-size': '20px', color: '#c7c7c7' }"
+									></view>
+								</view>
+							</view>
+						</view>
+						<!-- 普通浏览器微信支付 -->
+						<view
+							class="line-block"
+							v-if="!globalBrowserIsWx && calcWeixinPayH5"
+							@click="setPayFlagFn(payTypeH5wx)"
+						>
+							<view class="content-wrap">
+								<view class="left-block">
+									<view class="image-block">
+										<view
+											class="iconfont icon-weixin"
+											style="color: #6ccc4e;font-size: 60rpx;"
+										></view>
+									</view>
+									<text>微信</text>
+								</view>
+								<view>
+									<view
+										v-show="payFlag == payTypeEnumObj[payTypeH5wx]"
+										class="iconfont icon-circle"
+										:style="{ 'font-size': '22px', color: configInfo.web_site_color }"
+									></view>
+									<view
+										v-show="payFlag != payTypeEnumObj[payTypeH5wx]"
+										class="iconfont icon-circle1"
+										:style="{ 'font-size': '20px', color: '#c7c7c7' }"
+									></view>
+								</view>
+							</view>
+						</view>
+						<!-- 
+						 普通浏览器(非微信客户端浏览器) 暂时取消支付宝支付
+						 <view class="line-block" v-if="!globalBrowserIsWx" @click="setPayFlagFn(payTypeH5zfb)">
+						 	<view class="content-wrap">
+						 		<view class="left-block">
+						 			<view class="image-block">
+						 				<view
+						 					class="iconfont icon-zhifubao"
+						 					style="color: #5a9ef7;font-size: 60rpx;"
+						 				></view>
+						 			</view>
+						 			<text>支付宝</text>
+						 		</view>
+						 		<view>
+						 			<view
+						 				v-show="payFlag == payTypeEnumObj[payTypeH5zfb]"
+						 				class="iconfont icon-circle"
+						 				:style="{ 'font-size': '22px', color: configInfo.web_site_color }"
+						 			></view>
+						 			<view
+						 				v-show="payFlag != payTypeEnumObj[payTypeH5zfb]"
+						 				class="iconfont icon-circle1"
+						 				:style="{ 'font-size': '20px', color: '#c7c7c7' }"
+						 			></view>
+						 		</view>
+						 	</view>
+						 </view>
+						 -->
+						<!-- #endif -->
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="bottom-commit-order-bar">
+			<view class="order-btn-block">
+				<view class="price-all">
+					待支付 合计:
+					<view class="shop-price-block-lr">
+						<view class="origin-price">
+							¥
+							<text>{{ hejiPrice | filterTransNum }}</text>
+						</view>
+					</view>
+				</view>
+				<view
+					class="order-btn"
+					:class="[isAllAngle ? 'border-radius-style-all-arg' : 'border-radius-style-half-arg']"
+					@click="$onceClick(payFn)"
+					:style="{ background: configInfo.web_site_color, opacity: qvZhiFuBtnFlag ? 1 : 0.8 }"
+				>
+					提交订单
+				</view>
+			</view>
+		</view>
+
+		<!-- 优惠券模态框 -->
+		<view :class="['couponModal']" v-if="isShowCouponModal">
+			<view class="top" @click="closeCouponModalFn"></view>
+			<view class="bottom">
+				<view class="icon-block" @click="notUseCoupon_cloneFn">
+					<text>不使用优惠券</text>
+					<uni-icons color="#bbbdc0" size="20" type="closeempty"></uni-icons>
+				</view>
+				<view class="title-h4">选择优惠券</view>
+
+				<view class="content">
+					<view class="card-wrap">
+						<view class="card-block">
+							<view class="title-h5">优惠券</view>
+							<block v-for="(item, indexs) in coupon" :key="item.id">
+								<youhuiquan :coupon="item" :indexs="indexs" @selectCouponFn="selectCouponFn" />
+							</block>
+						</view>
+					</view>
+				</view>
+				<view class="nav-bar-block">
+					<text class="bar-text">已选择{{ couponCount }}张</text>
+					<view
+						class="bar-btn"
+						:class="[isAllAngle ? 'border-radius-style-all-arg' : 'border-radius-style-half-arg']"
+						@click="setCouponFn"
+						:style="{ background: configInfo.web_site_color }"
+					>
+						确定
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<!-- 商品券模态框 -->
+		<view :class="['couponModal']" v-if="isShowGoodsCouponModal">
+			<view class="top" @click="closeGoodsCouponModalFn"></view>
+			<view class="bottom">
+				<view class="icon-block" @click="notUseGoodsCoupon_cloneFn">
+					<text>不使用商品券</text>
+					<uni-icons color="#bbbdc0" size="20" type="closeempty"></uni-icons>
+				</view>
+				<view class="title-h4">选择商品券</view>
+
+				<view class="content">
+					<view class="card-wrap">
+						<view class="card-block">
+							<view class="title-h5">商品券</view>
+
+							<block v-for="(item, index) in goods_coupon" :key="index">
+								<!-- <view :class="['item',item.is_use?'':'filterGray']" @click="selectGoodsCouponFn(item,index)"> -->
+								<view :class="['item']" @click="selectGoodsCouponFn(item, index)">
+									<view v-if="item.isSelect" class="isSelectBlock">
+										<view class="checkmarkempty">
+											<uni-icons type="checkmarkempty" color="#ffffff" size="15"></uni-icons>
+										</view>
+										<view class="gb-sanjiao"></view>
+									</view>
+
+									<view class="goods-top-block">
+										<view class="goods-image-block">
+											<image :src="item.original_img" mode=""></image>
+										</view>
+										<view class="goods-description">
+											<view class="goods-name">{{ item.name }}</view>
+											<view class="price-wrap">
+												<view class="shop-price-block-lr">
+													<view class="origin-price">
+														<text>￥{{ item.money }}</text>
+													</view>
+												</view>
+												<!-- <view class="use-btn" @click="useFn(item)">立即使用</view> -->
+											</view>
+										</view>
+									</view>
+									<view class="goods-bottom-block">
+										<view class="card-name">{{ item.name }}</view>
+										<view class="time-block"><!-- 有效期: 2020.05.01-2020.07.01 --></view>
+									</view>
+								</view>
+							</block>
+						</view>
+					</view>
+				</view>
+				<view class="nav-bar-block">
+					<text class="bar-text">已选择{{ goodsCouponCount }}张</text>
+					<view
+						class="bar-btn"
+						:class="[isAllAngle ? 'border-radius-style-all-arg' : 'border-radius-style-half-arg']"
+						@click="setGoodsCouponFn"
+						:style="{ background: configInfo.web_site_color }"
+					>
+						确定
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+import {
+	bigDiv,
+	transNumFn,
+	checkTypeFn,
+	bigPlus,
+	bigMinus,
+	assertArray,
+	assertObject,
+	cloneFn,
+	num2zeroStr,
+	createHoursArr
+} from '@/tools/tools';
+import youhuiquan from '@/df-components/youhuiquan-block/dingdan'; // 优惠券组件
+import peiType from '@/pages/order/order-components/pei-type.vue'; // 配送方式组件
+import userAddress from '@/pages/order/order-components/user-address.vue'; // 展示用户地址组件
+import vipCard from '@/pages/order/order-components/vip-card.vue'; // 开通会员卡组件
+import myPickerComp from '@/pages/order/order-components/my-picker-comp.vue'; // 选时间组件
+import zitidianShow from '@/pages/order/order-components/duozitidian/zitidian-show.vue'; // 展示在页面上的自提点
+import duozitiModal from '@/pages/order/order-components/duozitidian/duoziti-modal.vue'; // 自提点列表的模态框组件
+
+import zitidianShowSeller from '@/pages/order/order-components/zitidian-show-seller.vue'; // 展示在页面上的自提点 商家自提类型
+
+import {
+	// ↓↓ 支付方式 ===========================
+	payTypeyve,
+	payTypeWxxcx,
+	payTypeWxapp,
+	payTypeZfbapp,
+	payTypeWxgzh,
+	payTypeH5wx,
+	payTypeH5zfb,
+	payTypeEnumObj,
+	// ↓↓ 配送方式 ===========================
+	peiTypeShangjia,
+	peiTypeZiti,
+	peiTypeKuaidi,
+	peiTypeDada,
+	peiTypeShansong,
+	peiTypeDuozitidian,
+	peiTypeEnumObj
+} from '@/tools/const.js';
+
+let that;
+
+export default {
+	name: 'order-index',
+	components: {
+		youhuiquan,
+		vipCard,
+		myPickerComp,
+		peiType,
+		userAddress,
+		zitidianShow,
+		duozitiModal,
+		zitidianShowSeller
+	},
+	data() {
+		return {
+			isShowLoading: true, // 开屏动画
+			// ↓↓ 支付方式 ===========================
+			payTypeyve,
+			payTypeWxxcx,
+			payTypeWxapp,
+			payTypeZfbapp,
+			payTypeWxgzh,
+			payTypeH5wx,
+			payTypeH5zfb,
+			payTypeEnumObj,
+
+			// ↓↓ 配送方式 ===========================
+			peiTypeShangjia,
+			peiTypeZiti,
+			peiTypeKuaidi,
+			peiTypeDada,
+			peiTypeShansong,
+			peiTypeDuozitidian,
+			peiTypeEnumObj,
+
+			// 配送方法
+			peiTypeArr: [{}],
+			peiTypeActive: 0,
+
+			postFeeData: {}, // 达达和闪送 的数据
+
+			// 从购物车列表里带过来的商品数据
+			cartPageGoodsList: [{}],
+			// 选中结算的商品列表
+			selectGoods: [{}],
+			// 选中结算的商品列表 (限购次数的商品列表)
+			invalidGoods: [{}],
+
+			// 地址相关
+			addressIsSet: false,
+			addressUserName: '', // 收货人名字
+			addressUserTel: '', // 收货人电话
+			addressText: '', // 收货人地址描述
+			addressTagName: '', // 地址标签
+			addressId: null, // 收货地址id
+			addressCoordinate: '', // 收货地址经纬度
+			addressArea: '', // 收货地址的 市
+
+			// 处理商家的一些信息
+			sellerImage: '', // 商家门店图片
+			sellerName: '', // 商家店名称
+			sellerMobile: '', // 商家电话
+			sellerOpenTime: '', // 商家营业时间
+			sellerAddress: '', // 商家店地址
+
+			freePost: 0, // 满多少免配送费
+			postFee: 0, // 骑手配送费
+			postage: 0, // 快递运费
+			freePostage: 0, // 满多少减运费
+			postTime: '', // 配送时间 '8:20 - 22:50'
+			peisongTimeLater: 0, // 预计骑手配送时长
+
+			// 缺货信息
+			quehuo: [{}],
+			// 结算钱的信息
+			price: {},
+			// 余额
+			yve: 0,
+			previousInputUserName: '', // 上一次用户输入的名字
+			previousInputUserPhone: '', // 上一次用户输入的 手机号
+
+			quehuoIsOpen: false,
+			quehuoCurr: 0,
+
+			payFlag: '',
+
+			couponJSON: {},
+			/* ↓↓↓↓↓↓↓
+				优惠券列表
+				商品券列表
+				选中的优惠券
+				选中的商品券
+				选中的优惠券 个数
+				选中的商品券 个数
+			*/
+
+			coupon: [{}],
+			goods_coupon: [{}],
+			coupon_user_id: 0,
+			good_coupon_id: 0,
+			couponCount: 0,
+			goodsCouponCount: 0,
+
+			// 是否显示优惠券模态框
+			isShowCouponModal: false,
+
+			// 是否显示商品券模态框
+			isShowGoodsCouponModal: false,
+
+			// 备注信息   是否启用余额抵扣状态
+			textarea: '',
+			beizhuInputFlag: false, // 备注文字框的聚焦状态
+			defaultStatus: false, // 是否使用余额抵扣
+
+			// 到点自提收货人名字
+			shouhuoren: '',
+			// 到点自提收货人号码
+			haoma: '',
+
+			// 临时 用来缓存选择优惠券后不确定使用的对象
+			temObj: {},
+
+			// 记录是否第一次请求
+			pageCont: 0,
+			templateId: [],
+			getOrderInfoLastTime: null, // 最后一次请求后台 订单信息的时间
+			errorMsg: {
+				// 记录因为距离太远 而不能下单 的 错误消息
+				isHas: false,
+				msg: ''
+			},
+
+			qvZhiFuBtnFlag: true, // 去支付按钮 的锁  防止 多次点击 true可以支付,  false 不能点击
+
+			// ↓↓ 预约配送相关数据
+			qiToTime: '', // 骑手开始配送
+			qiOffTime: '', // 骑手结束配送
+
+			isOpenyvyueFun: false, // 是否开启预约配送
+			yvyueDays: 0, // 预约的天数
+			hoursArr: [{}], // 小时的数据
+			newToDayHourArr: [{}], // 选择今天配送的小时数据
+			newHours: 0, // 当前的小时数
+			newMinutes: 0, // 当前的分钟数
+
+			daysIndex: 0, // 天的索引
+			hoursIndex: 0, // 小时的索引
+			cancelIndexDays: 0, // 选择前的天数索引
+			cancelIndexhours: 0, // 选择前的小时索引
+			isTomorrowStr: false, // 当前选天的列 选中的 是否是 '明天'
+			pickerSelectHour: '', // 当前选小时的列 选中的 小时字符串
+
+			// ↓↓ 开通会员的选项卡片 数据
+			vipOptionCardIsSelect: false, // 用户 是否同意开启 vip
+			vipOptionCardIsOpen: false, // 是否显示 勾选vip 确认 开通会员 卡片
+			vipOptionCardId: 0, // 展示的会员卡id
+			vipOptionCardName: '', // 会员卡名字
+			vipOptionCardTagBgColor: '', // 会员卡左上标签的背景色
+			vipOptionCardTagIconImg: '', // 会员卡左上标签的 图标 图片地址
+			vipOptionCardTagText: '', // 会员卡左上标签的 文字内容
+			vipOptionCardTagTextColor: '', // 会员卡左上标签的 文字 颜色
+			vipOptionCardTipBgColor: '', // 会员卡右上的提示气泡背景颜色
+			vipOptionCardTipText: '', // 会员卡右上的提示气泡展示文字
+			vipOptionCardTipTextColor: '', // 会员卡右上的提示气泡展示文字颜色
+			vipOptionCardTime: '', // 会员卡的有效时间
+			vipOptionCardPrice: 0, // 购买会员卡的价格
+
+			// ↓↓ 多自提点 数据
+			localhostLon: 0, // 当前设备的 经度
+			localhostLat: 0, // 当前设备的 纬度
+			zitidianList: [{}], // 自提点列表数据
+			zitidianActive: 0, // 默认选中的自提点
+			duozitiModalFlag: false // 自提点列表模态框 显示 隐藏 状态
+		};
+	},
+
+	mounted() {
+		that = this;
+		console.log('mounted');
+	},
+	onLoad(options) {
+		that = this;
+
+		that.setDefaultPayTypeFn();
+
+		let selectGoods = uni.getStorageSync('selectGoods');
+		// 从购物车带进来的 商品列表数据
+		that.cartPageGoodsList = JSON.parse(selectGoods);
+		console.log('从购物车页面带来的 商品列表', that.cartPageGoodsList);
+		that.loadFn();
+		uni.setStorageSync('selectGoods', '');
+
+		// 多自提点需要获取的经纬度信息
+		let cartAddress = assertObject(uni.getStorageSync('cartAddress'));
+		that.localhostLat = transNumFn(cartAddress.latitude);
+		that.localhostLon = transNumFn(cartAddress.longitude);
+		uni.setStorageSync('cartAddress', '');
+		/*
+		setInterval(() => {
+			console.log(' 自提点 this.currentzitidianInfo', this.currentzitidianInfo);
+		}, 1000);
+		 */
+	},
+
+	onShow() {
+		uni.setStorageSync('orderZhifuLoadCont', 0);
+		uni.setStorageSync('orderZhifuReloadFlag', 0);
+		// 获取选择的地址
+		let temSelectAd = uni.getStorageSync('temSelectAd');
+		if (temSelectAd) {
+			that.addressIsSet = true;
+			that.addressUserName = temSelectAd.name; // 收货人名字
+			that.addressUserTel = temSelectAd.mobile; // 收货人电话
+			that.addressText = temSelectAd.address; // 收货人地址描述
+			that.addressTagName = temSelectAd.tag; // 地址标签
+			that.addressId = temSelectAd.id; // 收货地址id
+			that.addressCoordinate = temSelectAd.coordinate; // 收货地址经纬度
+			that.addressArea = temSelectAd.area; // 收货地址的 市
+
+			if (
+				that.calcPeiTypeId == peiTypeEnumObj[peiTypeDada] ||
+				that.calcPeiTypeId == peiTypeEnumObj[peiTypeShansong]
+			) {
+				// 达达或者闪送 重新计算
+				that.getOrderInfoFn(() => {
+					uni.showToast({
+						icon: 'none',
+						title: '地址变更,费用已发生变化'
+					});
+				}, true);
+			}
+			uni.setStorageSync('temSelectAd', '');
+		}
+	},
+	methods: {
+		// 进入结算页面后设置默认的支付方式
+		setDefaultPayTypeFn(){
+			let that = this;
+			// #ifdef MP-WEIXIN
+			if (that.calcWeixinPayMiniprogram) {
+				that.payFlag = payTypeEnumObj[payTypeWxxcx]; // 支付类型微信小程序支付
+			}else{
+				that.defaultStatus = true;
+			}
+			// #endif
+			// #ifdef APP-PLUS
+			if (that.calcWeixinPayAndroidApp) {
+				that.payFlag = payTypeEnumObj[payTypeWxapp]; // 支付类型微信app支付
+			} else if (that.calcZhifubaoPayAndroidApp) {
+				that.payFlag = payTypeEnumObj[payTypeZfbapp]; // 支付类型支付宝app支付
+			}else{
+				that.defaultStatus = true;
+			}
+			// #endif
+	
+			// #ifdef H5
+			if (that.globalBrowserIsWx) {
+				if (that.calcWeixinofficialaccount) {
+					that.payFlag = payTypeEnumObj[payTypeWxgzh]; // 公众号微信支付
+				}else{
+					that.defaultStatus = true;
+				}
+			} else {
+				if (that.calcWeixinPayH5) {
+					that.payFlag = payTypeEnumObj[payTypeH5wx]; // h5普通浏览器微信支付
+				}else{
+					that.defaultStatus = true;
+				}
+			}
+			// #endif
+		},
+		// 设置备注输入框隐藏显示
+		setBeizhuInputFlagFn(flag) {
+			this.beizhuInputFlag = flag;
+		},
+		// 设置当前的支付方式
+		setPayFlagFn(flag) {
+			this.payFlag = payTypeEnumObj[flag];
+		},
+		getChaiFenFn() {
+			return new Promise(async (resFn, rejFn) => {
+				let result = await that.$request({
+					url: '/api/order/fill_chaifen'
+				});
+				if (result.statusCode == 200) {
+					if (result.data.code == 200) {
+						// 成功返回的数据
+						let resObj = {};
+						let resultObj = assertObject(result.data.data);
+
+						// 处理地址信息
+						let addressObj = assertObject(resultObj.address);
+						if (addressObj.id) {
+							resObj.address = {
+								isSet: true,
+								addressId: addressObj.id, // 地址id
+								addressUserName: addressObj.name, // 收货人名字
+								addressUserTel: addressObj.mobile, // 收货人电话
+								addressText: addressObj.address, // 收货人地址描述
+								addressHousenumber: addressObj.housenumber, // 收货人门牌号
+								addressCoordinate: addressObj.coordinate, // 收货地址经纬度
+								addressArea: addressObj.area, // 收货地址的 市
+								addressTagName: addressObj.tag_name // 地址标签
+							};
+						} else {
+							resObj.address = {
+								isSet: false
+							};
+						}
+
+						// 如遇缺货如何处理
+						let quehuo = assertArray(resultObj.quehuo);
+						resObj.quehuo = quehuo;
+
+						// 处理配送方式数据
+						let peiTypeArr = assertArray(resultObj.peiType).filter(typeItem => typeItem.value == 1);
+
+						resObj.peiTypeArr = peiTypeArr;
+
+						// 处理自提商家信息
+						let sellerInfo = assertObject(resultObj.peisong);
+
+						resObj.sellerInfo = {
+							freePost: transNumFn(sellerInfo.free_post), // 满多少免配送费
+							postFee: transNumFn(sellerInfo.post_fee), // 骑手配送费
+							postTime: sellerInfo.post_time, // 配送时间 '8:20 - 22:50'
+							postage: transNumFn(sellerInfo.postage), // 快递运费
+							freePostage: transNumFn(sellerInfo.free_postage), // 满多少减运费
+							isPreparePeisong: sellerInfo.is_prepare_peisong == 1, // 是否开启预约配送
+							prepareDays: transNumFn(sellerInfo.prepare_days), // 预约配送的天数
+							peisongTimeLater: transNumFn(sellerInfo.peisong_time_later), // 预计骑手配送时长
+
+							// 处理商家的一些信息
+							sellerImage: sellerInfo.shop_image, // 商家门店图片
+							sellerName: sellerInfo.shop_name, // 商家店名称
+							sellerMobile: sellerInfo.mobile, // 商家电话
+							sellerOpenTime: sellerInfo.shop_bh, // 商家营业时间
+							sellerAddress: sellerInfo.address // 商家店地址
+						};
+						let yve = transNumFn(resultObj.yue); // 账户余额
+						resObj.yve = yve;
+
+						let { user_name: userName, user_phone: userPhone } = assertObject(resultObj.znp_user);
+						resObj.previousInputInfo = {
+							// 上一次输入的值
+							userName,
+							userPhone
+						};
+
+						resFn({
+							type: 'success',
+							msg: '获取拆分数据成功',
+							result: resObj
+						});
+					} else {
+						resFn({
+							type: 'error',
+							result,
+							msg: result.data.msg
+						});
+					}
+				} else {
+					resFn({
+						type: 'error',
+						result,
+						msg: that.$errorMsg
+					});
+				}
+			});
+		},
+		// 获取当前的小时数
+		getNewHoursFn() {
+			let date = new Date();
+			that.newHours = date.getHours();
+			that.newMinutes = date.getMinutes();
+		},
+		// 页面 load 执行
+		async loadFn() {
+			let that = this;
+			let chaifen = await that.getChaiFenFn(); //获取拆分出来的数据
+			console.log('拆分出来的数据', chaifen);
+			if (chaifen.type == 'success') {
+				let chaifenResult = chaifen.result;
+				// 处理 用户的配送方式
+				that.peiTypeArr = chaifenResult.peiTypeArr;
+
+				// 处理收货地址
+				that.addressIsSet = chaifenResult.address.isSet;
+				that.addressUserName = chaifenResult.address.addressUserName;
+				that.addressUserTel = chaifenResult.address.addressUserTel;
+				that.addressText = chaifenResult.address.addressText;
+				that.addressTagName = chaifenResult.address.addressTagName;
+				that.addressId = chaifenResult.address.addressId;
+				that.addressCoordinate = chaifenResult.address.addressCoordinate; // 收货地址经纬度
+				that.addressArea = chaifenResult.address.addressArea; // 收货地址的 市
+
+				// 处理商家的一些信息
+				that.sellerImage = chaifenResult.sellerInfo.sellerImage; // 商家门店图片
+				that.sellerName = chaifenResult.sellerInfo.sellerName; // 商家店名称
+				that.sellerMobile = chaifenResult.sellerInfo.sellerMobile; // 商家电话
+				that.sellerOpenTime = chaifenResult.sellerInfo.sellerOpenTime; // 商家营业时间
+				that.sellerAddress = chaifenResult.sellerInfo.sellerAddress; // 商家店地址
+
+				that.freePost = chaifenResult.sellerInfo.freePost; // 满多少免配送费
+				that.postFee = chaifenResult.sellerInfo.postFee; // 骑手配送费
+				that.postage = chaifenResult.sellerInfo.postage; // 快递运费
+				that.freePostage = chaifenResult.sellerInfo.freePostage; // 满多少减运费
+				that.postTime = chaifenResult.sellerInfo.postTime; // 配送时间 '8:20 - 22:50'
+
+				that.isOpenyvyueFun = chaifenResult.sellerInfo.isPreparePeisong; // 是否开启预约配送
+				that.yvyueDays = chaifenResult.sellerInfo.prepareDays; // 预约配送的天数 最多两天  0:立即送出; 1:今天 ; 2:明天
+				that.peisongTimeLater = chaifenResult.sellerInfo.peisongTimeLater; // 预计骑手配送时长
+
+				// 处理配送相关信息
+				let startEndTimeArr = that.postTime.split('-'); // 得到开始和结束的时间数组 ["9:00 ", " 22:00"]
+				that.qiToTime = startEndTimeArr[0]; // 赋值骑手开始上班时间-小时
+				that.qiOffTime = startEndTimeArr[1]; // 赋值骑手开始下班时间-小时
+
+				that.getNewHoursFn();
+
+				that.hoursArr = createHoursArr(that.qiToTime, that.qiOffTime, that.peisongTimeLater);
+
+				let newToDayTime = new Date((Math.floor(+new Date() / 1000) + 60 * 10) * 1000);
+
+				let newToDayTimeStr = `${num2zeroStr(newToDayTime.getHours())}:${num2zeroStr(
+					newToDayTime.getMinutes()
+				)}`;
+
+				let newToDayHourArr = createHoursArr(newToDayTimeStr, that.qiOffTime, that.peisongTimeLater);
+
+				that.newToDayHourArr =
+					newToDayHourArr.length > 0
+						? newToDayHourArr
+						: [
+								{
+									textStr: `${num2zeroStr(that.newHours)}:${num2zeroStr(
+										that.newMinutes
+									)}~${num2zeroStr(that.qiOffTime.split(':')[0])}:${num2zeroStr(
+										that.qiOffTime.split(':')[1]
+									)}`,
+									toHoursBefore: that.newHours,
+									offHoursBefore: that.qiOffTime.split(':')[0]
+								}
+						  ];
+
+				// 处理如遇缺货
+				that.quehuo = chaifenResult.quehuo;
+
+				// 处理余额
+				that.yve = chaifenResult.yve; // 余额
+				
+
+				that.previousInputUserName = chaifenResult.previousInputInfo.userName; // 上一次用户输入的名字
+				that.previousInputUserPhone = chaifenResult.previousInputInfo.userPhone; // 上一次用户输入的 手机号
+
+				let zitidianList = await that.getDuozitidianFn(that.localhostLon, that.localhostLat);
+				console.log('自提点 数据 zitidianList', zitidianList);
+				if (zitidianList.type == 'success') {
+					that.zitidianList = zitidianList.result;
+
+					let zitidianIsAllNotRange = zitidianList.result.every(i => !i.isRange);
+
+					if (!zitidianIsAllNotRange) {
+						that.zitidianActive = zitidianList.result.findIndex(item => item.isRange);
+					}
+
+					that.getOrderInfoFn();
+				} else {
+					that.isShowLoading = false;
+					uni.showToast({
+						icon: 'none',
+						title: zitidianList.msg
+					});
+				}
+			} else {
+				that.isShowLoading = false;
+				uni.showToast({
+					icon: 'none',
+					title: `${chaifen.msg}.`
+				});
+			}
+		},
+
+		// 获取订单详情
+		async getOrderInfoFn(fn, isShowLoading) {
+			// 选择地址的时候 把 地址的id给后台
+			let addressObj = {};
+			if (
+				that.calcPeiTypeId == peiTypeEnumObj[peiTypeDada] ||
+				that.calcPeiTypeId == peiTypeEnumObj[peiTypeShansong]
+			) {
+				if (that.addressIsSet) {
+					addressObj.address_id = that.addressId;
+				} else {
+					addressObj.address_id = 0;
+				}
+			}
+
+			let cartPageGoodsList = that.cartPageGoodsList.map(item => ({
+				id: item.id,
+				num: item.number
+			}));
+			let cartId = JSON.stringify(cartPageGoodsList);
+
+			let Platform;
+
+			// #ifdef MP-WEIXIN
+			Platform = 'wxMiniProgram';
+			// #endif
+
+			// #ifdef APP-PLUS
+			Platform = 'APP';
+			// #endif
+
+			let opt = {
+				loading: !!isShowLoading,
+				url: '/api/order/fill_order',
+				data: {
+					...addressObj,
+					from: 'cart',
+					prom_type: 'common',
+					cart_id: cartId,
+					coupon_user_id: that.coupon_user_id,
+					goods_coupon: that.good_coupon_id,
+					post_type: that.peiTypeArr[that.peiTypeActive].id,
+					Platform,
+					is_send_immediately: 1, // 是否立即送出 1--立即单  2--预约单   默认1
+					peisong_time: '', // 骑手开始配送的时间
+					vip_id: that.vipOptionCardIsSelect ? that.vipOptionCardId : 0
+				}
+			};
+			console.log('请求 /api/order/fill_order 接口 带的参数', opt);
+			let result = await that.$request(opt);
+			console.log('请求 api/order/fill_order 接口返回的结果 ', result);
+
+			if (result.statusCode == 200) {
+				if (result.data.code == 200) {
+					let resultObj = assertObject(result.data.data);
+
+					let priceInfo = assertObject(resultObj.price);
+					let goods = assertArray(priceInfo.goods);
+
+					// 选中结算的商品列表
+					console.log('打印可以结算的商品数组 goods', goods);
+					let selectGoods = that.cartPageGoodsList
+						.filter(item => {
+							for (let i of goods) {
+								if (i.goods_id == item.goodsId && i.spec_id == item.specId) {
+									return true;
+								}
+							}
+						})
+						.map(item => {
+							for (let i of goods) {
+								if (i.goods_id == item.goodsId && i.spec_id == item.specId) {
+									return {
+										...item,
+										...i
+									};
+								}
+							}
+						});
+					that.selectGoods = selectGoods;
+					console.log('打印可以结算的商品数组合并好的数据 that.selectGoods', that.selectGoods);
+
+					let invalidGoodsList = assertArray(priceInfo.invalidGoods);
+					console.log('打印可以失效的商品数组 invalidGoodsList', invalidGoodsList);
+
+					let invalidGoods = that.cartPageGoodsList
+						.filter(item => {
+							for (let i of invalidGoodsList) {
+								if (i.goods_id == item.goodsId && i.spec_id == item.specId) {
+									return true;
+								}
+							}
+						})
+						.map(item => {
+							for (let i of invalidGoodsList) {
+								if (i.goods_id == item.goodsId && i.spec_id == item.specId) {
+									item.isShowText = i.is_make_order.is_make_order_msg;
+									return {
+										...item,
+										...i
+									};
+								}
+							}
+						});
+					that.invalidGoods = invalidGoods;
+					console.log('打印失效的商品数组合并好的数据 that.invalidGoods', that.invalidGoods);
+					that.getOrderInfoLastTime = result.data.time; // 赋值最后的请求时间
+					// =====================================================================================↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+					// 处理优惠券
+
+					// 第一次加载页面
+					if (that.pageCont == 0) {
+						that.couponJSON = JSON.stringify(assertArray(resultObj.coupon));
+
+						let coupon = JSON.parse(that.couponJSON);
+
+						// 优惠券优惠的金额是0
+						if (priceInfo.coupon_sale_money == 0) {
+							if (priceInfo.goods_coupon_sale_money > 0) {
+								coupon.forEach(item => {
+									item.isSelect = false;
+									if (item.is_use == 1) {
+										item.is_use = 0;
+										item.not_reason = '使用商品券进行优惠';
+									}
+								});
+							}
+						} else {
+							let couponCount = 0;
+							coupon.forEach((item, index) => {
+								if (couponCount == 0 && item.is_use == 1) {
+									item.isSelect = true;
+									couponCount++;
+									that.couponCount = 1;
+									that.coupon_user_id = item.coupon_user_id;
+								} else {
+									item.isSelect = false;
+								}
+							});
+						}
+						that.coupon = coupon;
+
+						// 第多次加载页面
+					} else {
+						let coupon = JSON.parse(that.couponJSON);
+
+						if (priceInfo.goods_coupon_sale_money - 0 >= priceInfo.ord_price - 0) {
+							coupon.forEach(item => {
+								item.isSelect = false;
+								if (item.is_use == 1) {
+									item.is_use = 0;
+									item.not_reason = '使用商品券进行优惠';
+								}
+							});
+						} else {
+							if (that.coupon_user_id == 0) {
+								let couponCount = 0;
+								coupon.forEach((item, index) => {
+									if (couponCount == 0 && item.is_use == 1) {
+										item.isSelect = true;
+										couponCount++;
+										that.couponCount = 1;
+										that.coupon_user_id = item.coupon_user_id;
+									} else {
+										item.isSelect = false;
+									}
+								});
+							} else if (that.coupon_user_id == 'no') {
+								let couponCount = 0;
+								that.couponCount = couponCount;
+								that.coupon_user_id = 'no';
+
+								coupon.forEach((item, index) => {
+									item.isSelect = false;
+								});
+							} else {
+								that.couponCount = 1;
+								coupon.forEach((item, index) => {
+									if (that.coupon_user_id == item.coupon_user_id) {
+										item.isSelect = true;
+									} else {
+										item.isSelect = false;
+									}
+								});
+							}
+						}
+
+						that.coupon = coupon;
+					}
+
+					// 处理商品券=====================================================================================================
+					if (that.pageCont == 0) {
+						// 处理商品券
+						let good_coupon_id = [];
+
+						let goodsCoupon = assertArray(resultObj.goods_coupon);
+
+						goodsCoupon.forEach(goods_coupon => {
+							that.selectGoods.forEach(selectGoods => {
+								if (selectGoods.goodsId == goods_coupon.goods_id) {
+									goods_coupon.original_img = selectGoods.originalImg;
+								}
+							});
+							goods_coupon.isSelect = true;
+							good_coupon_id.push(goods_coupon.id);
+						});
+
+						console.log(result.data.data.goods_coupon, '给优惠券添加 图片路径后 的数据', '\n');
+
+						that.goods_coupon = goodsCoupon;
+						that.good_coupon_id = good_coupon_id.join(',');
+					}
+
+					// =====================================================================================↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+					// 处理 优惠的价格
+
+					// 处理价格
+					that.price = priceInfo;
+
+					// 处理 达达和闪送的数据
+					if (that.calcPeiTypeId == peiTypeEnumObj[peiTypeDada]) {
+						// 达达
+
+						let result_prepay_dada = assertObject(resultObj.result_prepay_dada);
+						if (result_prepay_dada.status == 'success') {
+							that.postFeeData.order_info = resultObj.order_info;
+							that.postFeeData.deliveryNo = result_prepay_dada.result.deliveryNo;
+							that.postFeeData.totalFee = result_prepay_dada.result.deliverFee;
+							that.postFeeData.fee = result_prepay_dada.result.fee;
+
+							that.errorMsg.msg = '';
+							that.errorMsg.isHas = false;
+						} else {
+							that.errorMsg.msg = result_prepay_dada.msg;
+							that.errorMsg.isHas = true;
+							setTimeout(() => {
+								uni.hideLoading();
+
+								uni.showModal({
+									showCancel: false, //不显示取消按钮
+									title: result_prepay_dada.msg,
+									success(e) {
+										//确认后的回调
+										console.log(e);
+									}
+								});
+
+								// uni.showToast({
+								// 	icon: 'none',
+								// 	title: result_prepay_dada.msg
+								// });
+							});
+						}
+					}
+
+					if (that.calcPeiTypeId == peiTypeEnumObj[peiTypeShansong]) {
+						// 闪送
+						let result_prepay_dada = resultObj.result_prepay_dada;
+						if (result_prepay_dada.status == 200) {
+							that.postFeeData.order_info = resultObj.order_info;
+							that.postFeeData.deliveryNo = result_prepay_dada.data.orderNumber;
+							that.postFeeData.totalFee = bigDiv(transNumFn(result_prepay_dada.data.totalAmount), 100);
+							that.postFeeData.fee = bigDiv(transNumFn(result_prepay_dada.data.totalFeeAfterSave), 100);
+							that.errorMsg.msg = '';
+							that.errorMsg.isHas = false;
+						} else {
+							that.errorMsg.msg = result_prepay_dada.msg;
+							that.errorMsg.isHas = true;
+							setTimeout(() => {
+								uni.hideLoading();
+								uni.showModal({
+									showCancel: false, //不显示取消按钮
+									title: result_prepay_dada.msg,
+									success(e) {
+										//确认后的回调
+										console.log(e);
+									}
+								});
+
+								// uni.showToast({
+								// 	icon: 'none',
+								// 	title: result_prepay_dada.msg
+								// });
+							});
+						}
+					}
+
+					// 开通vip选项卡 相关配置
+					let vipOptionCard = assertObject(resultObj.fill_content);
+					that.vipOptionCardIsOpen = vipOptionCard.is_fill == 1; // 是否显示 勾选vip 确认 开通会员 卡片
+					that.vipOptionCardId = transNumFn(vipOptionCard.vip_id); // 展示的会员卡id
+					that.vipOptionCardName = vipOptionCard.fill_name; // 会员卡名字
+					that.vipOptionCardTagBgColor = vipOptionCard.fill_bg_color; // 会员卡左上标签的背景色
+					that.vipOptionCardTagIconImg = vipOptionCard.fill_icon; // 会员卡左上标签的 图标 图片地址
+					that.vipOptionCardTagText = vipOptionCard.fill_con; // 会员卡左上标签的 文字内容
+					that.vipOptionCardTagTextColor = vipOptionCard.fill_bq_color; // 会员卡左上标签的 文字 颜色
+					that.vipOptionCardTipBgColor = vipOptionCard.fill_xz_color; // 会员卡右上的提示气泡背景颜色
+					that.vipOptionCardTipText = vipOptionCard.fill_xz_con; // 会员卡右上的提示气泡展示文字
+					that.vipOptionCardTipTextColor = vipOptionCard.fill_xzt_color; // 会员卡右上的提示气泡展示文字颜色
+					that.vipOptionCardTime = vipOptionCard.time; // 会员卡的有效时间
+					that.vipOptionCardPrice = transNumFn(vipOptionCard.vip_or_price); // 购买会员卡的价格
+
+					// 处理 模板消息
+					if (that.pageCont == 0) {
+						let templateId = assertArray(resultObj.templateId)
+							.filter(item => {
+								return item.mini_status == 1;
+							})
+							.map(item => {
+								return item.mini_template_id;
+							});
+						that.templateId = templateId;
+					}
+
+					fn && fn(resultObj);
+
+					console.log(
+						that.coupon,
+						'本地的优惠券列表',
+						'\n',
+						typeof that.coupon,
+						'本地的优惠券列表类型',
+						'\n',
+						that.coupon.length,
+						'本地的优惠券列表长度',
+						'\n',
+						that.pageCont,
+						'页面加载次数',
+						'\n'
+					);
+					that.pageCont++;
+					console.log(that.$data, '本地的$data数据', '\n');
+				} else {
+					console.log('回到购物车页面', '\n');
+					uni.showModal({
+						showCancel: false, //不显示取消按钮
+						title: `_${result.data.msg}`,
+						success(e) {
+							//确认后的回调
+							// that.toBackFn();
+						}
+					});
+				}
+			} else {
+				uni.showModal({
+					showCancel: false, //不显示取消按钮
+					title: '网络错误,请稍后重试',
+					success(e) {
+						//确认后的回调
+						that.toBackFn();
+					}
+				});
+			}
+			that.isShowLoading = false;
+		},
+		// 设置配送方式
+		setPeiTypeIndexFn(arg) {
+			that.peiTypeActive = arg.index;
+			that.defaultStatus = false;
+			that.setDefaultPayTypeFn();
+			that.coupon_user_id = 0;
+			that.pageCont = 0;
+			that.vipOptionCardIsSelect = false;
+
+			that.getOrderInfoFn(() => {
+				uni.showToast({
+					icon: 'none',
+					title: '配送变更,费用已发生变化'
+				});
+
+				// 如果是到店自提 或者 多自提点自提 就把之前输入的 用户信息 自动输入上去
+
+				console.log({
+					'\n': '=========',
+					calcPeiTypeId: that.calcPeiTypeId,
+					previousInputUserName: that.previousInputUserName,
+					previousInputUserPhone: that.previousInputUserPhone
+				});
+
+				if (
+					(that.calcPeiTypeId == peiTypeEnumObj[peiTypeDuozitidian] &&
+						that.previousInputUserName &&
+						that.previousInputUserPhone &&
+						!that.shouhuoren &&
+						!that.haoma) ||
+					(that.calcPeiTypeId == peiTypeEnumObj[peiTypeZiti] &&
+						that.previousInputUserName &&
+						that.previousInputUserPhone &&
+						!that.shouhuoren &&
+						!that.haoma)
+				) {
+					that.shouhuoren = that.previousInputUserName;
+					that.haoma = that.previousInputUserPhone;
+				}
+			}, true);
+		},
+
+		// 选择缺货情况处理方式
+		quehuoItemFn(index) {
+			that.quehuoCurr = index;
+			that.quehuoIsOpen = false;
+		},
+		// 打开优惠券的模态框
+		openCouponModalFn() {
+			let temObj = {
+				coupon: that.coupon
+			};
+			that.temObj = JSON.stringify(temObj);
+			that.isShowCouponModal = true;
+		},
+		// 选择优惠券
+		selectCouponFn(coupon) {
+			// if(that.price.coupon_sale_money == 0){
+			// 	uni.showToast({
+			// 		icon:'none',
+			// 		title:'已使用商品券进行优惠'
+			// 	})
+			// 	return
+
+			// }
+			// 改变选中状态
+			that.coupon.forEach((item, index) => {
+				if (index == coupon.index) {
+					that.coupon[coupon.index].isSelect = !that.coupon[coupon.index].isSelect;
+				} else {
+					that.coupon[index].isSelect = false;
+				}
+			});
+
+			// 计算选中数量
+			let couponCount = 0;
+			that.coupon.forEach(item => {
+				if (item.isSelect) {
+					couponCount++;
+				}
+			});
+			that.couponCount = couponCount;
+
+			// 设置选中的 券
+
+			let selectItemArr = that.coupon.filter(item => {
+				return item.isSelect == true;
+			});
+			console.log(coupon, '点击的结果', '\n', selectItemArr, '选出的优惠券', '\n');
+
+			if (selectItemArr.length > 0) {
+				that.coupon_user_id = selectItemArr[0].coupon_user_id;
+			} else {
+				that.coupon_user_id = 'no';
+			}
+		},
+
+		// 关闭优惠券的模态框 (点空白处关闭)
+		closeCouponModalFn() {
+			let { coupon } = JSON.parse(that.temObj);
+			that.coupon = coupon;
+			that.isShowCouponModal = false;
+		},
+		// 不使用优惠券 并 关闭模态框(右上角 不使用优惠券)
+		notUseCoupon_cloneFn() {
+			that.coupon_user_id = 'no';
+
+			that.coupon.forEach(item => {
+				item.isSelect = false;
+			});
+			that.setCouponFn();
+		},
+		// 确定选择的优惠券
+		setCouponFn() {
+			that.isShowCouponModal = false;
+
+			that.getOrderInfoFn(() => {}, true);
+		},
+		// 打开商品券模态框
+		openGoodsCouponModalFn() {
+			let temObj = {
+				goods_coupon: that.goods_coupon
+			};
+			that.temObj = JSON.stringify(temObj);
+			that.isShowGoodsCouponModal = true;
+		},
+
+		// 选择商品券
+		selectGoodsCouponFn(item, index) {
+			// 改变选中状态
+			that.goods_coupon[index].isSelect = !that.goods_coupon[index].isSelect;
+
+			// 计算选中数量
+			let goodsCouponCount = 0,
+				selectGood_coupon_id = [];
+
+			that.goods_coupon.forEach(item => {
+				console.log(item, '循环商品券数据', '\n');
+				if (item.isSelect) {
+					goodsCouponCount++;
+					selectGood_coupon_id.push(item.id);
+				}
+			});
+			that.goodsCouponCount = goodsCouponCount;
+			if (selectGood_coupon_id.length > 0) {
+				that.good_coupon_id = selectGood_coupon_id.join(',');
+			} else {
+				that.good_coupon_id = 'no';
+			}
+
+			console.log(that.good_coupon_id, '发送给后台的 选中商品券id 字符串', '\n');
+		},
+		// 关闭商品券的模态框 (点空白处关闭)
+		closeGoodsCouponModalFn() {
+			let { goods_coupon } = JSON.parse(that.temObj);
+			that.goods_coupon = goods_coupon;
+			that.isShowGoodsCouponModal = false;
+		},
+
+		// 不使用商品券 并 关闭模态框(右上角 不使用商品券)
+		notUseGoodsCoupon_cloneFn() {
+			that.good_coupon_id = 'no';
+			that.goods_coupon.forEach(item => {
+				item.isSelect = false;
+			});
+			that.setGoodsCouponFn();
+		},
+		// 确定选择的商品券
+		setGoodsCouponFn() {
+			that.isShowGoodsCouponModal = false;
+			// 保存地址
+			that.getOrderInfoFn(orderInfo => {}, true);
+		},
+
+		// 切换 是否使余额
+		switchChangeFn(e) {
+			if (that.yve > 0) {
+				this.defaultStatus = e.detail.value;
+			} else {
+				this.defaultStatus = false;
+				uni.showToast({
+					title: '余额不足',
+					icon: 'none'
+				});
+			}
+		},
+		// 获取发送模板消息权限 (弹框形式给用户)
+		getTemplateId() {
+			return new Promise((resFn, rejFn) => {
+				uni.requestSubscribeMessage({
+					tmplIds: that.templateId,
+					success(res) {
+						console.log('成功', '\n');
+						console.log(res, '打印发送到后台的结果', '\n', JSON.stringify(res), '转字符串后', '\n');
+						resFn(res);
+					},
+					fail(e) {
+						rejFn(e);
+					}
+				});
+			});
+		},
+		// 达达配送超时(3分钟超时)后 重新获取 DaDadeliveryNo信息 和 配送费信息
+		getDaDadeliveryNoFn() {
+			return new Promise(async (resFn, rejFn) => {
+				let resultObj = {};
+
+				if (that.addressIsSet) {
+					let totalWeight = 0;
+					that.selectGoods.forEach(item => {
+						let itemWeight = transNumFn(item.weight),
+							totalWeight = bigPlus(totalWeight, itemWeight);
+					});
+
+					let addressJSON = JSON.stringify({
+						user_area: that.addressArea,
+						user_address: that.addressText,
+						address_jingweidu: that.addressCoordinate,
+						user_name: that.addressUserName,
+						user_phone: that.addressUserTel
+					});
+
+					let DaDadeliveryNoResult = await that.$request({
+						url: '/api/Dada/dada_select_fee_api',
+						data: {
+							ord_bh: that.postFeeData.order_info,
+							ord_price: that.price['订单金额'],
+							address: addressJSON,
+							weight: totalWeight
+						}
+					});
+
+					if (DaDadeliveryNoResult.statusCode == 200) {
+						if (DaDadeliveryNoResult.data.code == 200) {
+							console.log(DaDadeliveryNoResult.data.data, 'DaDadeliveryNoResult.data.data', '\n');
+
+							if (DaDadeliveryNoResult.data.data.status == 'success') {
+								resultObj = {
+									type: 'success',
+									result: {
+										deliveryNo: DaDadeliveryNoResult.data.data.result.deliveryNo,
+										fee: DaDadeliveryNoResult.data.data.result.fee
+									},
+									msg: '成功'
+								};
+							} else {
+								resultObj = {
+									type: 'error',
+									result: DaDadeliveryNoResult.data.data,
+									msg: DaDadeliveryNoResult.data.data.msg
+								};
+							}
+						} else {
+							resultObj = {
+								type: 'error',
+								result: null,
+								msg: DaDadeliveryNoResult.data.msg
+							};
+						}
+					} else {
+						resultObj = {
+							type: 'error',
+							result: null,
+							msg: that.$errorMsg
+						};
+					}
+				} else {
+					resultObj = {
+						type: 'error',
+						result: null,
+						msg: '未选地址'
+					};
+				}
+
+				resFn(resultObj);
+			});
+		},
+		// 提交订单
+		async payFn() {
+			if (!that.qvZhiFuBtnFlag) {
+				return false;
+			}
+			that.qvZhiFuBtnFlag = false;
+
+			// 没有结算商品不给结算
+			if (that.selectGoods.length <= 0) {
+				uni.showModal({
+					showCancel: false, //不显示取消按钮
+					title: '没有可结算的商品',
+					success(e) {
+						//确认后的回调
+						console.log(e);
+					}
+				});
+				that.qvZhiFuBtnFlag = true;
+				return false;
+			}
+
+			// 到店自提 和 多自提点 需要的 自提人的 名字 手机号
+			let userInfoObj = {};
+
+			// 达达 闪送的参数
+			let dada_shansongObj = {};
+
+			// 达达  闪送
+			if (
+				that.calcPeiTypeId == peiTypeEnumObj[peiTypeDada] ||
+				that.calcPeiTypeId == peiTypeEnumObj[peiTypeShansong]
+			) {
+				/*
+				console.log(
+					Math.floor(+new Date() / 1000),
+					'Math.floor(+new Date() / 1000)',
+					'\n',
+					that.getOrderInfoLastTime,
+					'that.getOrderInfoLastTime',
+					'\n',
+					Math.floor(+new Date() / 1000) - that.getOrderInfoLastTime,
+					'比较',
+					'\n',
+					Math.floor(+new Date() / 1000) - that.getOrderInfoLastTime > 30,
+					'比较结果',
+					'\n',
+					that.calcPeiTypeId,
+					'type的数字'
+				);
+				 */
+				if (
+					that.calcPeiTypeId == peiTypeEnumObj[peiTypeDada] &&
+					Math.floor(+new Date() / 1000) - that.getOrderInfoLastTime > 3 * 60
+				) {
+					console.log('达达 超时重新获取 达达的参数', '\n');
+
+					that.hideAllFn();
+					uni.showLoading({});
+
+					let getDaDadeliveryNoResult = await that.getDaDadeliveryNoFn();
+					// console.log(getDaDadeliveryNoResult, 'getDaDadeliveryNoResult 结果', '\n');
+
+					if (getDaDadeliveryNoResult.type == 'success') {
+						that.postFeeData.deliveryNo = getDaDadeliveryNoResult.result.deliveryNo;
+						that.postFeeData.fee = getDaDadeliveryNoResult.result.fee;
+						that.hideAllFn();
+					} else {
+						that.hideAllFn();
+						uni.showToast({
+							title: getDaDadeliveryNoResult.msg,
+							icon: 'none'
+						});
+						that.qvZhiFuBtnFlag = true;
+						return false;
+					}
+				}
+
+				if (that.errorMsg.isHas) {
+					uni.showModal({
+						showCancel: false, //不显示取消按钮
+						title: that.errorMsg.msg,
+						success(e) {
+							//确认后的回调
+							console.log(e);
+						}
+					});
+					that.qvZhiFuBtnFlag = true;
+					return false;
+				}
+				dada_shansongObj.order_info = that.postFeeData.order_info;
+				dada_shansongObj.deliveryNo = that.postFeeData.deliveryNo;
+				dada_shansongObj.fee = that.postFeeData.fee;
+			} else {
+				dada_shansongObj = {};
+			}
+
+			// 如果 配送方式是 多自提点 需要判断的条件
+			if (that.calcPeiTypeId == peiTypeEnumObj[peiTypeDuozitidian]) {
+				// 没有自提列表
+				if (!that.zitidianList.length) {
+					uni.showToast({
+						icon: 'none',
+						title: `自提点列表为空`
+					});
+					that.qvZhiFuBtnFlag = true;
+					return false;
+				}
+
+				// 有自提列表 没有 在范围内的自提点
+				if (that.zitidianIsAllNotRange) {
+					uni.showToast({
+						icon: 'none',
+						title: `自提点不在配送范围内`
+					});
+					that.qvZhiFuBtnFlag = true;
+					return false;
+				}
+				//
+			}
+
+			// 当配送方式是 上门自提 或者是 多自提点 并且 用户没填写手机号 的提示
+			if (
+				that.calcPeiTypeId == peiTypeEnumObj[peiTypeZiti] ||
+				that.calcPeiTypeId == peiTypeEnumObj[peiTypeDuozitidian]
+			) {
+				if (that.shouhuoren.length < 1 || that.shouhuoren.length > 20) {
+					uni.showToast({
+						title: '收货人名字长度是1~20',
+						icon: 'none'
+					});
+					that.qvZhiFuBtnFlag = true;
+					return false;
+				}
+
+				if (!that.regTel(that.haoma)) {
+					uni.showToast({
+						title: '请检查手机号格式是否正确',
+						icon: 'none'
+					});
+					that.qvZhiFuBtnFlag = true;
+					return false;
+				}
+				userInfoObj.user_name = that.shouhuoren;
+				userInfoObj.user_phone = that.haoma;
+			}
+
+			// 需要配送  当前没有地址
+			if (that.checkIsMustAddress && !that.addressIsSet) {
+				uni.showToast({
+					icon: 'none',
+					title: '请选择收货地址'
+				});
+				that.qvZhiFuBtnFlag = true;
+				return false;
+			}
+
+			// 商家配送时限制距离
+			if (peiTypeEnumObj[peiTypeShangjia] == that.calcPeiTypeId) {
+				console.log('是商家配送开始判断是否在配送范围内');
+				let checkRangeResult = await that.checkRangeFn(that.addressCoordinate);
+				if (checkRangeResult.type != 'success') {
+					uni.showModal({
+						showCancel: false, //不显示取消按钮
+						title: '当前地址不在配送范围内',
+						success(e) {
+							//确认后的回调
+							console.log(e);
+						}
+					});
+					that.qvZhiFuBtnFlag = true;
+					return false;
+				}
+			}
+
+			// 处理支付信息 =======================================================================================================
+			// 订单金额 ord_price
+			// 实付金额 pay_price
+			// 优惠金额 balance_price
+			let ord_price, pay_price, balance_price, pay_type;
+
+			let dingDanJine = transNumFn(that.price['订单金额']); // 订单金额
+			let shiFuJine = transNumFn(that.price['实付金额']); // 实付金额
+			/*
+			// 用户开通会员
+			if (that.vipOptionCardIsSelect) {
+				// 订单金额 + 会员卡金额
+				ord_price = bigPlus(dingDanJine, that.vipOptionCardPrice);
+
+				// 实付金额 + 会员卡金额
+				shiFuJine = bigPlus(shiFuJine, that.vipOptionCardPrice);
+
+				// 用户不开通会员
+			} else {
+				// 订单金额
+				ord_price = dingDanJine;
+			}
+			*/
+			// shiFuJine = bigPlus(shiFuJine, that.vipOptionCardPrice);
+			ord_price = dingDanJine;
+
+			// console.log('订单金额ord_price', ord_price, typeof ord_price);
+
+			if (that.defaultStatus) {
+				balance_price = that.yve >= shiFuJine ? shiFuJine : that.yve;
+				pay_price = shiFuJine;
+				pay_type = that.yve >= shiFuJine ? 1 : that.payFlag;
+			} else {
+				balance_price = 0;
+				pay_price = shiFuJine;
+				pay_type = that.payFlag;
+			}
+
+			let coupon_user_id;
+			if (that.coupon_user_id == 'no') {
+				coupon_user_id = 0;
+			} else if (that.coupon_user_id == 0) {
+				coupon_user_id = 0;
+			} else {
+				coupon_user_id = that.coupon_user_id;
+			}
+
+			// #ifdef MP-WEIXIN
+			if (that.templateId.length > 0) {
+				let templateId = await that.getTemplateId();
+			}
+			// #endif
+
+			// 快递传1  商家配送自提 立即送出1  预约2
+			let isSendImmediately = (() => {
+				if (that.isOpenyvyueFun) {
+					// 是否开启预约配送
+					if (that.calcPeiTypeId == peiTypeEnumObj[peiTypeKuaidi]) {
+						return 1;
+					} else {
+						if (that.isTomorrowStr) {
+							return 2;
+						} else {
+							if (that.hoursIndex == 0) {
+								return 1;
+							} else {
+								return 2;
+							}
+						}
+					}
+				} else {
+					return 1;
+				}
+			})();
+
+			// 传给后台的配送时间
+			let peisongTime = (() => {
+				let newDate = new Date();
+
+				if (that.isTomorrowStr) {
+					// 明天
+					newDate = newDate.setDate(newDate.getDate() + 1);
+					newDate = new Date(newDate);
+				}
+
+				let year = newDate.getFullYear();
+
+				let month = num2zeroStr(newDate.getMonth() + 1);
+				let getdate = num2zeroStr(newDate.getDate());
+
+				// let hour = that.calcPickerHoursArr[that.hoursIndex].textStr.replace('~', '-');
+				return `${year}-${month}-${getdate} ${that.pickerSelectHour}`;
+			})();
+
+			let addressId = (() => {
+				if (that.checkIsMustAddress) {
+					return that.addressId;
+				} else {
+					if (that.calcPeiTypeId == peiTypeEnumObj[peiTypeDuozitidian]) {
+						return assertObject(that.zitidianList[that.zitidianActive]).id;
+					}
+					return '';
+				}
+			})();
+
+			// #ifdef MP-WEIXIN
+			// 未开启小程序微信支付 此时 只能用余额可以购买当前商品
+			if (!that.calcWeixinPayMiniprogram) {
+				// 用户使用余额支付并且 余额足够支付当前订单的总价格
+				let { result: checkUseYveResult, msg: checkUseYveMsg } = that.checkUseYve();
+				if (checkUseYveResult) {
+					pay_type = payTypeEnumObj[payTypeyve];
+				} else {
+					uni.showModal({
+						showCancel: false, //不显示取消按钮
+						title: checkUseYveMsg,
+						success(e) {
+							//确认后的回调
+							console.log(e);
+							// that.toBackFn()
+						}
+					});
+
+					that.qvZhiFuBtnFlag = true;
+					return false;
+				}
+			}
+			// #endif
+
+			// #ifdef APP-PLUS
+			// 未开启app微信支付 和 app支付宝支付 此时 只能用余额可以购买当前商品
+			if (!that.calcWeixinPayAndroidApp && !that.calcZhifubaoPayAndroidApp) {
+				// 用户使用余额支付并且 余额足够支付当前订单的总价格
+				let { result: checkUseYveResult, msg: checkUseYveMsg } = that.checkUseYve();
+				if (checkUseYveResult) {
+					pay_type = payTypeEnumObj[payTypeyve];
+				} else {
+					uni.showModal({
+						showCancel: false, //不显示取消按钮
+						title: checkUseYveMsg,
+						success(e) {
+							//确认后的回调
+							console.log(e);
+							// that.toBackFn()
+						}
+					});
+					that.qvZhiFuBtnFlag = true;
+					return false;
+				}
+			}
+			// #endif
+
+			// #ifdef H5
+			if (that.globalBrowserIsWx) {
+				if (!that.calcWeixinofficialaccount) {
+					// 用户使用余额支付并且 余额足够支付当前订单的总价格
+					let { result: checkUseYveResult, msg: checkUseYveMsg } = that.checkUseYve();
+					if (checkUseYveResult) {
+						pay_type = payTypeEnumObj[payTypeyve];
+					} else {
+						uni.showModal({
+							showCancel: false, //不显示取消按钮
+							title: checkUseYveMsg,
+							success(e) {
+								//确认后的回调
+								console.log(e);
+								// that.toBackFn()
+							}
+						});
+						that.qvZhiFuBtnFlag = true;
+						return false;
+					}
+				}
+			} else {
+				if (!that.calcWeixinPayH5) {
+					// 用户使用余额支付并且 余额足够支付当前订单的总价格
+					let { result: checkUseYveResult, msg: checkUseYveMsg } = that.checkUseYve();
+					if (checkUseYveResult) {
+						pay_type = payTypeEnumObj[payTypeyve];
+					} else {
+						uni.showModal({
+							showCancel: false, //不显示取消按钮
+							title: checkUseYveMsg,
+							success(e) {
+								//确认后的回调
+								console.log(e);
+								// that.toBackFn()
+							}
+						});
+						that.qvZhiFuBtnFlag = true;
+						return false;
+					}
+				}
+			}
+			// #endif
+
+			let objs = {
+				...dada_shansongObj,
+				cart_id: JSON.stringify(
+					that.selectGoods.map(item => ({
+						id: item.id,
+						num: item.number
+					}))
+				),
+				prom_type: 'common',
+				from: 'cart',
+				address_id: addressId,
+
+				quehuo: that.quehuo[that.quehuoCurr].id,
+
+				comment: that.textarea,
+
+				// 订单金额
+				ord_price,
+
+				// 实付金额
+				pay_price,
+
+				// 余额抵扣
+				balance_price,
+
+				pay_type,
+
+				post_type: that.calcPeiTypeId,
+
+				...userInfoObj,
+
+				goods_coupon: that.good_coupon_id,
+				coupon_user_id,
+				peisong_time: peisongTime,
+				is_send_immediately: isSendImmediately,
+				vip_id: that.vipOptionCardIsSelect ? that.vipOptionCardId : 0
+			};
+
+			// #ifdef MP-WEIXIN
+			objs.pay_platform = 'wxMiniProgram';
+			// #endif
+
+			// #ifdef APP-PLUS
+			objs.pay_platform = 'APP';
+			// #endif
+
+			that.hideAllFn();
+			uni.showLoading({});
+
+			console.log('生成订单 /api/order/make_order 接口的参数', objs);
+			/*
+			that.qvZhiFuBtnFlag = true;
+			return false;
+			 */
+			let result = await that.$request({
+				method: 'POST',
+				url: '/api/order/make_order',
+				data: objs
+			});
+
+			console.log('生成订单 /api/order/make_order 接口的返回的数据', result);
+
+			if (result.statusCode == 200) {
+				if (result.data.code == 200) {
+					if (result.data.data && result.data.data.ord_id) {
+						that.selectGoods.forEach(item => {
+							uni.$emit('goodsAddCartEd', {
+								goodsId: item.goodsId,
+								selectedNum: 0
+							});
+						});
+
+						console.log('navigateToFn__after', '\n');
+						that.hideAllFn();
+						that.qvZhiFuBtnFlag = true;
+						that.navigateToFn({
+							url: `/pages/order-state/zhifu?ord_id=${result.data.data.ord_id}`,
+							type: 'redirectTo'
+						});
+					} else {
+						that.hideAllFn();
+						uni.showModal({
+							showCancel: false, //不显示取消按钮
+							title: result.data.msg,
+							success(e) {
+								//确认后的回调
+								console.log(e);
+								that.toBackFn();
+							}
+						});
+					}
+				} else {
+					that.qvZhiFuBtnFlag = true;
+					that.hideAllFn();
+					uni.showModal({
+						showCancel: false, //不显示取消按钮
+						title: result.data.msg,
+						success(e) {
+							//确认后的回调
+							that.toBackFn();
+						}
+					});
+				}
+			} else {
+				that.hideAllFn();
+
+				uni.showToast({
+					icon: 'none',
+					title: that.$errorMsg
+				});
+			}
+
+			that.qvZhiFuBtnFlag = true;
+		},
+		// 选择会员卡
+		selectVipOptionCardFn(e) {
+			that.vipOptionCardIsSelect = e;
+			that.defaultStatus = false;
+			that.setDefaultPayTypeFn();
+			that.getOrderInfoFn(() => {}, true);
+		},
+		// ↓↓预约配送组件 相关方法=============================================
+		pickerViewChangeFn(e) {
+			let { daysIndex, hoursIndex } = e;
+			that.daysIndex = daysIndex;
+			that.hoursIndex = hoursIndex;
+		},
+		pickerViewClickFn() {
+			that.cancelIndexDays = that.daysIndex; // 选择前的天数索引
+			that.cancelIndexhours = that.hoursIndex; // 选择前的小时索引
+		},
+		pickerViewCancelFn() {
+			that.daysIndex = that.cancelIndexDays; // 选择前的天数索引
+			that.hoursIndex = that.cancelIndexhours; // 选择前的小时索引
+		},
+		pickerViewColumnchangeFn(e) {
+			let { keyStr, value } = e;
+			that[keyStr] = value;
+		},
+		isTomorrowStrFn(e) {
+			let { isTomorrowStr, pickerSelectHour } = e;
+			that.isTomorrowStr = isTomorrowStr;
+			that.pickerSelectHour = pickerSelectHour;
+		},
+		// ↓↓ 多自提点 相关方法=============================================
+		// 设置 自提点列表 模态框 的隐藏 显示 状态
+		setduozitiModalFlagFn(bool) {
+			this.duozitiModalFlag = bool;
+		},
+		// 选择自提点
+		selectZitiFn(index) {
+			this.zitidianActive = index;
+			this.setduozitiModalFlagFn(false);
+		},
+		/*
+			@description 是否可以使用余额支付 当前平台没有对应的第三方支付 只能使用余额支付的情况下 根据当前订单要付的钱数来提示对应的内容
+			@return { Object }
+				当result 为 真时表示可以使用余额支付
+				当result 为 假时表示不能支付购买弹出对应的msg消息
+		*/
+		checkUseYve() {
+			let that = this;
+
+			let shiFuJine = transNumFn(that.price['实付金额']); // 实付金额
+
+			// 用户使用余额支付并且 余额足够支付当前订单的总价格
+			if (that.defaultStatus && shiFuJine <= that.yve) {
+				return {
+					result: true
+				};
+			} else {
+				let title;
+				// 用户使用余额支付 但是余额不够
+				if (that.defaultStatus) {
+					title = '余额不足';
+				} else {
+					// 不用余额支付 余额不够
+					if (shiFuJine > that.yve) {
+						title = '余额不足';
+					} else {
+						// 不用余额支付余额够 客户想用微信支付
+						// #ifdef MP-WEIXIN
+						title = '平台未开通小程序微信支付';
+						// #endif
+						// #ifdef APP-PLUS
+						title = '平台未开通APP微信支付和APP支付宝支付';
+						// #endif
+						// #ifdef H5
+						if (that.globalBrowserIsWx) {
+							title = '平台未开通公众号微信支付';
+						} else {
+							title = '平台未开通h5微信支付';
+						}
+						// #endif
+					}
+				}
+				return {
+					result: false,
+					msg: title
+				};
+			}
+		}
+	},
+	// ↑↑↑↑↑methods 结束
+	computed: {
+		/*
+			返回 Id 值
+				0 商家配送
+				1 自提
+				2 快递
+				3 达达
+				4 闪送
+				5 多自提点
+				400 表示配送方式的数组是空
+		*/
+		calcPeiTypeId() {
+			let that = this;
+			if (that.peiTypeArr.length) {
+				return that.peiTypeArr[that.peiTypeActive].id;
+			} else {
+				return 400;
+			}
+		},
+		// 计算费用
+		calcPostFee() {
+			let that = this;
+			if (that.calcPeiTypeId === peiTypeEnumObj[peiTypeDada]) {
+				// 达达
+			} else if (that.calcPeiTypeId === peiTypeEnumObj[peiTypeShansong]) {
+				// 闪送
+			}
+			return 1;
+		},
+		// 根据条件 判断 文本域 显示隐藏
+		calcShowtextarea() {
+			if (this.isShowLoading) {
+				return false;
+			}
+			if (this.isShowCouponModal == false && this.isShowGoodsCouponModal == false) {
+				return true;
+			}
+			return false;
+		},
+
+		// 是否免配送
+		mianpeisong() {
+			if (this.price['配送费'] && this.price['配送费'] - 0 > 0) {
+				return false;
+			}
+			return true;
+		},
+		// 是否免快递
+		miankuaidi() {
+			if (this.price['运费'] && this.price['运费'] - 0 > 0) {
+				return false;
+			}
+			return true;
+		},
+		// 展示 出的 couponMsg
+		couponMsg() {
+			if (this.price['优惠券'] - 0 == 0) {
+				if (this.pageCont == 1) {
+					if (this.price['商品券'] - 0 > 0) {
+						return `已使用商品券进行优惠`;
+					} else {
+						return `无可用优惠券`;
+					}
+				} else {
+					if (that.coupon_user_id == 0) {
+						return `无可用优惠券`;
+					} else if (that.coupon_user_id == 'no') {
+						let len = this.coupon.filter(item => {
+							return item.is_use == true;
+						}).length;
+
+						if (len == 0) {
+							if (this.price['商品券'] - 0 > 0) {
+								return `已使用商品券进行优惠`;
+							} else {
+								return `无可用优惠券`;
+							}
+						}
+						return `${len}张优惠券可用`;
+					} else {
+						if (this.price['商品券'] - 0 > 0) {
+							return `已使用商品券进行优惠`;
+						} else {
+							return `无可用优惠券`;
+						}
+					}
+				}
+			} else {
+				return `已优惠￥${this.price['优惠券']}`;
+			}
+		},
+		// 展示 出的 goodsCouponMsg
+		goodsCouponMsg() {
+			let that = this;
+			if (that.price['商品券'] - 0 != 0) {
+				return `已优惠￥${that.price['商品券']}`;
+			} else {
+				let hasUseCount = that.goods_coupon.length;
+				return `${hasUseCount}张商品券可用`;
+			}
+		},
+		price_hy_yh() {
+			return transNumFn(this.price['会员优惠']);
+		},
+		price_goods_spyh() {
+			return transNumFn(this.price['商品优惠']);
+		},
+		price_sfje() {
+			return transNumFn(this.price['实付金额']);
+		},
+
+		// 返回 待支付 合计的钱数
+		hejiPrice() {
+			let that = this;
+			// let shiFuJine = transNumFn(that.price['实付金额']); // 实付金额
+			let allShiFuJine = transNumFn(that.price['实付金额']); // 实付金额
+
+			// allShiFuJine 实付金额 + 会员卡金额
+			// let allShiFuJine = that.vipOptionCardIsSelect ? bigPlus(shiFuJine, that.vipOptionCardPrice) : shiFuJine;
+
+			if (that.defaultStatus) {
+				return that.yve >= allShiFuJine ? 0 : bigMinus(allShiFuJine, that.yve);
+			} else {
+				return allShiFuJine;
+			}
+		},
+		/*
+			@description
+				是否展示用户的地址组件
+			@return <Boolean>
+				配送方式是 达达 闪送 商家配送 快递
+					返回 true 显示
+				配送方式是 到店自提 多自提点
+					返回 false 隐藏
+	    */
+		isShowAddress() {
+			let that = this;
+
+			let peiTypeList = {
+				[peiTypeEnumObj[peiTypeShangjia]]: true,
+				[peiTypeEnumObj[peiTypeShansong]]: true,
+				[peiTypeEnumObj[peiTypeDada]]: true,
+				[peiTypeEnumObj[peiTypeKuaidi]]: true,
+				[peiTypeEnumObj[peiTypeZiti]]: false,
+				[peiTypeEnumObj[peiTypeDuozitidian]]: false
+			};
+			return peiTypeList[that.calcPeiTypeId];
+		},
+		/*
+			@description
+				自提点列表是否全部 不在范围内
+			@return <Boolean>
+				返回 false 表示 有可用的自提点在范围内
+				返回 true 表示 没有可用的自提点在范围内
+		*/
+		zitidianIsAllNotRange() {
+			return this.zitidianList.every(i => !i.isRange);
+		},
+		currentzitidianInfo() {
+			return this.zitidianList[this.zitidianActive];
+		},
+		/*
+		  @description
+			检查 当前选择的配送方式 是否必须需要配送地址
+		  @return <Boolean>
+			true 表示当前选择的配送方式 必须填配送地址
+			false 表示当前选择的配送方式 可以不填配送地址
+		*/
+		checkIsMustAddress() {
+			let enumObj = {
+				[peiTypeEnumObj[peiTypeShangjia]]: true,
+				[peiTypeEnumObj[peiTypeKuaidi]]: true,
+				[peiTypeEnumObj[peiTypeDada]]: true,
+				[peiTypeEnumObj[peiTypeShansong]]: true,
+
+				[peiTypeEnumObj[peiTypeZiti]]: false,
+				[peiTypeEnumObj[peiTypeDuozitidian]]: false
+			};
+			return enumObj[this.calcPeiTypeId];
+		}
+	} // ↑↑↑↑↑ computed 结束
+};
+</script>
+<style lang="scss" scoped>
+.page {
+	overflow: hidden;
+	min-height: 100vh;
+	background: $bg-grey-color;
+}
+.input-beizhu-block {
+	position: relative;
+	@mixin size {
+		width: 370rpx;
+		height: 64rpx;
+	}
+	@include size;
+	.show-style {
+		@include size;
+		position: absolute;
+		right: 0;
+		top: 0;
+		text-align: right;
+		font-size: 26rpx;
+		line-height: 64rpx;
+	}
+	.input-beizhu {
+		z-index: 2;
+	}
+	.input-beizhu-text-view {
+		z-index: 1;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+}
+
+.goods-list-block {
+	position: relative;
+	padding: 10rpx 0;
+	/* 
+	&:after{
+		content: '';
+		display: inline-block;
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		height: 1px;
+		width: 100%;
+		background: #ffffff;
+	}
+	 */
+	.title {
+		padding: 0 20rpx;
+		border-radius: 20rpx 20rpx 0 0;
+		background: #ffffff;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 88rpx;
+
+		.h3 {
+			// margin-left: 20rpx;
+			font-size: 30rpx;
+			font-weight: 600;
+			color: $grey1-color;
+		}
+
+		
+	}
+}
+
+.goods-list {
+	border-radius: 0 0 20rpx 20rpx;
+	padding: 0 20rpx;
+	background: #ffffff;
+
+	&.order-info-line-wrap {
+		border-radius: 20rpx;
+		overflow: hidden;
+
+		.line-block:last-child{
+			border-bottom: none;
+		}
+	}
+
+	.item {
+		display: flex;
+		padding: 10rpx 0;
+		height: 200rpx;
+		border-top: 1px solid #f1f1f1;
+
+		&:last-child {
+		}
+
+		.item-image-block {
+			@include flex-center;
+			margin: 0 20rpx;
+			width: 156rpx;
+			height: 100%;
+
+			image {
+				width: 150rpx;
+				height: 150rpx;
+			}
+		}
+
+		.item-description-block {
+			display: flex;
+			flex-direction: column;
+			// justify-content: space-between;
+			flex: 1;
+			position: relative;
+
+			.item-name,
+			.item-description {
+				display: flex;
+				justify-content: space-between;
+			}
+
+			.item-name {
+				color: $grey1-color;
+				font-size: 30rpx;
+				margin-top: 0.2em;
+				line-height: 1.6em;
+				.name- {
+					max-width: 12em;
+					@include text-ellipsis;
+				}
+			}
+
+			.tag-wrap {
+				font-size: 0;
+				margin: 6rpx 0;
+			}
+
+			.item-description {
+				color: $grey2-color;
+				font-size: 23rpx;
+				line-height: 1.4em;
+
+				&.errorText {
+					@include text-ellipsis-rows;
+					line-height: 1.2;
+				}
+				.description- {
+					max-width: 16em;
+					@include text-ellipsis;
+				}
+			}
+			.price-info-block {
+				text-align: right;
+				color: $grey2-color;
+				font-size: 23rpx;
+				line-height: 1.4em;
+				.red-price {
+					color: $red-color;
+				}
+			}
+		}
+	}
+	.textarea {
+		margin: 0.5em;
+		padding: 0.5em;
+		text-indent: 1em;
+		font-size: 26rpx;
+		background: #f7f7f7;
+		height: 6em;
+		width: 90%;
+		z-index: 1;
+		color: #374050;
+	}
+}
+
+.line-block {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 90rpx;
+	border-bottom: 1px solid #f1f1f1;
+
+	.h6,
+	.h5 {
+		font-size: 26rpx;
+		color: $grey1-color;
+	}
+
+	.h5 {
+		white-space: nowrap;
+	}
+
+	.h6 {
+		display: flex;
+		align-items: center;
+		color: $grey1-color;
+
+		.price {
+			margin-left: 0.5em;
+			font-size: 30rpx;
+			font-weight: 600;
+		}
+		&.errorMsg {
+			flex: 1;
+			padding-left: 40rpx;
+			display: flex;
+			justify-content: flex-end;
+		}
+	}
+	.inp-block {
+		width: 80%;
+		input {
+			padding-left: 0.2em;
+			font-size: 26rpx;
+			font-weight: 600;
+			color: $grey1-color;
+			background: #f7f7f7;
+			padding: 0.4em 1em;
+		}
+	}
+	.tip-red-text {
+		font-weight: bold;
+		color: $red-color;
+	}
+}
+.line-cont-block {
+	.line-cont {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 90rpx;
+		border-top: 1px solid #f1f1f1;
+		font-size: 22rpx;
+		padding: 0 20rpx;
+	}
+}
+.deg90 {
+	transform: rotate(90deg);
+}
+.useRedCard-block {
+	.useRedCard-cont {
+		padding: 0 20rpx;
+		display: flex;
+		justify-content: space-between;
+		height: 100rpx;
+		border-top: 1px solid #f1f1f1;
+		align-items: center;
+		.card-info {
+			display: flex;
+			align-items: center;
+			height: 45rpx;
+			.card-name {
+				margin-right: 0.5em;
+				font-weight: 600;
+				font-size: 30rpx;
+				color: $grey1-color;
+			}
+			.youhui {
+				font-size: 24rpx;
+				color: $grey2-color;
+			}
+		}
+		.time {
+			font-size: 23rpx;
+			color: $grey2-color;
+		}
+	}
+}
+
+/* 支付类型 */
+.pay-type {
+	// margin: 20rpx 0;
+	padding: 10rpx 0 20rpx;
+
+	.cont-block {
+		padding: 0 20rpx;
+		border-radius: 20rpx;
+		background: #ffffff;
+
+		.h3 {
+			line-height: 88rpx;
+			font-size: 36rpx;
+			color: $grey1-color;
+			font-weight: 600;
+		}
+
+		.line-block-list {
+			.line-block:first-child {
+				border-top: none;
+			}
+
+			.line-block {
+				border-top: 1px solid #f8f8f8;
+
+				.content-wrap {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					width: 100%;
+					height: 120rpx;
+					padding: 0;
+
+					.left-block {
+						display: flex;
+						align-items: center;
+
+						.image-block {
+							width: 60rpx;
+							height: 60rpx;
+							border-radius: 50%;
+
+							image {
+								width: 100%;
+								height: 100%;
+							}
+						}
+
+						text {
+							color: $grey1-color;
+							text-indent: 0.5em;
+							font-size: 26rpx;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.couponModal {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	z-index: 700;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.3);
+
+	.top {
+		flex: 1;
+	}
+
+	.bottom {
+		height: 1100rpx;
+		background: #f5f5f5;
+		border-radius: 20rpx 20rpx 0 0;
+		position: relative;
+
+		.icon-block {
+			display: inline-flex;
+			align-items: center;
+			position: absolute;
+			right: 1em;
+			top: 1em;
+			font-size: 26rpx;
+			// color: $red-color;
+			color: #bbbdc0;
+			border: 1px solid #bbbdc0;
+			border-radius: 100rpx;
+			padding-left: 0.5em;
+			padding-right: 0.5em;
+		}
+
+		.title-h4 {
+			text-align: left;
+			padding-left: 24rpx;
+
+			color: $grey1-color;
+			line-height: 110rpx;
+			font-size: 30rpx;
+		}
+
+		.content {
+			padding: 0 34rpx;
+			.title-h5 {
+				color: $grey2-color;
+				line-height: 55rpx;
+				font-size: 30rpx;
+			}
+
+			.card-wrap {
+				height: 880rpx;
+				.card-block {
+					height: 100%;
+					overflow-x: hidden;
+					@include hide-scrollbar;
+					padding-bottom: 10rpx;
+					.item {
+						margin-bottom: 20rpx;
+
+						position: relative;
+						width: 682rpx;
+						height: 261rpx;
+						border-radius: 20rpx;
+						background: #ffffff;
+						overflow: hidden;
+						box-shadow: 0 3rpx 3rpx #f0f1f3;
+
+						&::before,
+						&::after {
+							content: '';
+							display: block;
+							position: absolute;
+							top: 50%;
+							width: 40rpx;
+							height: 40rpx;
+							background: $bg-grey-color;
+							border-radius: 50%;
+						}
+
+						&::before {
+							left: 0;
+							transform: translate3d(-50%, -50%, 0);
+						}
+
+						&::after {
+							right: 0;
+							transform: translate3d(50%, -50%, 0);
+						}
+
+						.isSelectBlock {
+							position: absolute;
+							top: 0;
+							right: 0;
+							width: 54rpx;
+							height: 54rpx;
+							border-radius: 0 10rpx 0 0;
+							overflow: hidden;
+
+							.gb-sanjiao {
+								border-top: 28rpx solid #fb4e44;
+								border-right: 28rpx solid #fb4e44;
+								border-bottom: 28rpx solid transparent;
+								border-left: 28rpx solid transparent;
+							}
+
+							.checkmarkempty {
+								font-size: 0;
+								position: absolute;
+								top: 0;
+								right: 10%;
+							}
+						}
+
+						.goods-top-block {
+							display: flex;
+							margin-top: 20rpx;
+							margin-left: 20rpx;
+
+							.goods-image-block {
+								margin-left: 10rpx;
+								width: 130rpx;
+								height: 130rpx;
+
+								image {
+									width: 100%;
+									height: 100%;
+								}
+							}
+
+							.goods-description {
+								display: flex;
+								width: 510rpx;
+								flex-direction: column;
+								border-bottom: 1px dashed #efefef;
+								margin-left: 1em;
+								margin-right: 1em;
+
+								.goods-name {
+									font-size: 26rpx;
+									line-height: 55rpx;
+									font-weight: 600;
+									color: $grey1-color;
+									max-width: 15em;
+									@include text-ellipsis;
+								}
+
+								.price-wrap {
+									display: flex;
+									justify-content: space-between;
+									@include shop-price-block-lr;
+
+									.use-btn {
+										@include flex-center;
+										width: 140rpx;
+										height: 56rpx;
+										font-size: 23rpx;
+										color: #ffffff;
+										border-radius: 10000rpx;
+									}
+								}
+							}
+						}
+
+						.goods-bottom-block {
+							margin-top: 20rpx;
+							margin-left: 20rpx;
+							font-size: 20rpx;
+							color: $grey2-color;
+
+							.card-name {
+								line-height: 45rpx;
+							}
+
+							.time-block {
+							}
+						}
+					}
+				}
+			}
+		}
+		.nav-bar-block {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 24rpx;
+			height: 110rpx;
+			background: #ffffff;
+
+			.bar-text {
+				font-size: 30rpx;
+				color: $grey1-color;
+			}
+			.bar-btn {
+				width: 200rpx;
+				height: 80rpx;
+				line-height: 80rpx;
+				text-align: center;
+				color: #ffffff;
+				font-size: 35rpx;
+				border-radius: 10rpx;
+			}
+		}
+	}
+}
+
+.bottom-commit-order-bar {
+	&::after {
+		content: '';
+		display: block;
+		height: 100rpx;
+	}
+	.order-btn-block {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: fixed;
+		z-index: 300;
+		bottom: 0;
+		padding: 0 24rpx;
+		width: 100%;
+		height: 100rpx;
+		background: #ffffff;
+		box-shadow: 0px 0px 12rpx #d8d8d8;
+
+		.price-all {
+			display: flex;
+			align-items: flex-end;
+			font-size: 23rpx;
+			color: $grey2-color;
+			@include shop-price-block-lr;
+
+			.shop-price-block-lr {
+				text-indent: 0.3em;
+			}
+		}
+
+		.order-btn {
+			@include btn-green;
+			@include flex-center;
+			width: 240rpx;
+			height: 88rpx;
+			border-radius: 10rpx;
+			font-size: 32rpx;
+		}
+	}
+}
+
+.seller-group-wrap {
+	padding-top: 10rpx;
+	padding-bottom: 10rpx;
+	// border: 1px solid green;
+	.seller-item-wrap {
+		overflow: hidden;
+		.seller-item-content {
+			position: relative;
+			margin: 10rpx 0;
+			padding: 0 26rpx 30rpx;
+			border-radius: 20rpx;
+			background: #ffffff;
+
+			.seller-buy-info {
+				margin: 10rpx 0;
+				// height: 310rpx;
+				.seller-name {
+					height: 86rpx;
+					line-height: 86rpx;
+					color: #1a1a1a;
+					font-size: 30rpx;
+					font-weight: bold;
+					border-bottom: 1px solid #f3f3f3;
+					.after {
+						position: absolute;
+						left: 0;
+						top: 34rpx;
+						width: 8rpx;
+						height: 30rpx;
+					}
+				}
+				.seller-goods-list {
+					position: relative;
+					margin-top: 30rpx;
+					height: 100rpx;
+					white-space: nowrap;
+					overflow: hidden;
+					.goods-image-wrap {
+						display: inline-block;
+						margin-right: 20rpx;
+						width: 100rpx;
+						height: 100rpx;
+						font-size: 0;
+					}
+					.goods-nums {
+						display: inline-flex;
+						align-items: center;
+						padding: 0 0.4em;
+						padding-left: 40rpx;
+						height: 100rpx;
+						position: absolute;
+						right: 0;
+						background-image: linear-gradient(
+							90deg,
+							rgba(255, 255, 255, 0) 0%,
+							rgba(255, 255, 255, 0.7) 20%,
+							rgba(255, 255, 255, 1) 40%,
+							#ffffff 100%
+						);
+						.tip-text {
+							color: #000000;
+							font-size: 26rpx;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+</style>
+

@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "img-bg-css": "/df-components/img-bg-css/img-bg-css",
+    "yve-icon": "/df-components/yve-icon/yve-icon",
+    "vip-card": "/packageB/order/order-components/vip-card",
+    "pei-type": "/pages/order/order-components/pei-type",
+    "user-address": "/packageB/order/order-components/user-address",
+    "coupon-modal-box": "/packageB/order/order-components/coupon-modal-box",
+    "zitidian-show": "/pages/order/order-components/duozitidian/zitidian-show",
+    "duoziti-modal": "/pages/order/order-components/duozitidian/duoziti-modal",
+    "zitidian-show-seller": "/pages/order/order-components/zitidian-show-seller"
+  }
+}

@@ -1,0 +1,94 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-10bf36f7 {
+  color: #374050;
+}
+.grey2-color.data-v-10bf36f7 {
+  color: #91939c;
+}
+.address-out-of-range-wrap.data-v-10bf36f7 {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+}
+.address-out-of-range-wrap .address-out-of-range-box.data-v-10bf36f7 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 496rpx;
+  height: 416rpx;
+  background: #ffffff;
+  border-radius: 30rpx;
+  overflow: hidden;
+}
+.address-out-of-range-wrap .address-out-of-range-box .image-wrap.data-v-10bf36f7 {
+  margin: 30rpx 0 0;
+  width: 214rpx;
+  height: 180rpx;
+}
+.address-out-of-range-wrap .address-out-of-range-box .tips-text.data-v-10bf36f7 {
+  width: 70%;
+  text-align: center;
+  line-height: 1.8;
+  font-size: 26rpx;
+  color: #3f3f3f;
+}
+.address-out-of-range-wrap .address-out-of-range-box .btn-group.data-v-10bf36f7 {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 102rpx;
+}
+.address-out-of-range-wrap .address-out-of-range-box .btn-group.data-v-10bf36f7::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  background: #f5f5f5;
+}
+.address-out-of-range-wrap .address-out-of-range-box .btn-group .btn.data-v-10bf36f7 {
+  flex: 1;
+  height: 100%;
+  font-size: 30rpx;
+}
+.address-out-of-range-wrap .address-out-of-range-box .btn-group .cancel.data-v-10bf36f7 {
+  color: #252525;
+}
+.address-out-of-range-wrap .address-out-of-range-box .btn-group .confirm.data-v-10bf36f7 {
+  color: #252525;
+}

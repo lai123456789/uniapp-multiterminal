@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "分销海报",
+  "usingComponents": {
+    "loading-css": "/df-components/loading-image/loader-css",
+    "open-setting": "/df-components/openSetting/openSetting"
+  }
+}

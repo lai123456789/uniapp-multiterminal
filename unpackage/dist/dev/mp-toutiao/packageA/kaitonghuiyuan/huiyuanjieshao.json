@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "会员",
+  "navigationBarBackgroundColor": "#272525",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "login-fn": "/df-components/loginFn/index",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "goods-spec": "/df-components/global-components/goods-spec",
+    "modal-box": "/df-components/modal-box/index",
+    "show-goods": "/packageA/kaitonghuiyuan/huiyuan-components/show-goods"
+  }
+}

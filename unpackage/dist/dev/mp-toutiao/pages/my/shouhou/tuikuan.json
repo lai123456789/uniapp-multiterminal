@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "退款详情",
+  "usingComponents": {
+    "loading-css": "/df-components/loading-image/loader-css",
+    "login-fn": "/df-components/loginFn/index",
+    "stepss": "/components/uni-stepss/uni-steps"
+  }
+}

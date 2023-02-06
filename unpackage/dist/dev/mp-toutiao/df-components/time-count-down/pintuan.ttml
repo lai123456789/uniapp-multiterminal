@@ -1,0 +1,1 @@
+<view class="time data-v-f61da4b0"><block tt:if="{{isEnd}}"><block class="data-v-f61da4b0">已结束</block></block><block tt:else><block class="data-v-f61da4b0">{{''+h1text+''}}<view class="time-box data-v-f61da4b0">{{timeArr[0]}}</view>:<view class="time-box data-v-f61da4b0">{{timeArr[1]}}</view>:<view class="time-box-red data-v-f61da4b0">{{timeArr[2]}}</view></block></block></view>

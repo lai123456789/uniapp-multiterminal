@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "常购商品",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "null-block": "/df-components/undefined-image/index",
+    "login-fn": "/df-components/loginFn/index",
+    "goods-spec": "/df-components/global-components/goods-spec",
+    "list-goods-item-rows": "/df-components/global-components/list-goods-item-row-class-page"
+  }
+}

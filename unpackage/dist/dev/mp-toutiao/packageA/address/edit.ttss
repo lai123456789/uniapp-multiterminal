@@ -1,0 +1,136 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-b1b45a0a {
+  color: #374050;
+}
+.grey2-color.data-v-b1b45a0a {
+  color: #91939c;
+}
+.from-content.data-v-b1b45a0a {
+  margin-top: 20rpx;
+  background: #ffffff;
+}
+.from-content .line.data-v-b1b45a0a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90rpx;
+  font-size: 26rpx;
+  border-bottom: 1px solid #f5f5f5;
+}
+.from-content .line.data-v-b1b45a0a:last-child {
+  border: none;
+}
+.from-content .line .text-title.data-v-b1b45a0a {
+  display: flex;
+  align-items: center;
+  width: 155rpx;
+  height: 100%;
+}
+.from-content .line .text-content.data-v-b1b45a0a {
+  flex: 1;
+  font-size: 26rpx;
+}
+.from-content .line .text-content.autoMapSelect.data-v-b1b45a0a {
+  color: #91939c;
+  text-overflow: ellipsis;
+  /*设置溢出显示类型为...*/
+  -webkit-line-clamp: 2;
+  /*设置显示的行数*/
+  overflow: hidden;
+  /*隐藏多于行*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示*/
+  -webkit-box-orient: vertical;
+  /*设置或检索伸缩盒对象的子元素的排列方式*/
+}
+.from-content .line .icon-block.data-v-b1b45a0a {
+  display: flex;
+  justify-content: flex-end;
+  width: 150rpx;
+}
+.from-content .line .grey1-color.data-v-b1b45a0a {
+  color: #374050;
+}
+.from-content .line .grey2-color.data-v-b1b45a0a {
+  color: #91939c;
+}
+.from-content .line input.data-v-b1b45a0a {
+  font-size: 26rpx;
+}
+.from-content .line .sex-block.data-v-b1b45a0a {
+  display: flex;
+}
+.from-content .line .sex-block .sex.data-v-b1b45a0a {
+  margin-right: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.from-content .line .sex-block .sex text.data-v-b1b45a0a {
+  margin-right: 0.2em;
+}
+.from-content .line .tag-list .tag-block.data-v-b1b45a0a {
+  margin: 0 10rpx;
+}
+.from-content .set-default-address.data-v-b1b45a0a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120rpx;
+}
+.from-content .set-default-address .text-block.data-v-b1b45a0a {
+  display: flex;
+  flex-direction: column;
+}
+.from-content .set-default-address .text-block .h4.data-v-b1b45a0a {
+  font-size: 26rpx;
+  color: #374050;
+  line-height: 40rpx;
+}
+.from-content .set-default-address .text-block .h5.data-v-b1b45a0a {
+  font-size: 22rpx;
+  color: #91939c;
+}
+.btn-group.data-v-b1b45a0a {
+  padding-top: 80rpx;
+}
+.btn-group .btn-save.data-v-b1b45a0a,
+.btn-group .btn-del.data-v-b1b45a0a {
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 704rpx;
+  height: 84rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+  background-image: linear-gradient(90deg, #6ccc4f, #60c669);
+}
+.btn-group .btn-del.data-v-b1b45a0a {
+  background: #dfdfdf;
+  color: #ffffff;
+}

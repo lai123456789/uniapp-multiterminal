@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "coupon-item": "/pages/index/index-components/home-coupon-modal-components/coupon-item"
+  }
+}

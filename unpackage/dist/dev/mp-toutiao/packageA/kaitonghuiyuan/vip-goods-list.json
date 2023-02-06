@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "会员专享",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "null-block": "/df-components/undefined-image/index",
+    "fixed-cart-icon": "/df-components/fixed-cart-icon/fixed-cart-icon",
+    "login-fn": "/df-components/loginFn/index",
+    "goods-spec": "/df-components/global-components/goods-spec",
+    "show-goods-row": "/packageA/kaitonghuiyuan/huiyuan-components/show-goods-row"
+  }
+}

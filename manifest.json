@@ -1,0 +1,195 @@
+{
+    "name" : "万象优鲜商城生鲜配送系统生鲜批发版本APP小程序公众号抖音小程序快手商城小程序",
+    "appid" : "",
+    "description" : "线上商城",
+    "versionName" : "3.1",
+    "versionCode" : 40,
+    "transformPx" : false,
+    "app-plus" : {
+        "nvueCompiler" : "uni-app",
+        "compilerVersion" : 3,
+        "modules" : {
+            "OAuth" : {},
+            "Payment" : {},
+            "Maps" : {},
+            "Geolocation" : {},
+            "Share" : {},
+            "VideoPlayer" : {}
+        },
+        "compatible" : {
+            "ignoreVersion" : true
+        },
+        "distribute" : {
+            "android" : {
+                "permissionPhoneState" : {
+                    "request" : "none",
+                    "prompt" : "为保证您正常、安全地使用，需要获取设备识别码（部分手机提示为获取手机号码）使用权限，请允许。"
+                },
+                "permissionExternalStorage" : {
+                    "request" : "none",
+                    "prompt" : "应用保存运行状态等信息，需要获取读写手机存储（系统提示为访问设备上的照片、媒体内容和文件）权限，请允许。"
+                },
+                "permissions" : [
+                    "<uses-feature android:name=\"android.hardware.camera\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+                    "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.INTERNET\"/>",
+                    "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
+                ]
+            },
+            "ios" : {
+                "idfa" : false,
+                "privacyDescription" : {
+                    "NSLocationWhenInUseUsageDescription" : "该应用需要获取你的地理位置, 判断你是否在配送范围内",
+                    "NSLocationAlwaysAndWhenInUseUsageDescription" : "该应用需要获取你的地理位置, 判断你是否在配送范围内",
+                    "NSPhotoLibraryUsageDescription" : "该应用需要使用您的相册用于头像图片上传",
+                    "NSCameraUsageDescription" : "该应用需要使用您的摄像头用于头像拍照上传"
+                }
+            },
+            "distribute" : {
+                "orientation" : [ "portrait-primary" ]
+            },
+            "sdkConfigs" : {
+                "ad" : {},
+                "payment" : {
+                    "weixin" : {
+                        "appid" : "wx56499c8e6e337fae",
+                        "UniversalLinks" : "https://line.sjwxsc.com/ulink/",
+                        "__platform__" : [ "ios", "android" ]
+                    },
+                    "alipay" : {
+                        "__platform__" : [ "ios", "android" ]
+                    },
+                    "appleiap" : {}
+                },
+                "oauth" : {
+                    "weixin" : {
+                        "appid" : "wx56499c8e6e337fae",
+                        "appsecret" : "4ae8a263947bf390a918e1fe01c607be",
+                        "UniversalLinks" : "https://line.sjwxsc.com/ulink/"
+                    }
+                },
+                "share" : {
+                    "weixin" : {
+                        "appid" : "wx56499c8e6e337fae",
+                        "UniversalLinks" : "https://line.sjwxsc.com/ulink/"
+                    }
+                },
+                "maps" : {
+                    "amap" : {
+                        "appkey_ios" : "82ac4e9149183be4d1315f4123fdfa7e",
+                        "appkey_android" : "82ac4e9149183be4d1315f4123fdfa7e"
+                    }
+                },
+                "geolocation" : {
+                    "amap" : {
+                        "__platform__" : [ "ios", "android" ],
+                        "appkey_ios" : "82ac4e9149183be4d1315f4123fdfa7e",
+                        "appkey_android" : "82ac4e9149183be4d1315f4123fdfa7e"
+                    }
+                }
+            },
+            "icons" : {
+                "android" : {
+                    "hdpi" : "unpackage/res/icons/72x72.png",
+                    "xhdpi" : "unpackage/res/icons/96x96.png",
+                    "xxhdpi" : "unpackage/res/icons/144x144.png",
+                    "xxxhdpi" : "unpackage/res/icons/192x192.png"
+                },
+                "ios" : {
+                    "appstore" : "unpackage/res/icons/1024x1024.png",
+                    "ipad" : {
+                        "app" : "unpackage/res/icons/76x76.png",
+                        "app@2x" : "unpackage/res/icons/152x152.png",
+                        "notification" : "unpackage/res/icons/20x20.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "proapp@2x" : "unpackage/res/icons/167x167.png",
+                        "settings" : "unpackage/res/icons/29x29.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "spotlight" : "unpackage/res/icons/40x40.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png"
+                    },
+                    "iphone" : {
+                        "app@2x" : "unpackage/res/icons/120x120.png",
+                        "app@3x" : "unpackage/res/icons/180x180.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "notification@3x" : "unpackage/res/icons/60x60.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "settings@3x" : "unpackage/res/icons/87x87.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png",
+                        "spotlight@3x" : "unpackage/res/icons/120x120.png"
+                    }
+                }
+            },
+            "splashscreen" : {
+                "androidStyle" : "default"
+            }
+        }
+    },
+    "quickapp" : {},
+    "mp-weixin" : {
+        "plugins" : {
+            "live-player-plugin" : {
+                "version" : "1.2.7",
+                "provider" : "wx2b03c6e691cd7370"
+            }
+        },
+        "appid" : "",
+        "setting" : {
+            "urlCheck" : false,
+            "minified" : true,
+            "es6" : true
+        },
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "请求访问位置权限"
+            }
+        }
+    },
+    "h5" : {
+        "sdkConfigs" : {
+            "maps" : {
+                "qqmap" : {
+                    "key" : "5ARBZ-ZTBC4-V6XUB-XMNGG-EVVF6-SGBSX"
+                }
+            }
+        },
+        "title" : "首页",
+        "router" : {
+            "mode" : "hash",
+            "base" : "/h5"
+        },
+        "domain" : "http://localhost",
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : false
+            }
+        }
+    },
+    "mp-toutiao" : {
+        "appid" : "",
+        "setting" : {
+            "urlCheck" : false
+        }
+    },
+    "vueVersion" : "2"
+}

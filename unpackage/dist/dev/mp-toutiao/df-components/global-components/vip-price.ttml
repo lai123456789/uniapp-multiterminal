@@ -1,0 +1,1 @@
+<view class="vip-wrap data-v-11d40744"><view class="iconfont icon-VIP1 data-v-11d40744" style="font-size:20rpx;color:#f5d8ae;"></view><view class="vip-text data-v-11d40744"><view class="money-icon data-v-11d40744">￥</view><slot></slot></view></view>

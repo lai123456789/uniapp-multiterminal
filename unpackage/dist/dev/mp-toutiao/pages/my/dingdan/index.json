@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "我的订单",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "null-block": "/df-components/undefined-image/index",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "login-fn": "/df-components/loginFn/index",
+    "card-dingdan": "/df-components/card-dingdan/card-dingdan"
+  }
+}

@@ -1,0 +1,21 @@
+{
+    "uni_modules": {
+        "encrypt": [
+            "uniCloud-aliyun/cloudfunctions/function/index.js"
+        ]
+    },
+    "id": "wanxiangyouxian-002",
+    "name": "万象优鲜商城生鲜配送系统生鲜批发版本APP小程序公众号抖音小程序快手商城小程序",
+    "version": "3.2.0",
+    "description": "万象优鲜商城生鲜配送系统生鲜批发版本APP小程序公众号抖音小程序快手商城小程序",
+    "keywords": [
+        "批发采购版本，零售门店版本，多商户生鲜版本"
+    ],
+    "dcloudext": {
+        "category": [
+            "uni-app前端模板",
+            "uni-app前端项目模板"
+        ]
+    },
+    "displayName": "万象优鲜商城生鲜配送系统生鲜批发版本APP小程序公众号抖音小程序快手商城小程序"
+}

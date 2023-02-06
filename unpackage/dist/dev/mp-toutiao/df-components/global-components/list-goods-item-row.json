@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "img-bg-css": "/df-components/img-bg-css/img-bg-css",
+    "icon-hot-wrap": "/df-components/icon-hot-wrap/index",
+    "no1-ngys-nremove-class": "/df-components/global-components/list-goods-item-bottom-style/no1-ngys-nremove-class",
+    "no2-ngys-yremove-class": "/df-components/global-components/list-goods-item-bottom-style/no2-ngys-yremove-class",
+    "no3-ygys-nremove-class": "/df-components/global-components/list-goods-item-bottom-style/no3-ygys-nremove-class",
+    "no4-ygys-yremove-class": "/df-components/global-components/list-goods-item-bottom-style/no4-ygys-yremove-class"
+  }
+}

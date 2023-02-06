@@ -1,0 +1,19 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "购物车",
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "img-bg-css": "/df-components/img-bg-css/img-bg-css",
+    "vip-price": "/df-components/global-components/vip-price",
+    "list-goods-item": "/df-components/global-components/list-goods-item",
+    "goods-spec": "/df-components/global-components/goods-spec",
+    "login-fn": "/df-components/loginFn/index",
+    "hans-tabbar": "/df-components/hans-tabbar/hans-tabbar",
+    "is-active-icon": "/pages/cart/cart-components/is-active-icon",
+    "cart-control-btn": "/pages/cart/cart-components/cart-control-btn",
+    "invalid-goods-wrap": "/pages/cart/cart-components/invalid-goods-wrap",
+    "discounts-modal": "/pages/cart/cart-components/discounts-modal"
+  }
+}

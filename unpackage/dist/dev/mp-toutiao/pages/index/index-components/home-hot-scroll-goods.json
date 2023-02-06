@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "scroll-goods-item": "/df-components/global-components/scroll-goods-item"
+  }
+}

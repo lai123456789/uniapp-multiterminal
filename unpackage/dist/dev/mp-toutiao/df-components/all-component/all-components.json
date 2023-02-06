@@ -1,0 +1,13 @@
+{
+  "component": true,
+  "usingComponents": {
+    "style1": "/df-components/all-component/template-components/home-banner-style1",
+    "style2": "/df-components/all-component/template-components/home-banner-style2",
+    "style3": "/df-components/all-component/template-components/home-banner-style3",
+    "style4": "/df-components/all-component/template-components/home-banner-style4",
+    "style5": "/df-components/all-component/template-components/home-banner-style5",
+    "style6": "/df-components/all-component/template-components/home-banner-style6",
+    "style7": "/df-components/all-component/template-components/home-banner-style7",
+    "style8": "/df-components/all-component/template-components/home-banner-style8"
+  }
+}

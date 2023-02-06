@@ -1,0 +1,5 @@
+<view class="setAddressPage data-v-ac5ed468"><image src="{{$root.m0}}" class="data-v-ac5ed468"></image><view class="h4 data-v-ac5ed468">定位服务未开启</view><view class="h5 data-v-ac5ed468">请打开手机系统设置中的定位权限，
+
+		同时在小程序中开通 「定位服务」。
+
+		程序知道您的位置才能更好地服务哦</view><button class="xcxAdrBtn data-v-ac5ed468" style="{{'background:'+(configInfo.web_site_color)+';'}}" type="default" data-event-opts="{{[['tap',[['openSettingFn',['$event']]]]]}}" bindtap="__e">开通地址权限</button><block tt:if="{{isShowSearchBtn}}"><button class="searchAdrBtn data-v-ac5ed468" style="{{'color:'+(configInfo.web_site_color)+';'+('border:'+('1px solid '+configInfo.web_site_color)+';')}}" type="default" data-event-opts="{{[['tap',[['navigateToFn',[['o',['url','/packageA/set-address-page/user-select-address']]]]]]]}}" bindtap="__e">手动搜索地址</button></block></view>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "loading-css": "/df-components/loading-image/loader-css",
+    "img-bg-css": "/df-components/img-bg-css/img-bg-css",
+    "yve-icon": "/df-components/yve-icon/yve-icon",
+    "vip-card": "/packageB/order/order-components/vip-card"
+  }
+}

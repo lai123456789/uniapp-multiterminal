@@ -1,0 +1,1 @@
+<view class="seller-promise-price-show-wrap data-v-d0b1ce8a"><view class="promise-block data-v-d0b1ce8a"><rich-text nodes="{{sellerPromise}}" class="data-v-d0b1ce8a"></rich-text></view><view class="jiageshuoming data-v-d0b1ce8a"><rich-text nodes="{{priceShow}}" class="data-v-d0b1ce8a"></rich-text></view></view>

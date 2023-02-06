@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "zitidian-list-item": "/pages/order/order-components/duozitidian/zitidian-list-item"
+  }
+}

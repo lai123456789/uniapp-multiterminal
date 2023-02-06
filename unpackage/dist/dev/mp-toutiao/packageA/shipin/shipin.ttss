@@ -1,0 +1,131 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-7ed03909 {
+  color: #374050;
+}
+.grey2-color.data-v-7ed03909 {
+  color: #91939c;
+}
+.page.data-v-7ed03909 {
+  width: 100vw;
+  height: 100vh;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+.page .swiper-wrap.data-v-7ed03909,
+.page .swiper-item-box.data-v-7ed03909,
+.page .swiper-item.data-v-7ed03909,
+.page .video-dom.data-v-7ed03909,
+.page .video.data-v-7ed03909 {
+  width: 100vw;
+  height: 100vh;
+}
+.goods-block.data-v-7ed03909 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  z-index: 125;
+  left: 20rpx;
+  bottom: 160rpx;
+  padding: 14rpx 10rpx;
+  width: 400rpx;
+  height: 150rpx;
+  background: #ffffff;
+  border-radius: 10rpx;
+}
+.goods-block .goods-img-wrap.data-v-7ed03909 {
+  width: 130rpx;
+  height: 130rpx;
+}
+.goods-block .goods-img-wrap image.data-v-7ed03909 {
+  width: 130rpx;
+  height: 130rpx;
+}
+.goods-block .descripttion.data-v-7ed03909 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 10rpx;
+}
+.goods-block .descripttion .txt.data-v-7ed03909 {
+  text-overflow: ellipsis;
+  /*设置溢出显示类型为...*/
+  -webkit-line-clamp: 2;
+  /*设置显示的行数*/
+  overflow: hidden;
+  /*隐藏多于行*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示*/
+  -webkit-box-orient: vertical;
+  /*设置或检索伸缩盒对象的子元素的排列方式*/
+  font-size: 28rpx;
+  color: #464646;
+}
+.goods-block .descripttion .price.data-v-7ed03909 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.goods-block .descripttion .price .money.data-v-7ed03909 {
+  font-size: 26rpx;
+  color: #ea3a37;
+}
+.right-btn.data-v-7ed03909 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  z-index: 25;
+  right: 26rpx;
+  bottom: 250rpx;
+  width: 78rpx;
+  height: 134rpx;
+}
+.right-btn .btn-block.data-v-7ed03909 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 78rpx;
+  height: 78rpx;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+}
+.right-btn .btn-block image.data-v-7ed03909 {
+  width: 54rpx;
+  height: 54rpx;
+}
+.right-btn .text.data-v-7ed03909 {
+  color: #ffffff;
+  line-height: 2em;
+  font-size: 26rpx;
+}
+.right-btn.share.data-v-7ed03909 {
+  bottom: 404rpx;
+}

@@ -1,0 +1,180 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-3f0269d2 {
+  color: #374050;
+}
+.grey2-color.data-v-3f0269d2 {
+  color: #91939c;
+}
+.invalid-goods-item.data-v-3f0269d2 {
+  display: flex;
+  position: relative;
+  padding: 20rpx 0;
+  height: 220rpx;
+}
+.invalid-goods-item.data-v-3f0269d2::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 20rpx;
+  right: 20rpx;
+  height: 1px;
+  background: #f1f1f1;
+}
+.invalid-goods-item.last-child.data-v-3f0269d2::after {
+  display: none;
+}
+.invalid-goods-item .goods-state.data-v-3f0269d2 {
+  width: 76rpx;
+  height: 180rpx;
+}
+.invalid-goods-item .goods-state .goods-state-text.data-v-3f0269d2 {
+  padding: 0 10rpx;
+  background: #929398;
+  font-size: 20rpx;
+  color: #ffffff;
+  line-height: 36rpx;
+  text-align: center;
+}
+.invalid-goods-item .goods-image-wrap-block.data-v-3f0269d2,
+.invalid-goods-item .goods-info-block.data-v-3f0269d2 {
+  -webkit-filter: grayscale(30%);
+          filter: grayscale(30%);
+}
+.invalid-goods-item .goods-image-wrap-block.data-v-3f0269d2 {
+  position: relative;
+  width: 180rpx;
+  height: 180rpx;
+}
+.invalid-goods-item .goods-image-wrap-block .tag-img-wrap.data-v-3f0269d2 {
+  position: absolute;
+  z-index: 15;
+  top: 10rpx;
+  left: 10rpx;
+  width: 54rpx;
+  height: 54rpx;
+}
+.invalid-goods-item .goods-info-block.data-v-3f0269d2 {
+  position: relative;
+  padding: 0 24rpx 0 20rpx;
+  width: 446rpx;
+  height: 180rpx;
+}
+.invalid-goods-item .goods-info-block .goods-name.data-v-3f0269d2 {
+  width: 402rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  font-size: 30rpx;
+  color: #374050;
+  font-weight: bold;
+}
+.invalid-goods-item .goods-info-block .goods-description_spec-key-block.data-v-3f0269d2 {
+  display: flex;
+  align-items: center;
+  width: 402rpx;
+  height: 36rpx;
+}
+.invalid-goods-item .goods-info-block .goods-description_spec-key-block .goods-description-text.data-v-3f0269d2,
+.invalid-goods-item .goods-info-block .goods-description_spec-key-block .goods-spec-key-name-text.data-v-3f0269d2 {
+  width: 402rpx;
+  font-size: 26rpx;
+  color: #91939c;
+}
+.invalid-goods-item .goods-info-block .goods-tag-block.data-v-3f0269d2 {
+  display: flex;
+  align-items: center;
+  width: 402rpx;
+  height: 52rpx;
+  overflow: hidden;
+}
+.invalid-goods-item .goods-info-block .goods-tag-block .goods-tag.data-v-3f0269d2 {
+  display: inline-block;
+  padding: 0rpx 10rpx;
+  color: #ff6128;
+  line-height: 32rpx;
+  font-size: 18rpx;
+  border-radius: 8rpx;
+  border: 1px solid #ff6128;
+}
+.invalid-goods-item .goods-info-block .bottom-price-block.data-v-3f0269d2 {
+  display: flex;
+  align-items: center;
+  height: 42rpx;
+}
+.invalid-goods-item .goods-info-block .bottom-price-block .price-block.data-v-3f0269d2 {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  padding: 0 10rpx 0 0;
+  height: 40rpx;
+  color: #eb3c39;
+  font-weight: bold;
+}
+.invalid-goods-item .goods-info-block .bottom-price-block .price-block .price-icon.data-v-3f0269d2 {
+  display: inline-block;
+  margin-right: 2rpx;
+  line-height: 40rpx;
+  font-size: 18rpx;
+}
+.invalid-goods-item .goods-info-block .bottom-price-block .price-block .price-text.data-v-3f0269d2 {
+  flex: 1;
+  display: inline-block;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.invalid-goods-item .goods-info-block .bottom-price-block .price-right-block.data-v-3f0269d2 {
+  padding-left: 4rpx;
+}
+.invalid-goods-item .goods-info-block .bottom-price-block .price-right-block .price-line.data-v-3f0269d2 {
+  font-size: 24rpx;
+  color: #91939c;
+  text-decoration: line-through;
+}
+.invalid-goods-item .goods-info-block .control-block.data-v-3f0269d2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  right: 24rpx;
+  bottom: 0;
+  width: 160rpx;
+  height: 54rpx;
+}
+.invalid-goods-item .goods-info-block .control-block .input-dom.data-v-3f0269d2 {
+  display: flex;
+  margin: 0 10rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #374050;
+}
+.invalid-goods-item .goods-info-block .control-block .control-btn-block.data-v-3f0269d2 {
+  width: 54rpx;
+}

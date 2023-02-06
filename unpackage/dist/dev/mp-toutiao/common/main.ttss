@@ -1,0 +1,321 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color {
+  color: #374050;
+}
+.grey2-color {
+  color: #91939c;
+}
+.content-wrap {
+  padding: 0 24rpx;
+}
+swiper,
+swiper-item,
+view,
+text {
+  box-sizing: border-box;
+  font-family: "微软雅黑";
+}
+.red-price {
+  color: #ea3a37;
+}
+.text-red-price {
+  color: #ea3a37 !important;
+}
+.tag-block {
+  display: inline-flex;
+  align-items: center;
+  padding: 0rpx 10rpx;
+  border-radius: 8rpx;
+  height: 32rpx;
+  border: 1px solid #ff6128;
+  color: #ff6128;
+  font-size: 18rpx;
+}
+.tag-block.defaultStyle {
+  background: #efefef;
+  border: 1px solid #afafaf;
+  color: #afafaf;
+}
+.tag-block.blueStyle {
+  background: #ebf8ff;
+  border: 1px solid #5fc7ff;
+  color: #5fc7ff;
+}
+.tag-block.pinkStyle {
+  background: #ffebf7;
+  border: 1px solid #ff60bf;
+  color: #ff60bf;
+}
+.tag-block.greenStyle {
+  background: #f4fff0;
+  border: 1px solid #6bc74c;
+  color: #6bc74c;
+}
+.tag-block.yellowStyle {
+  background: #fff2e0;
+  border: 1px solid #ffbe60;
+  color: #ffbe60;
+}
+.tag-block.orangeStyle {
+  background: #fff0eb;
+  border: 1px solid #ff6027;
+  color: #ff6027;
+}
+.tag-block.redStyle {
+  background: #ffdfe9;
+  border: 1px solid #ff1862;
+  color: #ff1862;
+}
+.filterStyle {
+  -webkit-filter: blur(12rpx);
+          filter: blur(12rpx);
+}
+.border-radius {
+  border-radius: 10000rpx;
+}
+.border-radius20 {
+  border-radius: 20rpx;
+}
+.filterGray {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}
+.stopScrollStyle {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.clear-btn-style {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: inherit;
+  text-align: left;
+  text-decoration: none;
+  line-height: inherit;
+  border-radius: 0;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  cursor: pointer;
+  color: inherit;
+  background-color: transparent;
+}
+.text-wrap {
+  background: #ffffff;
+  text-align: right;
+}
+.text-wrap .right-text-block {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #525a68;
+  line-height: 60rpx;
+}
+.hide-canvas-dom {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transform: translateY(-1000vh);
+          transform: translateY(-1000vh);
+}
+.box-sizing {
+  box-sizing: border-box;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-size {
+  width: 100%;
+  height: 100%;
+}
+.border-radius-style-all-arg {
+  border-radius: 10000rpx !important;
+}
+.border-radius-style-half-arg {
+  border-radius: 10rpx !important;
+}
+.hans-tabbar .hans-tabbar-height {
+  height: 112rpx;
+}
+.hans-tabbar .hans-tabbar-height.isiPhoneXClass {
+  height: 142rpx;
+}
+.hans-tabbar .hans-tabbar-fixde {
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  height: 56px;
+}
+.hans-tabbar .hans-tabbar-fixde.isiPhoneXClass {
+  bottom: 30rpx;
+}
+.root-page {
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #f5f5f5;
+  font-family: "微软雅黑";
+}
+button::after {
+  content: "";
+  border: none;
+}
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.text-ellipsis-rows {
+  text-overflow: ellipsis;
+  /*设置溢出显示类型为...*/
+  -webkit-line-clamp: 2;
+  /*设置显示的行数*/
+  overflow: hidden;
+  /*隐藏多于行*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示*/
+  -webkit-box-orient: vertical;
+  /*设置或检索伸缩盒对象的子元素的排列方式*/
+}
+.btn-green {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 704rpx;
+  height: 84rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+  background-image: linear-gradient(90deg, #6ccc4f, #60c669);
+}
+@font-face {
+  font-family: "iconfont";
+  src: url(data:font/woff2;base64,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) format("woff2");
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-daochu1024-30:before {
+  content: "";
+}
+.icon-chahao:before {
+  content: "";
+}
+.icon-icon_gantanhaozhong:before {
+  content: "";
+}
+.icon-ziyuan:before {
+  content: "";
+}
+.icon-dizhitianchong-:before {
+  content: "";
+}
+.icon-dizhipipei:before {
+  content: "";
+}
+.icon-fangdajing:before {
+  content: "";
+}
+.icon-guanbi:before {
+  content: "";
+}
+.icon-dianhua:before {
+  content: "";
+}
+.icon-sanjiao:before {
+  content: "";
+}
+.icon-yishoucang:before {
+  content: "";
+}
+.icon-jiarushoucang:before {
+  content: "";
+}
+.icon-kefu1:before {
+  content: "";
+}
+.icon-gouwuche2:before {
+  content: "";
+}
+.icon-fangzi:before {
+  content: "";
+}
+.icon-icon_play:before {
+  content: "";
+}
+.icon-jianshao:before {
+  content: "";
+}
+.icon-jia:before {
+  content: "";
+}
+.icon-VIP1:before {
+  content: "";
+}
+.icon-fanhuidingbu:before {
+  content: "";
+}
+.icon-zhifubao:before {
+  content: "";
+}
+.icon-solid-star:before {
+  content: "";
+}
+.icon-weixin:before {
+  content: "";
+}
+.icon-VIP:before {
+  content: "";
+}
+.icon-arrow-right-copy-copy:before {
+  content: "";
+}
+.icon-circle:before {
+  content: "";
+}
+.icon-circle1:before {
+  content: "";
+}
+/* 
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/

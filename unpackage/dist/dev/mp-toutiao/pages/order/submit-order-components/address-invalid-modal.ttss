@@ -1,0 +1,107 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-3747a90f {
+  color: #374050;
+}
+.grey2-color.data-v-3747a90f {
+  color: #91939c;
+}
+.invalid-modal-wrap.data-v-3747a90f {
+  position: fixed;
+  z-index: 450;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+}
+.invalid-modal-wrap .content-box.data-v-3747a90f {
+  margin: 0 108rpx;
+  padding: 22rpx 40rpx;
+  background: #ffffff;
+  border-radius: 20rpx;
+}
+.invalid-modal-wrap .content-box .title-text.data-v-3747a90f {
+  height: 54rpx;
+  line-height: 54rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #474246;
+  font-weight: bold;
+}
+.invalid-modal-wrap .content-box .invalid-msg.data-v-3747a90f {
+  width: 454rpx;
+  height: 76rpx;
+  white-space: nowrap;
+  line-height: 76rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #474246;
+}
+.invalid-modal-wrap .content-box .invalid-msg .invalid-msg-text.data-v-3747a90f {
+  display: inline-block;
+}
+.invalid-modal-wrap .content-box .goods-list-wrap.data-v-3747a90f {
+  overflow: hidden;
+  height: 134rpx;
+}
+.invalid-modal-wrap .content-box .goods-list-wrap .goods-list.data-v-3747a90f {
+  width: 454rpx;
+  overflow-y: hidden;
+  font-size: 0;
+  white-space: nowrap;
+  height: 154rpx;
+}
+.invalid-modal-wrap .content-box .goods-list-wrap .goods-list .goods-item.data-v-3747a90f {
+  display: inline-block;
+  margin-left: 20rpx;
+  width: 134rpx;
+  height: 134rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.invalid-modal-wrap .content-box .goods-list-wrap .goods-list .goods-item.data-v-3747a90f:first-child {
+  margin-left: 0;
+}
+.invalid-modal-wrap .content-box .btn-block.data-v-3747a90f {
+  display: flex;
+  justify-content: center;
+  font-size: 22rpx;
+}
+.invalid-modal-wrap .content-box .btn-block .btn-commit.data-v-3747a90f {
+  margin: 0 14rpx;
+  width: 190rpx;
+  height: 70rpx;
+  color: #474246;
+  border: 1px solid #ebebeb;
+}
+.invalid-modal-wrap .content-box .btn-block .btn-toback.data-v-3747a90f {
+  margin: 0 14rpx;
+  width: 190rpx;
+  height: 70rpx;
+  color: #ffffff;
+}

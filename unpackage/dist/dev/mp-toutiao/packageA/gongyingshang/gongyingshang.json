@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "供应商招募",
+  "usingComponents": {
+    "loading-css": "/df-components/loading-image/loader-css"
+  }
+}

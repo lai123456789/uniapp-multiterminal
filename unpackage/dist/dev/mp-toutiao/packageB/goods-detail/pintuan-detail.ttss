@@ -1,0 +1,367 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-734d885d {
+  color: #374050;
+}
+.grey2-color.data-v-734d885d {
+  color: #91939c;
+}
+.layout.data-v-734d885d {
+  width: 750rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.layout .layout-left.data-v-734d885d {
+  width: 450rpx;
+  height: 100rpx;
+  line-height: 70rpx;
+  color: #ffffff;
+  /* background-color: #09bd04; */
+  padding: 18rpx;
+}
+.layout .layout-right.data-v-734d885d {
+  width: 300rpx;
+  height: 100rpx;
+  color: #ffffff;
+  background: #fcaf36;
+  display: flex;
+  align-items: center;
+  font-size: 25rpx;
+  flex-direction: column;
+  justify-content: center;
+}
+.goods-description-block.data-v-734d885d {
+  margin-top: 20rpx;
+}
+.goods-description-block .goods-description.data-v-734d885d {
+  font-size: 25rpx;
+  color: #91939c;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.goods-description-block .goods-descriptions.data-v-734d885d {
+  font-size: 25rpx;
+  color: #91939c;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* overflow: hidden; */
+}
+.goods-name_share.data-v-734d885d {
+  display: flex;
+}
+.goods-name_share .goods-name.data-v-734d885d {
+  flex: 1;
+  margin-bottom: 10px;
+  line-height: 1.3em;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #374050;
+}
+.goods-name_share .share-btn.data-v-734d885d {
+  padding-top: 10rpx;
+  width: 80rpx;
+  padding-top: 10rpx;
+}
+.goods-block.data-v-734d885d {
+  border-top: 20rpx solid #f5f5f5;
+  border-bottom: 20rpx solid #f5f5f5;
+}
+.goods-block .title.data-v-734d885d {
+  line-height: 90rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #374050;
+}
+.detail-row.data-v-734d885d {
+  border-top: 20rpx solid #f5f5f5;
+  padding-bottom: 10rpx;
+}
+.detail-row .title-block.data-v-734d885d {
+  display: flex;
+  height: 88rpx;
+}
+.detail-row .title-block .title-btn.data-v-734d885d {
+  height: 88rpx;
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #374050;
+  position: relative;
+}
+.start-pintuan-block.data-v-734d885d {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 0px 8px #c3c3c3;
+  z-index: 100;
+}
+.start-pintuan-block .bottom-left.data-v-734d885d {
+  width: 150rpx;
+  font-size: 55rpx;
+  line-height: 40rpx;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #e3e3e3;
+  padding: 5rpx;
+}
+.start-pintuan-block .bottom-right.data-v-734d885d {
+  width: 150rpx;
+  font-size: 40rpx;
+  font-weight: 500;
+  line-height: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rpx;
+}
+.start-pintuan-block .shoping-type.data-v-734d885d {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 98rpx;
+}
+.start-pintuan-block .shoping-type .tip-text.data-v-734d885d {
+  font-size: 20rpx;
+  font-weight: 600;
+}
+.start-pintuan-block .shoping-type.every-body .price-wrap .origin-price text.data-v-734d885d,
+.start-pintuan-block .shoping-type.every-body .price-wrap .origin-price.data-v-734d885d {
+  color: #ffffff !important;
+}
+.start-pintuan-block .shoping-type.every-body .tip-text.data-v-734d885d {
+  color: #ffffff;
+}
+.start-pintuan-block .shoping-type .price-wrap .shop-price-block-lr.data-v-734d885d {
+  white-space: nowrap;
+  display: inline-block;
+}
+.start-pintuan-block .shoping-type .price-wrap .shop-price-block-lr .origin-price.data-v-734d885d {
+  white-space: nowrap;
+  display: inline-block;
+  color: #ea3a37;
+  font-size: 18rpx;
+  font-weight: 900;
+}
+.start-pintuan-block .shoping-type .price-wrap .shop-price-block-lr .origin-price text.data-v-734d885d {
+  color: #ea3a37;
+  font-size: 28rpx;
+}
+.start-pintuan-block .shoping-type .price-wrap .shop-price-block-lr .line-price.data-v-734d885d {
+  white-space: nowrap;
+  display: inline-block;
+  text-indent: 0.6em;
+  font-size: 24rpx;
+  color: #91939c;
+  text-decoration: line-through;
+}
+.list-table.data-v-734d885d {
+  margin-left: 25rpx;
+  font-size: 25rpx;
+  font-weight: 600;
+}
+.list-tables.data-v-734d885d {
+  font-size: 25rpx;
+  font-weight: 600;
+}
+.info.data-v-734d885d {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 340rpx;
+  margin-left: 25rpx;
+}
+.info .info-userinfo.data-v-734d885d {
+  position: relative;
+  width: 120rpx;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.info .info-style.data-v-734d885d {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 70rpx;
+  height: 70rpx;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+}
+.info .Hide.data-v-734d885d {
+  width: 200rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.center-time.data-v-734d885d {
+  width: 410rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content.data-v-734d885d {
+  float: left;
+  width: 260rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+.root-bottom.data-v-734d885d {
+  width: 120rpx;
+  height: 50rpx;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  margin-right: 10rpx;
+  background-color: #e02e24;
+  border-radius: 3px;
+  float: right;
+  text-align: center;
+  color: #ffffff;
+}
+.pintuan-list-modal.data-v-734d885d {
+  position: fixed;
+  z-index: 800;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+}
+.pintuan-list-modal .pintuan-list-box.data-v-734d885d {
+  position: relative;
+  width: 554rpx;
+  height: 750rpx;
+  background: #ffffff;
+  border-radius: 14rpx;
+}
+.pintuan-list-modal .pintuan-list-box .title-text.data-v-734d885d {
+  height: 94rpx;
+  line-height: 94rpx;
+  font-size: 34rpx;
+  color: #000000;
+  text-align: center;
+  border-bottom: 1px solid #f2f2f2;
+}
+.pintuan-list-modal .pintuan-list-box .close-btn.data-v-734d885d {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: translateX(50%) translateY(-50%);
+          transform: translateX(50%) translateY(-50%);
+  width: 56rpx;
+  height: 56rpx;
+  background: #e0e0e0;
+  border-radius: 50%;
+}
+.pintuan-list-modal .pintuan-list-box .close-btn.data-v-734d885d::before, .pintuan-list-modal .pintuan-list-box .close-btn.data-v-734d885d::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 26rpx;
+  height: 4rpx;
+  background: #5f5f5f;
+  border-radius: 1000rpx;
+}
+.pintuan-list-modal .pintuan-list-box .close-btn.data-v-734d885d::before {
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+}
+.pintuan-list-modal .pintuan-list-box .close-btn.data-v-734d885d::after {
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+}
+.pintuan-list-modal .pintuan-list-box .scroll-view-dom.data-v-734d885d {
+  height: 656rpx;
+}
+.pintuan-list-modal .pintuan-list-box .pintuan-list.data-v-734d885d {
+  width: 100%;
+}
+.pintuan-list-modal .pintuan-list-box .pintuan-list .pintuan-user-info-item.data-v-734d885d {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20rpx;
+  height: 116rpx;
+  border-top: 1px solid #f2f2f2;
+}
+.pintuan-list-modal .pintuan-list-box .pintuan-list .pintuan-user-info-item.data-v-734d885d:first-child {
+  border-top: none;
+}
+.pintuan-list-modal .pintuan-list-box .pintuan-list .pintuan-user-info-item .user-img-block.data-v-734d885d {
+  position: relative;
+  width: 120rpx;
+  height: 100%;
+}
+.pintuan-list-modal .pintuan-list-box .pintuan-list .pintuan-user-info-item .user-img-block .user-img.data-v-734d885d {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 70rpx;
+  height: 70rpx;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+}
+.pintuan-list-modal .pintuan-list-box .pintuan-list .pintuan-user-info-item .user-name-block.data-v-734d885d {
+  padding: 0 0.5em;
+  width: 284rpx;
+  height: 116rpx;
+  line-height: 116rpx;
+  font-size: 30rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.pintuan-list-modal .pintuan-list-box .pintuan-list .pintuan-user-info-item .to-pintuan-btn.data-v-734d885d {
+  width: 150rpx;
+  height: 60rpx;
+  background-color: #e02e24;
+  border-radius: 10rpx;
+  text-align: center;
+  color: #ffffff;
+  margin-right: 10rpx;
+  font-size: 30rpx;
+  line-height: 60rpx;
+}

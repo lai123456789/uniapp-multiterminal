@@ -1,0 +1,218 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-b81c709e {
+  color: #374050;
+}
+.grey2-color.data-v-b81c709e {
+  color: #91939c;
+}
+.page.data-v-b81c709e,
+page.data-v-b81c709e {
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+.class-list.data-v-b81c709e {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  background: #ffffff;
+}
+.class-list .content-wrap.data-v-b81c709e {
+  display: flex;
+  justify-content: space-between;
+}
+.class-list view.data-v-b81c709e {
+  height: 86rpx;
+  font-size: 26rpx;
+  color: #374050;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.class-list view .after.data-v-b81c709e {
+  display: none;
+}
+.class-list view.act .after.data-v-b81c709e {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 40rpx;
+  height: 5rpx;
+  border-radius: 10000rpx;
+}
+.list-block.data-v-b81c709e {
+  padding: 20rpx 0;
+}
+.list-block .item.data-v-b81c709e {
+  margin-bottom: 22rpx;
+  height: 308rpx;
+  background: #ffffff;
+}
+.list-block .item .title-tip.data-v-b81c709e {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  height: 88rpx;
+  border-bottom: 1px solid #f4f4f4;
+}
+.list-block .item .title-tip .time-tip.data-v-b81c709e {
+  font-size: 25rpx;
+  color: #91939c;
+}
+.list-block .item .title-tip .share-num-tip.data-v-b81c709e {
+  font-size: 28rpx;
+  color: #ff6128;
+}
+.list-block .item .content-block.data-v-b81c709e {
+  height: 220rpx;
+  display: flex;
+  padding-left: 12rpx;
+  position: relative;
+}
+.list-block .item .content-block .left-image-block.data-v-b81c709e {
+  width: 186rpx;
+  height: 100%;
+  position: relative;
+}
+.list-block .item .content-block .left-image-block .id-image.data-v-b81c709e {
+  width: 72rpx;
+  height: 38rpx;
+  position: absolute;
+  z-index: 10;
+  top: 40rpx;
+}
+.list-block .item .content-block .left-image-block .goods-image-block.data-v-b81c709e {
+  width: 186rpx;
+  height: 140rpx;
+  position: absolute;
+  z-index: 5;
+  top: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-block .item .content-block .left-image-block .goods-image-block .goods-image.data-v-b81c709e {
+  width: 140rpx;
+  height: 140rpx;
+}
+.list-block .item .content-block .right-description-block.data-v-b81c709e {
+  padding-left: 22rpx;
+}
+.list-block .item .content-block .right-description-block .goods-name.data-v-b81c709e {
+  font-weight: 600;
+  line-height: 66rpx;
+  font-size: 26rpx;
+  color: #374050;
+  width: 420rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.list-block .item .content-block .right-description-block .goods-description.data-v-b81c709e {
+  line-height: 28rpx;
+  height: 28rpx;
+  font-size: 23rpx;
+  color: #91939c;
+  width: 420rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.list-block .item .content-block .right-description-block .tag-wrap.data-v-b81c709e {
+  height: 66rpx;
+  display: flex;
+  align-items: center;
+}
+.list-block .item .content-block .right-description-block .price-wrap .shop-price-block-lr.data-v-b81c709e {
+  white-space: nowrap;
+  display: inline-block;
+}
+.list-block .item .content-block .right-description-block .price-wrap .shop-price-block-lr .origin-price.data-v-b81c709e {
+  white-space: nowrap;
+  display: inline-block;
+  color: #ea3a37;
+  font-size: 18rpx;
+  font-weight: 900;
+}
+.list-block .item .content-block .right-description-block .price-wrap .shop-price-block-lr .origin-price text.data-v-b81c709e {
+  color: #ea3a37;
+  font-size: 28rpx;
+}
+.list-block .item .content-block .right-description-block .price-wrap .shop-price-block-lr .line-price.data-v-b81c709e {
+  white-space: nowrap;
+  display: inline-block;
+  text-indent: 0.6em;
+  font-size: 24rpx;
+  color: #91939c;
+  text-decoration: line-through;
+}
+.list-block .item .content-block .share-btn.data-v-b81c709e {
+  position: absolute;
+  right: 22rpx;
+  bottom: 20rpx;
+  width: 140rpx;
+  height: 56rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 23rpx;
+  color: #ffffff;
+}
+.bottom-tab-bar.data-v-b81c709e {
+  height: 100rpx;
+  background: #ffffff;
+  display: flex;
+  z-index: 100;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.bottom-tab-bar image.data-v-b81c709e {
+  width: 46rpx;
+  height: 39rpx;
+}
+.bottom-tab-bar .bar-btn.data-v-b81c709e {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #91939c;
+}
+.bottom-tab-bar .bar-btn text.data-v-b81c709e {
+  text-indent: 0.5em;
+}

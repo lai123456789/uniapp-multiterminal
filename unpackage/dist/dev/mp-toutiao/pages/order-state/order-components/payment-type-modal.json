@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "yve-icon": "/df-components/yve-icon/yve-icon"
+  }
+}

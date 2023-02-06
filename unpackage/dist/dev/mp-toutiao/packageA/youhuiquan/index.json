@@ -1,0 +1,11 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "优惠券",
+  "usingComponents": {
+    "null-block": "/df-components/undefined-image/index",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "login-fn": "/df-components/loginFn/index",
+    "coupon-item": "/packageA/youhuiquan/coupon-item"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "邀请好友得现金",
+  "usingComponents": {
+    "modal-box": "/df-components/modal-box/index"
+  }
+}

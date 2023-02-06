@@ -1,0 +1,1 @@
+<view hidden="{{!(isShow)}}" class="loading-wrap data-v-7697890a"><view class="loading data-v-7697890a"><view class="span data-v-7697890a"></view><view class="span data-v-7697890a"></view><view class="span data-v-7697890a"></view><view class="span data-v-7697890a"></view><view class="span data-v-7697890a"></view></view></view>

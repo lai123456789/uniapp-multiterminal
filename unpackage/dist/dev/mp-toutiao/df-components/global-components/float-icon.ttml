@@ -1,0 +1,1 @@
+<view class="{{((('float-icon-wrap')+' '+'data-v-817ba456')+' '+(scrollIsStop?'':'transformXClass'))}}"><view class="{{((('data-v-817ba456')+' '+'iconfont')+' '+iconClass)}}" style="{{'font-size:'+(iconSize+'px')+';'}}"></view><view class="title-text data-v-817ba456">{{titleText}}</view></view>

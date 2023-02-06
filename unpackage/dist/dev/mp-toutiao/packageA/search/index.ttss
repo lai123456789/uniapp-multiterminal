@@ -1,0 +1,219 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-16c12a61 {
+  color: #374050;
+}
+.grey2-color.data-v-16c12a61 {
+  color: #91939c;
+}
+.uni-load-more.data-v-16c12a61 {
+  background: #f5f5f5;
+}
+.search-block.data-v-16c12a61 {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+}
+.search-block .content-wrap.data-v-16c12a61 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 88rpx;
+}
+.search-block .content-wrap .icon-search.data-v-16c12a61 {
+  position: absolute;
+  left: 42rpx;
+}
+.search-block .content-wrap .inp.data-v-16c12a61 {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 0 1em 0 3em;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  color: #91939c;
+  background: #f7f7f7;
+}
+.search-block .content-wrap .text.data-v-16c12a61 {
+  margin-left: 14rpx;
+  width: 100rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  color: #374050;
+  color: #ffffff;
+  border-radius: 10000px;
+}
+.push-msg .title.data-v-16c12a61 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28rpx;
+  color: #374050;
+  line-height: 48rpx;
+  font-weight: 600;
+}
+.tag-list.data-v-16c12a61 {
+  font-size: 0;
+}
+.tag-list .tag-box.data-v-16c12a61 {
+  display: inline-block;
+  font-size: 26rpx;
+  color: #374050;
+  background: #f7f7f7;
+  padding: 0.2em 0.6em;
+  border-radius: 10rpx;
+  margin: 10rpx;
+}
+.tag-list .hot-tag.data-v-16c12a61 {
+  display: inline-flex;
+  align-items: center;
+  color: #ea3a37;
+}
+.tag-list .hot-tag image.data-v-16c12a61 {
+  width: 24rpx;
+  height: 30rpx;
+  margin-right: 0.2em;
+}
+.like-goods-list-bar.data-v-16c12a61 {
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #374050;
+  background: #f5f5f5;
+}
+.like-goods-list-bar .bar-title.data-v-16c12a61 {
+  display: inline-block;
+  position: relative;
+  padding: 0 20rpx;
+}
+.like-goods-list-bar .bar-title .before-dom.data-v-16c12a61,
+.like-goods-list-bar .bar-title .after-dom.data-v-16c12a61 {
+  position: absolute;
+  top: 50%;
+}
+.like-goods-list-bar .bar-title .icon-O.data-v-16c12a61 {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 7rpx;
+  height: 7rpx;
+  background: #374050;
+  border-radius: 50%;
+}
+.like-goods-list-bar .bar-title .icon-I.data-v-16c12a61 {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 50rpx;
+  height: 2rpx;
+}
+.like-goods-list-bar .bar-title .before-dom.data-v-16c12a61 {
+  left: 0;
+  -webkit-transform: translateY(-50%) translateX(-100%);
+          transform: translateY(-50%) translateX(-100%);
+}
+.like-goods-list-bar .bar-title .before-dom .icon-I.data-v-16c12a61 {
+  right: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), #374050);
+}
+.like-goods-list-bar .bar-title .before-dom .icon-O.data-v-16c12a61 {
+  right: 0;
+}
+.like-goods-list-bar .bar-title .after-dom.data-v-16c12a61 {
+  right: 0;
+  -webkit-transform: translateY(-50%) translateX(100%);
+          transform: translateY(-50%) translateX(100%);
+}
+.like-goods-list-bar .bar-title .after-dom .icon-I.data-v-16c12a61 {
+  left: 0;
+  background: linear-gradient(-90deg, rgba(0, 0, 0, 0), #374050);
+}
+.like-goods-list-bar .bar-title .after-dom .icon-O.data-v-16c12a61 {
+  left: 0;
+}
+.like-goods-list.data-v-16c12a61 {
+  background: #f5f5f5;
+  font-size: 0;
+}
+.like-goods-list .list-goods-item-div.data-v-16c12a61 {
+  display: inline-block;
+  margin-right: 19rpx;
+  margin-bottom: 20rpx;
+}
+.like-goods-list .list-goods-item-div.data-v-16c12a61:nth-child(2n) {
+  margin-right: 0;
+}
+.bottom-shop-list.data-v-16c12a61 {
+  min-height: 90vh;
+  background: #f5f5f5;
+  padding-top: 20rpx;
+  margin-bottom: -20rpx;
+  font-size: 0;
+}
+.bottom-shop-list .list-goods-item-div.data-v-16c12a61 {
+  display: inline-block;
+  margin-right: 19rpx;
+  margin-bottom: 20rpx;
+}
+.bottom-shop-list .list-goods-item-div.data-v-16c12a61:nth-child(2n) {
+  margin-right: 0;
+}
+.nav-bar.data-v-16c12a61 {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 20;
+  top: 88rpx;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+}
+.nav-bar .nav-bar-block.data-v-16c12a61 {
+  height: 88rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.nav-bar .nav-bar-block .tag-block.data-v-16c12a61 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 55rpx;
+  width: 90rpx;
+  height: 44rpx;
+  white-space: nowrap;
+}
+.nav-bar .nav-bar-block .tag-block .deg180.data-v-16c12a61 {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}

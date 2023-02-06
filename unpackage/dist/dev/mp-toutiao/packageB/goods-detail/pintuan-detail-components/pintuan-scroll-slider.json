@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "icon-hot-wrap": "/df-components/icon-hot-wrap/index"
+  }
+}

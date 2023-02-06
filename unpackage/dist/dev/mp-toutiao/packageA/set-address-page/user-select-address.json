@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "定位地址",
+  "usingComponents": {
+    "loading-css": "/df-components/loading-image/loader-css",
+    "address-info-item": "/packageA/set-address-page/address-info-item"
+  }
+}

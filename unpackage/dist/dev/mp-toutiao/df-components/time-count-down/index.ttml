@@ -1,0 +1,1 @@
+<view class="time data-v-193dce92">{{''+h1text+''}}<view class="time-box data-v-193dce92">{{timeArr[0]}}</view>:<view class="time-box data-v-193dce92">{{timeArr[1]}}</view>:<view class="time-box-red data-v-193dce92">{{timeArr[2]}}</view></view>

@@ -1,0 +1,113 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-663487bc {
+  color: #374050;
+}
+.grey2-color.data-v-663487bc {
+  color: #91939c;
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box.data-v-663487bc {
+  padding: 10rpx 0;
+  background: #f5f5f5;
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box .top-bar.data-v-663487bc {
+  overflow: hidden;
+  position: relative;
+  padding: 0 20rpx;
+  height: 88rpx;
+  background-image: linear-gradient(90deg, #6ccc4f, #60c669);
+  border-radius: 20rpx 20rpx 0 0;
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box .top-bar .bg-image.data-v-663487bc {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box .top-bar .title-text-box.data-v-663487bc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 3;
+  height: 88rpx;
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box .top-bar .title-text-box .text.data-v-663487bc {
+  display: flex;
+  align-items: center;
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box .top-bar .title-text-box .text .title-icon.data-v-663487bc {
+  width: 52rpx;
+  height: 52rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box .top-bar .title-text-box .text .title-text.data-v-663487bc {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 36rpx;
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box .top-bar .title-text-box .text .shu_style.data-v-663487bc {
+  display: inline-block;
+  -webkit-transform: scaleX(0.3);
+          transform: scaleX(0.3);
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box .top-bar .title-text-box .text .sub-title-text.data-v-663487bc {
+  color: #ffffff;
+  font-size: 26rpx;
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box .top-bar .title-text-box .load-more-btn.data-v-663487bc {
+  width: 120rpx;
+  height: 43rpx;
+  line-height: 43rpx;
+  border-radius: 1000rpx;
+  text-align: center;
+  background-color: #ffffff;
+  color: #6ccc4e;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box .scroll-view-wrap.data-v-663487bc {
+  background: #ffffff;
+  padding-bottom: 20rpx;
+  border-radius: 0 0 10px 10px;
+  height: 396rpx;
+  overflow: hidden;
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box .scroll-view-wrap .scroll-view-dom.data-v-663487bc {
+  height: 416rpx;
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box .scroll-view-wrap .scroll-view-dom .bottom-scroll-goods-wrap.data-v-663487bc {
+  font-size: 0;
+  white-space: nowrap;
+}
+.home-hot-scroll-goods-wrap .hot-scroll-goods-box .scroll-view-wrap .scroll-view-dom .bottom-scroll-goods-wrap .scroll-view-div.data-v-663487bc {
+  display: inline-block;
+  height: 396rpx;
+}

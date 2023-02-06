@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['touchmove',[['catchTouchMove',['$event']]]]]}}" hidden="{{!(firstScreenGjpFlag)}}" class="first-screen-gjp-wrap data-v-56471a41" style="{{'width:'+(windowWidth+'px')+';'+('height:'+(windowHeight+56+'px')+';')}}" catchtouchmove="__e"><image class="image-dom data-v-56471a41" src="/static/global-image/first-screen-gjp.png"></image></view>

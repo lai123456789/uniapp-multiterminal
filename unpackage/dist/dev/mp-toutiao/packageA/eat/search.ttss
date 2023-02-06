@@ -1,0 +1,116 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-6aa5e675 {
+  color: #374050;
+}
+.grey2-color.data-v-6aa5e675 {
+  color: #91939c;
+}
+.search-block.data-v-6aa5e675 {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  background: #ffffff;
+}
+.search-block .content-wrap.data-v-6aa5e675 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 88rpx;
+}
+.search-block .content-wrap .icon-search.data-v-6aa5e675 {
+  position: absolute;
+  left: 42rpx;
+}
+.search-block .content-wrap .inp.data-v-6aa5e675 {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 0 1em 0 3em;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  color: #91939c;
+  background: #f7f7f7;
+}
+.search-block .content-wrap .text.data-v-6aa5e675 {
+  margin-left: 14rpx;
+  width: 100rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  color: #374050;
+  color: #ffffff;
+  border-radius: 10000px;
+}
+.history-wrap.data-v-6aa5e675 {
+  padding-top: 28rpx;
+  padding-bottom: 14rpx;
+  background: #ffffff;
+}
+.history-wrap .push-msg .title.data-v-6aa5e675 {
+  display: flex;
+  color: #374050;
+  line-height: 48rpx;
+  font-weight: 600;
+  justify-content: space-between;
+}
+.history-wrap .tag-list.data-v-6aa5e675 {
+  font-size: 0;
+}
+.history-wrap .tag-list .tag-box.data-v-6aa5e675 {
+  display: inline-block;
+  font-size: 26rpx;
+  color: #374050;
+  background: #f7f7f7;
+  padding: 0.2em 0.6em;
+  border-radius: 10rpx;
+  margin: 10rpx;
+}
+.history-wrap .tag-list .hot-tag.data-v-6aa5e675 {
+  display: inline-flex;
+  align-items: center;
+  color: #ea3a37;
+}
+.history-wrap .tag-list .hot-tag image.data-v-6aa5e675 {
+  width: 24rpx;
+  height: 30rpx;
+  margin-right: 0.2em;
+}
+.menu-works-list-wrap.data-v-6aa5e675 {
+  font-size: 0;
+}
+.menu-works-list-wrap .menu-works-view.data-v-6aa5e675 {
+  display: inline-block;
+  margin-top: 20rpx;
+  margin-right: 18rpx;
+  vertical-align: top;
+}
+.menu-works-list-wrap .menu-works-view.data-v-6aa5e675:nth-child(2n) {
+  margin-right: 0;
+}

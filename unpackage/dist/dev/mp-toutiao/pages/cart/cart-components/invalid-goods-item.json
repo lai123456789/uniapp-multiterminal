@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "img-bg-css": "/df-components/img-bg-css/img-bg-css",
+    "vip-price": "/df-components/global-components/vip-price"
+  },
+  "component": true
+}

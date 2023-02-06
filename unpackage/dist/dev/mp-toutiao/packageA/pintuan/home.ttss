@@ -1,0 +1,211 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-10c976a1 {
+  color: #374050;
+}
+.grey2-color.data-v-10c976a1 {
+  color: #91939c;
+}
+.pictures.data-v-10c976a1 {
+  width: 750rpx;
+  background: #f5f5f5;
+}
+.pictures .layout.data-v-10c976a1 {
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.pictures .layout .square.data-v-10c976a1 {
+  width: 359rpx;
+  height: 560rpx;
+  margin: 8rpx;
+  border-radius: 18rpx;
+  background-color: #ffffff;
+}
+.pictures .layout .square .topsquare.data-v-10c976a1 {
+  width: 100%;
+  position: relative;
+}
+.pictures .layout .square .topsquare .background.data-v-10c976a1 {
+  width: 100%;
+  height: 357rpx;
+}
+.pictures .layout .square .topsquare .background image.data-v-10c976a1 {
+  width: 100%;
+  height: 355rpx;
+  border-radius: 18rpx;
+}
+.pictures .layout .square .topsquare .label.data-v-10c976a1 {
+  position: absolute;
+  left: 0rpx;
+  top: 20rpx;
+  padding: 0 14rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 25rpx;
+  border-bottom-right-radius: 2em;
+  border-top-right-radius: 2em;
+  color: #ffffff;
+  background-color: #ff4444;
+}
+.pictures .layout .square .topsquare .tuan.data-v-10c976a1 {
+  position: absolute;
+  left: 10rpx;
+  top: 255rpx;
+  padding: 0 0.4em;
+  height: 36rpx;
+  font-size: 25rpx;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border-radius: 9rpx;
+}
+.pictures .layout .square .topsquare .labelground.data-v-10c976a1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 0rpx;
+  top: 297rpx;
+  padding: 0 10rpx;
+  width: 100%;
+  height: 59rpx;
+  background: linear-gradient(to right, #f2473f, rgba(255, 97, 65, 0.5));
+}
+.pictures .layout .square .topsquare .labelground .flaotleft.data-v-10c976a1 {
+  display: inline-block;
+  font-size: 30rpx;
+  color: #f7fffc;
+}
+.pictures .layout .square .topsquare .labelground .flaotright.data-v-10c976a1 {
+  display: inline-block;
+  /* width: 150rpx;
+  height: 59rpx; */
+  font-size: 20rpx;
+  color: #ffffff;
+}
+.pictures .layout .square .squares.data-v-10c976a1 {
+  margin-top: 10rpx;
+  width: 100%;
+}
+.pictures .layout .square .squares .squarebtm.data-v-10c976a1 {
+  width: 100%;
+  height: 83rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  padding: 10rpx;
+}
+.pictures .layout .square .squares .squarebtm .btmground.data-v-10c976a1 {
+  display: inline-block;
+  padding: 0 0.4em;
+  vertical-align: text-bottom;
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 22rpx;
+  color: #ff5858;
+  margin-right: 12rpx;
+  border-radius: 10rpx;
+  background-color: #ffdfdf;
+}
+.pictures .layout .square .squares .stylesize.data-v-10c976a1 {
+  width: 100%;
+  height: 44rpx;
+  line-height: 44rpx;
+  color: #a7a7a7;
+  font-size: 24rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 10rpx;
+}
+.pictures .layout .square .squares .end.data-v-10c976a1 {
+  width: 100%;
+  height: 60rpx;
+  line-height: 50rpx;
+  padding: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: #2C405A; */
+}
+.pictures .layout .square .squares .end .money.data-v-10c976a1 {
+  font-size: 20rpx;
+  font-weight: 600;
+  color: #ff3737;
+}
+.pictures .layout .square .squares .end .amount.data-v-10c976a1 {
+  font-size: 35rpx;
+  font-weight: 600;
+  color: #ff3737;
+}
+.pictures .layout .square .squares .end .seckill.data-v-10c976a1 {
+  color: #a7a7a7;
+  font-size: 20rpx;
+  text-decoration: line-through;
+}
+.pictures .layout .square .squares .end .push-button.data-v-10c976a1 {
+  margin-right: 15rpx;
+  width: 100rpx;
+  height: 50rpx;
+  line-height: 40rpx;
+  font-size: 26rpx;
+  padding: 8rpx;
+  color: #fff9f9;
+  background-color: #fe4543;
+  border-radius: 1000px;
+}
+.load-more-dom.data-v-10c976a1 {
+  background: #f5f5f5;
+}
+.bottom-tab-bar.data-v-10c976a1 {
+  height: 100rpx;
+  background: #ffffff;
+  display: flex;
+  z-index: 100;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.bottom-tab-bar image.data-v-10c976a1 {
+  width: 46rpx;
+  height: 39rpx;
+}
+.bottom-tab-bar .bar-btn.data-v-10c976a1 {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #91939c;
+}
+.bottom-tab-bar .bar-btn text.data-v-10c976a1 {
+  text-indent: 0.5em;
+}

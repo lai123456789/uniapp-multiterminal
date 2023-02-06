@@ -1,0 +1,152 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/class/class",
+    "pages/eat/eat",
+    "pages/cart/cart",
+    "pages/order/goods-list-page",
+    "pages/order/index",
+    "pages/order/submit-order",
+    "pages/order/jifenduihuan",
+    "pages/order/pintuan",
+    "pages/order-state/zhifu",
+    "pages/order-state/dingdan-state",
+    "pages/my/my",
+    "pages/my/dingdan/index",
+    "pages/my/dingdan/pingjia",
+    "pages/my/dingdan/qvxiao",
+    "pages/my/shouhou/index",
+    "pages/my/shouhou/shenqingshouhuo",
+    "pages/my/shouhou/tuikuan",
+    "pages/list-page/index",
+    "pages/list-page/home-swiper",
+    "pages/list-page/youhuiquan",
+    "pages/list-page/index-hot"
+  ],
+  "subPackages": [
+    {
+      "root": "packageB",
+      "pages": [
+        "goods-detail/goods-detail",
+        "goods-detail/goods-detail-seckill",
+        "goods-detail/goods-detail-page/goods-comment",
+        "goods-detail/jifen-goods-detail",
+        "goods-detail/pintuan-detail",
+        "goods-detail/pre-sale-detail",
+        "order/pre-sale-order",
+        "order/pre-sale-order-weikuan",
+        "pre-sale-list/pre-sale-list"
+      ]
+    },
+    {
+      "root": "packageA",
+      "pages": [
+        "fenxiao/fenxiao",
+        "fenxiao/fensi",
+        "fenxiao/tixian",
+        "fenxiao/tixianjilu",
+        "fenxiao/tuiguangshouyi",
+        "yve/chongzhi",
+        "yve/yve",
+        "yve/zhangdanjilu",
+        "tuijianyouli/tuijianyouli",
+        "tuijianyouli/list",
+        "tuijianyouli/canvas",
+        "kefu/kefu",
+        "kefu/help-detail",
+        "gongyingshang-seller/gongyingshang-seller",
+        "gongyingshang/gongyingshang",
+        "set/set",
+        "load-app/load-app",
+        "shipin/shipin",
+        "tel-login/tel-login",
+        "tel-login/reg",
+        "tel-login/user-info",
+        "activity/activity",
+        "about/index",
+        "about/yijian",
+        "jifenshangcheng/jifenshangcheng",
+        "jifenshangcheng/jifenmingxi",
+        "address/index",
+        "address/edit",
+        "address/add",
+        "address/home-select",
+        "address/cart-select",
+        "dev-ad/dev-ad",
+        "everyday-buy/everyday-buy",
+        "youhuiquan/index",
+        "shangpinquan/index",
+        "kaitonghuiyuan/index",
+        "kaitonghuiyuan/huiyuanrenwu",
+        "kaitonghuiyuan/huiyuanjieshao",
+        "kaitonghuiyuan/vip-goods-list",
+        "tel-login/apple-check-open/reg",
+        "tel-login/apple-check-open/login",
+        "eat/food-detail/food-detail",
+        "eat/menu-class/menu-class",
+        "eat/eat-user/index",
+        "eat/fabuzuopin/index",
+        "eat/search",
+        "pintuan/pintuan",
+        "pintuan/home",
+        "pintuan/me",
+        "web-view/index",
+        "set-address-page/index",
+        "set-address-page/user-select-address",
+        "search/index",
+        "caichang/index",
+        "today-seckill/today-seckill",
+        "gongyingshang-list/gongyingshang-list"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF",
+    "backgroundColorTop": "#e6e6e6"
+  },
+  "tabBar": {
+    "color": "#91939c",
+    "selectedColor": "#6ccc4e",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index"
+      },
+      {
+        "pagePath": "pages/class/class"
+      },
+      {
+        "pagePath": "pages/eat/eat"
+      },
+      {
+        "pagePath": "pages/cart/cart"
+      },
+      {
+        "pagePath": "pages/my/my"
+      }
+    ]
+  },
+  "component2": true,
+  "usingComponents": {
+    "loading-css": "/df-components/loading-image/loader-css",
+    "null-block": "/df-components/undefined-image/index",
+    "to-top-btn": "/df-components/to-top-btn/index",
+    "login-fn": "/df-components/loginFn/index",
+    "hans-tabbar": "/df-components/hans-tabbar/hans-tabbar",
+    "title-bar": "/df-components/title-bar/title-bar",
+    "fixed-cart-icon": "/df-components/fixed-cart-icon/fixed-cart-icon",
+    "img-bg-css": "/df-components/img-bg-css/img-bg-css",
+    "yve-icon": "/df-components/yve-icon/yve-icon",
+    "vip-price": "/df-components/global-components/vip-price",
+    "scroll-goods-item": "/df-components/global-components/scroll-goods-item",
+    "list-goods-item": "/df-components/global-components/list-goods-item",
+    "list-goods-item-row": "/df-components/global-components/list-goods-item-row",
+    "goods-spec": "/df-components/global-components/goods-spec",
+    "all-components": "/df-components/all-component/all-components",
+    "float-icon": "/df-components/global-components/float-icon"
+  }
+}

@@ -1,0 +1,1 @@
+<view class="{{((('coupon')+' '+'data-v-4c8d565c')+' '+(styleIsDefault?'default':''))}}"><view class="coupon-name data-v-4c8d565c">{{couponName}}</view></view>

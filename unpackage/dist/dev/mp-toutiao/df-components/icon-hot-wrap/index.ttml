@@ -1,0 +1,1 @@
+<view class="icon-hot-wrap border-radius data-v-04177935"><image src="{{$root.m0}}" mode class="data-v-04177935"></image><text style="{{(calsStyle_text)}}" class="data-v-04177935">{{text}}</text></view>

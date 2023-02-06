@@ -1,0 +1,106 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-6579585c {
+  color: #374050;
+}
+.grey2-color.data-v-6579585c {
+  color: #91939c;
+}
+.quan.data-v-6579585c {
+  padding: 0 40rpx;
+  height: 146rpx;
+}
+.quan .quan-block.data-v-6579585c {
+  display: flex;
+  background: #ffffff;
+  height: 130rpx;
+  box-shadow: 0 10rpx 10rpx #fcd2d3;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.quan .quan-block .money-block.data-v-6579585c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 210rpx;
+  height: 100%;
+  color: #ffffff;
+  background: #fb6567;
+  position: relative;
+}
+.quan .quan-block .money-block .icon-money.data-v-6579585c {
+  font-size: 30rpx;
+}
+.quan .quan-block .money-block .num-number.data-v-6579585c {
+  font-weight: 600;
+  font-size: 60rpx;
+}
+.quan .quan-block .money-block .after.data-v-6579585c {
+  position: absolute;
+  right: 0;
+  display: block;
+  height: 100%;
+  width: 10rpx;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  /* 
+  	background-image:
+  		linear-gradient(45deg, #ff8180 25%, transparent 25%, transparent),
+  		linear-gradient(-45deg, #ff8180 25%, transparent 25%, transparent),
+  		linear-gradient(45deg, transparent 75%, #ff8180 75%),
+  		linear-gradient(-45deg, transparent 75%, #ff8180 75%);
+  		 */
+}
+.quan .quan-block .money-block .after .dot.data-v-6579585c {
+  width: 16rpx;
+  height: 16rpx;
+  background: #ffffcd;
+  border-radius: 50%;
+}
+.quan .quan-block .description.data-v-6579585c {
+  padding-left: 40rpx;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.quan .quan-block .description .title-h4.data-v-6579585c {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 8em;
+  color: #374050;
+  font-size: 30rpx;
+}
+.quan .quan-block .description .title-h5.data-v-6579585c {
+  max-width: 10em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #91939c;
+  font-size: 26rpx;
+}

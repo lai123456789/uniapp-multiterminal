@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "list-goods-item": "/df-components/global-components/list-goods-item",
+    "null-block": "/df-components/undefined-image/index",
+    "loading-goods": "/df-components/loading-image/loading-goods"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "商品",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "list-goods-item-row": "/df-components/global-components/list-goods-item-row",
+    "fixed-cart-icon": "/df-components/fixed-cart-icon/fixed-cart-icon",
+    "login-fn": "/df-components/loginFn/index",
+    "goods-spec": "/df-components/global-components/goods-spec"
+  }
+}

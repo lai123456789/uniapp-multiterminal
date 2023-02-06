@@ -1,0 +1,213 @@
+<!-- 
+	提交订单页面选地址
+-->
+<template>
+	<view class="root-page">
+		<block v-if="isLogin">
+			<view class="text-wrap">
+				<view class="content-wrap">
+					<navigator url="./add" class="right-text-block" hover-class="none">新增收货地址</navigator>
+				</view>
+			</view>
+		</block>
+		<block v-if="isLogin">
+			<view class="h4">我的收货地址</view>
+			<view class="address-list" v-if="myAddressList.length > 0">
+				<view class="content-wrap">
+					<view class="item" v-for="(item, index) in myAddressList" :key="index" @click="selectAdrFn1(item)">
+						<view class="text-block">
+							<view class="address-text">
+								<text>{{ item.address }}</text>
+								<view class="tag-list">
+									<view :class="['tag-block', item.tagStyle]">{{ item.tag }}</view>
+									<view v-if="item.status" :class="['tag-block', 'defaultStyle']">默认地址</view>
+								</view>
+							</view>
+							<view class="user-info">
+								<view class="user-name">{{ item.name }}</view>
+								<view class="user-tel">{{ item.mobile }}</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<null-block v-else min-height="100vh"></null-block>
+		</block>
+		<loading-css :is-show="isShowLoading"></loading-css>
+	</view>
+</template>
+
+<script>
+import { assertArray } from '@/tools/tools.js';
+export default {
+	data() {
+		return {
+			isShowLoading: true, // 开屏动画
+			myAddressList: [], // 地址存放的数组
+			myAddressPageIndex: 1 // 当前页的分页
+		};
+	},
+	onShow() {
+		let that = this;
+		that.myAddressPageIndex = 1;
+		that.myAddressList = [];
+		that.showAddressList();
+	},
+	onReachBottom() {
+		let that = this;
+		that.myAddressPageIndex++;
+		that.showAddressList();
+	},
+	onPullDownRefresh() {
+		let that = this;
+		that.myAddressPageIndex = 1;
+		that.showAddressList(() => {
+			that.myAddressList = [];
+			uni.stopPullDownRefresh();
+		});
+	},
+	methods: {
+		// 展示地址列表
+		async showAddressList(fn) {
+			let that = this;
+			let result = await that.$request({
+				url: '/api/Address/my_address',
+				data: {
+					page: that.myAddressPageIndex
+				}
+			});
+
+			//数据返回后 处理方式  处理数据
+			if (result.statusCode == 200) {
+				if (result.data.code == 200) {
+					let addressList = assertArray(result.data.data);
+
+					addressList.forEach((item, index) => {
+						item.tagStyle = that.tagStyle(index);
+					});
+
+					if (addressList.length <= 0) {
+						that.myAddressPageIndex--;
+						if (that.myAddressPageIndex <= 1) {
+							that.myAddressPageIndex = 1;
+						}
+					}
+
+					fn && fn();
+					that.myAddressList = that.myAddressList.concat(addressList);
+				} else {
+					uni.showToast({
+						icon: 'none',
+						title: result.data.msg
+					});
+				}
+			} else {
+				uni.showToast({
+					icon: 'none',
+					title: that.$errorMsg
+				});
+			}
+			that.isShowLoading = false;
+		},
+
+		selectAdrFn1(item) {
+			uni.setStorageSync('temSelectAd', item);
+			console.log('设置给 temSelectAd 的地址对象', item);
+			this.toBackFn();
+		}
+	}
+};
+</script>
+
+<style lang="scss" scoped>
+.h4 {
+	padding-left: 20rpx;
+	line-height: 64rpx;
+	color: $grey1-color;
+	font-size: 23rpx;
+}
+
+.address-list {
+	background: #ffffff;
+
+	.item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 26rpx 0;
+		// height: 122rpx;
+		border-bottom: 1px solid #f5f5f5;
+
+		&:last-child {
+			border: none;
+		}
+
+		.text-block {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+
+			.address-text {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				text {
+					margin-right: 0.8em;
+					font-size: 28rpx;
+					color: $grey1-color;
+					@include text-ellipsis-rows;
+					max-width: 16em;
+				}
+
+				.tag-list {
+					font-size: 0;
+
+					view {
+						margin-right: 1em;
+					}
+				}
+			}
+
+			.user-info {
+				margin-top: 4rpx;
+				display: flex;
+				font-size: 26rpx;
+				color: $grey2-color;
+
+				.user-name {
+					margin-right: 0.5em;
+				}
+			}
+		}
+
+		.icon-block {
+			display: flex;
+			align-items: center;
+			margin-right: 20rpx;
+		}
+	}
+}
+
+.address-line {
+	background: #ffffff;
+
+	.line {
+		display: flex;
+		align-items: center;
+		height: 88rpx;
+		font-size: 28rpx;
+		border-bottom: 1px solid #f5f5f5;
+
+		text {
+			display: inline-block;
+			max-width: 20em;
+			@include text-ellipsis;
+		}
+
+		&:last-child {
+			border: none;
+		}
+	}
+}
+</style>

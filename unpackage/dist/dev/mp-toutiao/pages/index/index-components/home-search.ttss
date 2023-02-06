@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-617e640e {
+  color: #374050;
+}
+.grey2-color.data-v-617e640e {
+  color: #91939c;
+}
+.search.data-v-617e640e {
+  transition: 0.1s;
+  height: 44px;
+  box-sizing: content-box;
+}
+.search.searchFixed.data-v-617e640e {
+  display: block;
+  position: fixed;
+  z-index: 20;
+  width: 100vw;
+  background: #fefefe;
+}
+.search .content-wrap.data-v-617e640e {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.search .input-box.data-v-617e640e {
+  width: 100%;
+  height: 60rpx;
+  letter-spacing: 2rpx;
+  color: #b3b4ba;
+  font-size: 26rpx;
+  background-color: #f7f7f7;
+}
+.search .input-box .text.data-v-617e640e {
+  max-width: 80%;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

@@ -1,0 +1,2152 @@
+<!-- 半改 -->
+<template>
+	<view class="page">
+		<loading-css :is-show="isShowLoading"></loading-css>
+
+		<!-- 配送地址↓↓ -->
+		<view class="user-address">
+			<view class="content-wrap">
+				<view class="address-box">
+					<image
+						style="width:38rpx;height:46rpx"
+						:src="calcImageSrc('/cart/dad8562db8b24ad0471d20e3872007b_03.png')"
+					></image>
+					<text>{{ currentAddressText ? currentAddressText : '未获取位置信息' }}</text>
+				</view>
+				<text v-if="isLogin && cartListData.length > 0" @click="delSelectGoods">删除</text>
+			</view>
+		</view>
+
+		<view class="cart-content-block content-wrap">
+			<view class="seller-item-cart">
+				<view class="seller-name-block">
+					<view class="is-select flex-center"><is-active-icon :is-active="false"></is-active-icon></view>
+					<view class="seller-name-content">
+						<view class="seller-text text-ellipsis">千里香过桥米线(黄焖鸡米饭)</view>
+						<view class="iconfont icon-arrow-right-copy-copy" style="width: 40rpx;"></view>
+					</view>
+				</view>
+				<view class="seller-goods-list">
+					<view class="seller-goods-item">
+						<view class="is-select-block flex-center">
+							<is-active-icon :is-active="false"></is-active-icon>
+						</view>
+						<view class="goods-image-wrap-block">
+							<img-bg-css
+								src="https://dev.sjwxsc.com/uploads/images/16083679435fddbf4741270.jpg"
+							></img-bg-css>
+						</view>
+						<view class="goods-info-block">
+							<view class="goods-name text-ellipsis">奶白菜 约400g</view>
+							<view class="goods-description_spec-key-block">
+								<view class="goods-description-text text-ellipsis" v-if="true">
+									轩尧槟榔芋400g轩尧槟榔
+								</view>
+								<view class="goods-spec-key-name-text text-ellipsis" v-else>已选: 20斤 本地</view>
+							</view>
+							<view class="goods-tag-block"><view class="goods-tag text-ellipsis">热销爆款</view></view>
+							<view class="bottom-price-block">
+								<view class="price-block">
+									<view class="price-icon">¥</view>
+									<view class="price-text">33.90</view>
+								</view>
+								<view class="price-right-block"><view class="price-line">¥40.00</view></view>
+							</view>
+
+							<view class="control-block" @click.stop="catchTouchMove">
+								<view class="control-btn-block flex-center">
+									<cart-control-btn btn-type="minus" :is-disable="true"></cart-control-btn>
+								</view>
+								<input class="input-dom" type="number" :value="12" />
+								<view class="control-btn-block flex-center">
+									<cart-control-btn btn-type="plus" :is-disable="false"></cart-control-btn>
+								</view>
+							</view>
+						</view>
+					</view>
+
+					<view class="seller-goods-item">
+						<view class="is-select-block flex-center">
+							<is-active-icon :is-active="false"></is-active-icon>
+						</view>
+						<view class="goods-image-wrap-block">
+							<img-bg-css
+								src="https://dev.sjwxsc.com/uploads/images/16083679435fddbf4741270.jpg"
+							></img-bg-css>
+						</view>
+						<view class="goods-info-block">
+							<view class="goods-name text-ellipsis">奶白菜 约400g</view>
+							<view class="goods-description_spec-key-block">
+								<view class="goods-description-text text-ellipsis" v-if="true">
+									轩尧槟榔芋400g轩尧槟榔
+								</view>
+								<view class="goods-spec-key-name-text text-ellipsis" v-else>已选: 20斤 本地</view>
+							</view>
+							<view class="goods-tag-block"><view class="goods-tag text-ellipsis">热销爆款</view></view>
+							<view class="bottom-price-block">
+								<view class="price-block">
+									<view class="price-icon">¥</view>
+									<view class="price-text">33.90</view>
+								</view>
+								<view class="price-right-block"><view class="price-line">¥40.00</view></view>
+							</view>
+
+							<view class="control-block" @click.stop="catchTouchMove">
+								<view class="control-btn-block flex-center">
+									<cart-control-btn btn-type="minus" :is-disable="true"></cart-control-btn>
+								</view>
+								<input class="input-dom" type="number" :value="12" />
+								<view class="control-btn-block flex-center">
+									<cart-control-btn btn-type="plus" :is-disable="false"></cart-control-btn>
+								</view>
+
+								<view class="bubble-tips border-radius" @click.stop="bubbleTipsClickFn">
+									<view class="tips-text">仅剩22件</view>
+								</view>
+							</view>
+						</view>
+					</view>
+
+					<view class="fee-wrap">
+						<view class="fee-item">
+							<view class="fee-title">配送费</view>
+							<view class="fee-price">¥0.73</view>
+						</view>
+
+						<!-- 
+						<view class="fee-item">
+							<view class="fee-title">打包费</view>
+							<view class="fee-price">¥0.73</view>
+						</view>
+						 -->
+					</view>
+
+					<view class="seller-item-commit-btn-block">
+						<view class="seller-commit-btn border-radius">
+							<view class="left-price-block">
+								<view class="price-icon">¥</view>
+								<view class="price-num">54.87</view>
+							</view>
+
+							<view class="right-text-block" :style="{ background: configInfo.goods_cart_bgcolor }">
+								去结算
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="go-home-block" v-if="cartListData.length <= 0">
+			<image :src="calcImageSrc('/cart/null-cart.png')" class="bg-null-cart" mode=""></image>
+			<text>购物车空空如也</text>
+			<view
+				v-if="isLogin"
+				class="navigator"
+				@click="navigateToFn({ isTab: true, url: `/pages/index/index` })"
+				:style="{ background: configInfo.web_site_color }"
+			>
+				去首页
+			</view>
+			<view
+				v-else
+				class="navigator"
+				@click="closeGlobalLoginFn(true)"
+				:style="{ background: configInfo.web_site_color }"
+			>
+				去登录
+			</view>
+		</view>
+		<view class="main-cart-page-block" v-else>
+			<view class="content-wrap">
+				<view class="cart-block">
+					<view class="title-text">
+						<view class="text">
+							<text class="h4">购物车</text>
+							<text class="h5" v-if="peisongType == 0 && serviceText">{{ serviceText }}</text>
+						</view>
+					</view>
+
+					<view
+						class="push-block"
+						v-if="peisongType == 0"
+						@click="navigateToFn({ isTab: true, url: `/pages/index/index` })"
+					>
+						<view class="title">
+							<view>
+								<uni-icons type="info"></uni-icons>
+								<text>{{ calcPostFee }}</text>
+							</view>
+							<view class="navigator">
+								<text v-if="calcMiandan <= 0" :style="{ color: configInfo.web_site_color }">
+									再逛逛
+								</text>
+								<text v-else :style="{ color: configInfo.web_site_color }">去凑单</text>
+								<uni-icons :color="configInfo.web_site_color" type="arrowright"></uni-icons>
+							</view>
+						</view>
+					</view>
+
+					<!-- 展示购物车里的商品列表 start -->
+					<view class="my-goods-block">
+						<view class="item" v-for="(item, index) in cartListData" :key="item.id">
+							<view
+								class="flag-icon"
+								:data-ind="index"
+								@click="$onceClick(changeGoodsSelectStatus, $event)"
+							>
+								<uni-icons
+									v-show="item.isActive"
+									:color="configInfo.web_site_color"
+									size="20"
+									type="checkbox-filled"
+								></uni-icons>
+								<uni-icons v-show="!item.isActive" color="#d4d7da" size="20" type="circle"></uni-icons>
+							</view>
+							<view
+								class="goods-image-block"
+								@click="
+									navigateToFn({
+										url: `/packageB/goods-detail/goods-detail?goods_id=${item.goodsId}`
+									})
+								"
+							>
+								<view class="tip-info" v-if="!item.isShow">{{ item.isShowText }}</view>
+								<image :src="item.originalImg"></image>
+							</view>
+							<view
+								class="goods-description-block"
+								@click="
+									navigateToFn({
+										url: `/packageB/goods-detail/goods-detail?goods_id=${item.goodsId}`
+									})
+								"
+							>
+								<view class="goods-name">{{ item.goodsName }}</view>
+
+								<view class="goods-spec-key-name" v-if="trimFn(item.keyName)">
+									<view class="goods-spec-key-name-text">{{ item.keyName | filterSpecName }}</view>
+								</view>
+
+								<view class="goods-description" v-else-if="trimFn(item.goodsRemark)">
+									<view class="goods-description-text">{{ item.goodsRemark }}</view>
+								</view>
+
+								<view class="goods-tag-block">
+									<view class="goods-tag" v-if="trimFn(item.tagName)">{{ item.tagName }}</view>
+								</view>
+
+								<view class="bottom-price-block">
+									<view class="price-block">
+										<view class="price-icon">¥</view>
+										<view class="price-text">{{ item.shopPrice | filterTransNum }}</view>
+									</view>
+
+									<view class="price-right-block">
+										<view class="price-line">¥{{ item.marketPrice | filterTransNum }}</view>
+									</view>
+								</view>
+
+								<view class="control-block" @click.stop="catchTouchMove">
+									<uni-icons
+										@click.native="$onceClick(cartGoodsItemBtnRemoveFn, $event)"
+										:data-number="item.number"
+										:data-_id="item.id"
+										:data-index="index"
+										:data-goods-id="item.goodsId"
+										:data-spec-id="item.specId"
+										color="#c7c7c7"
+										size="25"
+										type="minus"
+									></uni-icons>
+
+									<input
+										type="number"
+										:value="item.number"
+										@blur="setNumInpFn($event, item, index)"
+										v-if="inputDomFlag"
+									/>
+
+									<uni-icons
+										@click.native="$onceClick(cartGoodsItemBtnAddFn, $event)"
+										:data-number="item.number"
+										:data-goods-id="item.goodsId"
+										:data-spec-id="item.specId"
+										color="#c7c7c7"
+										size="25"
+										type="plus"
+									></uni-icons>
+								</view>
+							</view>
+						</view>
+					</view>
+					<!-- 展示购物车里的商品列表 end -->
+				</view>
+			</view>
+		</view>
+
+		<invalid-goods-wrap></invalid-goods-wrap>
+
+		<block v-if="cartPageBottomGoods.length > 0">
+			<view class="like-goods-list-bar">
+				<view class="bar-title">
+					<view class="after-dom">
+						<view class="icon-O"></view>
+						<view class="icon-I"></view>
+					</view>
+					<view class="before-dom">
+						<view class="icon-O"></view>
+						<view class="icon-I"></view>
+					</view>
+					{{ likeGoodsTitle }}
+				</view>
+			</view>
+
+			<view class="bottom-shop-list">
+				<view class="content-wrap">
+					<view class="list-goods-item-div" v-for="(item, index) in cartPageBottomGoods" :key="index">
+						<list-goods-item
+							:goods-id="item.goodsId"
+							:goods-image="item.goodsImage"
+							:is-hot="item.isHot"
+							:is-new="item.isNew"
+							:goods-name="item.goodsName"
+							:goods-description="item.goodsDescription"
+							:goods-tag="item.goodsTag"
+							:is-vip-price="item.isVipPrice"
+							:goods-price="item.goodsPrice"
+							:vip-price="item.vipPrice"
+							:line-price="item.linePrice"
+							:selected-num="item.selectedNum"
+							:is-spec="item.isSpec"
+							:tag-img="item.tagImg"
+							page="gouwuche"
+							@emitGetCartListFn="emitGetCartListFn"
+							ref="listGoodsItem"
+						></list-goods-item>
+					</view>
+				</view>
+			</view>
+		</block>
+		<view style="height: 96rpx;" v-if="isLogin"></view>
+		<view class="order-btn-block" v-if="isLogin" :style="{ bottom: isiPhoneX ? '71px' : '56px' }">
+			<view class="isAll-btn" @click="$onceClick(allSelectFn)">
+				<uni-icons
+					v-if="isAllSelectCarListBtnStatus"
+					:color="configInfo.web_site_color"
+					size="20"
+					type="checkbox-filled"
+				></uni-icons>
+				<uni-icons v-else color="#c7c7c7" size="20" type="circle"></uni-icons>
+				<text class="text">全选</text>
+			</view>
+			<view class="price-all">
+				不含运费 小计:
+				<view class="shop-price-block-lr">
+					<view class="origin-price">
+						¥
+						<text>{{ calcPrice }}</text>
+					</view>
+				</view>
+			</view>
+
+			<view
+				:class="['order-btn', isAllAngle ? 'border-radius-style-all-arg' : 'border-radius-style-half-arg']"
+				:style="{ background: configInfo.goods_cart_bgcolor, opacity: commitBtnState ? 0.8 : 1 }"
+				@click="$onceClick(toPayFn)"
+			>
+				结算({{ calcGoodsNum }})
+			</view>
+		</view>
+
+		<goods-spec
+			:is-show="isShowGoodsSpec"
+			:goods-spec-rows-list="goodsSpecRowsList"
+			:goods-spec-select-item-list="goodsSpecSelectItemList"
+			:goods-name="currentGoodsName"
+			:goods-description="currentGoodsDescription"
+			:goods-images="currentGoodsImages"
+			:goods-id="currentGoodsId"
+			:selected-num="currentGoodsSelectedNum"
+			page="gouwuche"
+			@setGoodsSpec="setGoodsSpec"
+			@setSpecFilterItemActiveFn="setSpecFilterItemActiveFn"
+			@emitGetCartListFn="emitGetCartListFn"
+		></goods-spec>
+
+		<login-fn :fn="onShowFn" :is-show-login="calcGlobalLoginFlag" @close="closeGlobalLoginFn"></login-fn>
+
+		<view class="hans-tabbar">
+			<view class="hans-tabbar-height" :style="{ height: isiPhoneX ? '71px' : '56px' }"></view>
+			<view class="hans-tabbar-fixde" :style="{ bottom: isiPhoneX ? '30rpx' : '0rpx' }">
+				<hans-tabbar :list="MenuList" :tab-current="tabCurrent"></hans-tabbar>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+import { mapState } from 'vuex';
+import isActiveIcon from '@/pages/cart/cart-components/is-active-icon.vue';
+import cartControlBtn from '@/pages/cart/cart-components/cart-control-btn.vue';
+import invalidGoodsWrap from '@/pages/cart/cart-components/invalid-goods-wrap.vue';
+
+import {
+	assertObject,
+	assertArray,
+	assertNumber,
+	toDoubleNumFn,
+	transNumFn,
+	cloneFn,
+	addSpecFilterItemActAttrFn,
+	bigMinus,
+	bigTimes,
+	bigPlus
+} from '@/tools/tools';
+import { success, error, delCartGoodsTypeCartId } from '@/tools/const.js';
+
+/*
+	@description:
+		数据结构
+			list <Array> 里面是一个又一个 的对象<Object> 这里面一个又一个的对象有个id值
+			delIdList <Array> 里面是一个又一个id值 根据这个值去删除list对应的项 这里的id必须是 list里有的
+
+		应用场景
+			购物车删除选中的商品
+	@param:
+		list <Array> 不能为空的数组
+		delIdList <Array> 不能为空的数组
+		ind <Number> 默认值是0 可以不传
+	@return <Array>
+		删除剩下的 数据
+*/
+function deleteListItem(list, delIdList, ind = 0) {
+	for (let i = 0, len = list.length; i < len; i++) {
+		if (list[i].id == delIdList[ind]) {
+			list.splice(i, 1);
+			ind++;
+			if (!delIdList[ind]) {
+				return list;
+			} else {
+				return deleteListItem(list, delIdList, ind);
+			}
+		}
+	}
+}
+
+let that;
+
+let windowTop = uni.getSystemInfoSync().windowTop;
+console.log('windowTop', windowTop);
+
+export default {
+	components: {
+		isActiveIcon,
+		cartControlBtn,
+		invalidGoodsWrap
+	},
+	data() {
+		return {
+			inputDomFlag: true, // input 输入框的显示隐藏状态
+			isShowLoading: true, // 开屏动画
+			currentAddressText: '', // 临时的地址文字
+			likeGoodsTitle: '', // 猜你喜欢商品的标题文字
+
+			cartListData: [], // 购物车里商品数据
+			cartTemplateListData: [], // 购物车页面的模板消息字符串数组
+
+			serviceText: '', // 服务承诺
+			freePost: 0, // 最低满多少包邮
+			postFee: 0, // 未满包邮的运费
+			peisongType: 0, // 商家在后台设置大的配送方式  0-商家配送  3-达达 4-闪送
+
+			// ↓↓↓ 多规格相关数据 --------------------------------------------------------
+
+			isShowGoodsSpec: false, // 是否显示多规格弹框
+			goodsSpecSelectItemList: [{}], // 多规格项
+			goodsSpecRowsList: {}, // 多规格 笛卡尔积项对应的 商品 信息
+			currentGoodsName: '', // 当前弹窗多规格的商品名字
+			currentGoodsDescription: '', // 当前弹窗多规格的商品描述
+			currentGoodsImages: '', // 当前弹窗多规格的商品图片
+			currentGoodsId: '', // 当前弹窗多规格的商品id
+			currentGoodsSelectedNum: '', // 当前弹窗多规格的商品即加入到购物车里的数量
+			commitBtnState: false, // 提交按钮的状态
+			// ↑↑↑ 多规格相关数据 --------------------------------------------------------
+
+			// 购物车页面的商品数据
+			cartPageBottomGoods: []
+		};
+	},
+	onHide() {
+		this.hideAllFn();
+		console.log('hide run');
+	},
+	onUnload() {
+		uni.$off('goodsAddCartEd_cart');
+	},
+	onLoad() {
+		that = this;
+		that.handleCartLikeGoodsFn();
+
+		// 加入购物车成功后
+		uni.$off('goodsAddCartEd_cart');
+		uni.$on('goodsAddCartEd_cart', arg => {
+			let { selectedNum, goodsId } = arg;
+			console.log('that.cartPageBottomGoods', that.cartPageBottomGoods, arg);
+			that.cartPageBottomGoods.forEach(item => {
+				if (item.goodsId == goodsId) {
+					item.selectedNum = selectedNum;
+				}
+			});
+		});
+	},
+	onShow() {
+		let that = this;
+		that.onShowFn();
+
+		// 监听多规格弹框事件
+		uni.$off('emitGetCartListFn');
+		uni.$on('emitGetCartListFn', e => {
+			that.emitGetCartListFn();
+		});
+
+		// 监听多规格弹框事件
+		uni.$off('popSpecBlock');
+		uni.$on('popSpecBlock', async arg => {
+			let { goodsId, page } = arg;
+
+			let currentGoods = assertObject(
+				assertArray(that.cartPageBottomGoods.filter(item => item.goodsId == goodsId))[0]
+			);
+
+			/*
+
+			if (goodsId == that.currentGoodsId) {
+				that.currentGoodsSelectedNum = currentGoods.selectedNum; // 当前弹窗多规格的商品即加入到购物车里的数量
+				that.isShowGoodsSpec = true;
+				return false;
+			}
+			*/
+			that.currentGoodsId = goodsId;
+			uni.showLoading({});
+
+			console.log('当前点击商品的信息currentGoods', currentGoods);
+
+			that.currentGoodsName = currentGoods.goodsName; // 当前弹窗多规格的商品名字
+			that.currentGoodsDescription = currentGoods.goodsDescription; // 当前弹窗多规格的商品描述
+			that.currentGoodsImages = currentGoods.goodsImage; // 当前弹窗多规格的商品图片
+
+			that.currentGoodsSelectedNum = currentGoods.selectedNum; // 当前弹窗多规格的商品即加入到购物车里的数量
+
+			let result = await that.getSpecInfoFn(that.currentGoodsId);
+			if (result.type != 'success') {
+				that.hideAllFn();
+				uni.showModal({
+					showCancel: false, //不显示取消按钮
+					title: result.msg,
+					success(e) {
+						//确认后的回调
+						console.log(e);
+					}
+				});
+				return false;
+			}
+
+			that.goodsSpecSelectItemList = result.result.goodsSpecSelectItemList;
+			that.goodsSpecRowsList = result.result.goodsSpecRowsList;
+
+			console.log(`${that.currentGoodsId} 商品的规格信息`, result);
+
+			that.isShowGoodsSpec = true;
+			that.hideAllFn();
+		});
+	},
+	methods: {
+		// ↓↓↓ 获取页面数据的几个函数
+
+		// 购物车数据 页面设置 模板消息
+		getCartPageDataFn() {
+			let that = this;
+			return new Promise(async (resFn, rejFn) => {
+				let result = await that.$request({
+					url: `/api/Cart/myCart`
+				});
+
+				if (result.statusCode == 200) {
+					if (result.data.code == 200) {
+						let resultObj = assertObject(result.data.data);
+						resFn({
+							msg: result.data.msg,
+							result: {
+								cartList: assertArray(resultObj.car),
+								cartConfig: assertObject(resultObj.config),
+								cartTemplateList: assertArray(resultObj.template)
+							}
+						});
+					} else {
+						rejFn({
+							result: result,
+							msg: result.data.msg
+						});
+					}
+				} else {
+					rejFn({
+						result: result,
+						msg: that.$errorMsg
+					});
+				}
+			});
+		},
+
+		// 获取猜你喜欢 的 商品数据
+		getLikeGoodsFn() {
+			let that = this;
+			return new Promise(async (resFn, rejFn) => {
+				let result = await that.$request({
+					url: `/api/Cart/likeGoods`
+				});
+
+				if (result.statusCode == 200) {
+					if (result.data.code == 200) {
+						let resultObj = assertObject(result.data.data);
+						let likeGoodsObj = assertObject(resultObj.like);
+
+						resFn({
+							msg: result.data.msg,
+							result: {
+								likeGoodsTitle: likeGoodsObj.name,
+								likeGoodsList: assertArray(likeGoodsObj.value)
+							}
+						});
+					} else {
+						rejFn({
+							msg: result.data.msg,
+							result
+						});
+					}
+				} else {
+					rejFn({
+						msg: that.$errorMsg,
+						result
+					});
+				}
+			});
+		},
+
+		// ↓↓↓ 逻辑代码
+
+		// 生命周期 show
+		onShowFn() {
+			let indexAddressInfo = assertObject(uni.getStorageSync('indexAddressInfo'));
+			that.currentAddressText = indexAddressInfo.currentAddressText;
+			that.setLocalAddressFn();
+			that.commitBtnState = false;
+
+			setTimeout(() => {
+				that.renderCartListFn();
+			});
+			uni.setStorageSync('orderZhifuLoadCont', 0);
+			uni.setStorageSync('orderZhifuReloadFlag', 0);
+		},
+
+		// 处理购物车页面底部的猜你喜欢商品
+		async handleCartLikeGoodsFn() {
+			let that = this;
+			try {
+				let { result } = await that.getLikeGoodsFn();
+				that.likeGoodsTitle = result.likeGoodsTitle;
+
+				let likeGoodsList = result.likeGoodsList.map(item => {
+					return {
+						goodsId: item.goods_id, // 商品id
+						goodsImage: item.original_img, // 商品图片
+						isHot: item.is_hot == 1, // 是否热销爆款
+						isNew: item.is_new == 1, // 是否新品
+						goodsName: item.goods_name, // 商品名称
+						goodsDescription: item.goods_remark, // 商品描述
+						goodsTag: item.tag_name, // 商品标签文字
+						isVipPrice: item.is_vip_price == 1, // 是否会员专享
+						goodsPrice: item.shop_price, // 商品价格
+						vipPrice: item.vip_market_price, // 会员价
+						linePrice: item.vip_market_price, // 划线价
+						selectedNum: item.selectedNum, // 已经添加到购物车的数量
+						isSpec: item.is_guige == 1, // 商品是否多规格
+						tagImg: item.topLeftTag // 商品左上的图片标签
+					};
+				});
+				that.$set(that, 'cartPageBottomGoods', likeGoodsList);
+			} catch (e) {
+				uni.showToast({
+					icon: 'none',
+					title: e.msg
+				});
+			}
+			that.isShowLoading = false;
+
+			that.$nextTick(() => {
+				if (that.$refs.listGoodsItem && that.$refs.listGoodsItem.length) {
+					that.$refs.listGoodsItem.forEach(compItem => compItem.setSelf());
+				}
+			});
+		},
+		// 渲染购物车列表相关数据
+		async renderCartListFn() {
+			let that = this;
+			if (!that.isLogin) {
+				that.cartListData = [];
+				that.cartTemplateListData = [];
+
+				that.serviceText = '';
+				that.freePost = 0;
+				that.postFee = 0;
+				that.peisongType = 0;
+				that.$store.commit('setGlobalCardNum', 0);
+				return false;
+			}
+			try {
+				let { result } = await that.getCartPageDataFn();
+
+				let cartList = result.cartList.map(item => {
+					return {
+						isActive: item.is_active == 1,
+						goodsId: item.goods_id,
+						specId: item.spec_id,
+						isGuige: item.is_guige == 1,
+						isShow: item.isShow == 1,
+						isShowText: (() => {
+							if (item.isShow == 1) {
+								return '';
+							} else {
+								if (item.is_guige == 1) {
+									return '商品已失效';
+								} else {
+									return '库存不足';
+								}
+							}
+						})(),
+						originalImg: item.original_img,
+						goodsName: item.goods_name,
+						keyName: item.key_name,
+						goodsRemark: item.goods_remark,
+						tagName: item.tag_name,
+						shopPrice: transNumFn(item.shop_price),
+						marketPrice: transNumFn(item.market_price),
+						number: item.number,
+						id: item.id,
+						weight: item.weight
+					};
+				});
+				let cartConfig = result.cartConfig;
+				let cartTemplateList = result.cartTemplateList
+					.filter(item => item.mini_status == 1)
+					.map(item => item.mini_template_id);
+
+				// that.cartListData = cartList;
+
+				that.$set(that, 'cartListData', cartList);
+
+				that.cartTemplateListData = cartTemplateList;
+
+				that.serviceText = cartConfig.service;
+				that.freePost = transNumFn(cartConfig.free_post);
+				that.postFee = transNumFn(cartConfig.post_fee);
+				that.peisongType = transNumFn(cartConfig.peisongType);
+			} catch (e) {
+				uni.showToast({
+					icon: 'none',
+					title: e.msg
+				});
+			}
+
+			if (that.$refs.listGoodsItem && that.$refs.listGoodsItem.length) {
+				that.$refs.listGoodsItem.forEach(compItem => compItem.setSelf());
+			}
+
+			// ↓↓↓ 给tab-bar角标数字 赋值
+			that.setTabBarCartNumFn();
+		},
+
+		// 修改商品的选中状态
+		async changeGoodsSelectStatus(e) {
+			let index = e.currentTarget.dataset.ind; // 商品在购物车的索引
+
+			let temCart = cloneFn(that.cartListData); // 备份一个数据
+
+			let cartList = cloneFn(that.cartListData); // 当前修改的数据
+
+			let item = cartList[index]; // 当前商品
+
+			let currentIsAct = item.isActive; // 当前操作的商品 状态  true-选中 false-没选中
+
+			cartList[index].isActive = currentIsAct ? false : true;
+
+			that.cartListData = cartList;
+
+			let result = await that.changeGoodsSelectStatusFn(item.id, !currentIsAct);
+
+			if (result.type != 'success') {
+				uni.hideLoading();
+				uni.showToast({
+					icon: 'none',
+					title: result.msg
+				});
+				that.cartListData = temCart;
+
+				return false;
+			}
+		},
+		// 输入框blur事件后
+		async setNumInpFn(e, item, index) {
+			let that = this;
+			let value = assertNumber(transNumFn(e.detail.value)); // 输入的数值
+
+			let { number, goodsId, specId } = item;
+
+			let num = value - number; // 要新增添加商品的数量
+
+			console.log(
+				'输入的值 value',
+				value,
+				'\n',
+				'购物车里的老值 number',
+				number,
+				'\n',
+				'给后台发送的参数 num',
+				num,
+				'\n'
+			);
+
+			if (num == 0) {
+				// 输入前 和 输入后 一样 就不用执行
+				return false;
+			}
+			if (value == 0) {
+				// 输入的数是0 删除掉
+
+				uni.showModal({
+					title: '把商品从购物车删除',
+					async success(e) {
+						if (e.confirm) {
+							let { id } = item;
+
+							let temCartList = cloneFn(that.cartListData); // 备份一份原始数据
+
+							let cartList = cloneFn(that.cartListData);
+
+							cartList.splice(index, 1);
+
+							that.$set(that, 'cartListData', cartList);
+
+							let result = await that.delShoppingCartGoodsFn({
+								id: `${id}`,
+								type: delCartGoodsTypeCartId
+							});
+
+							if (result.type != 'success') {
+								uni.hideLoading();
+								uni.showToast({
+									icon: 'none',
+									title: result.msg
+								});
+
+								that.$set(that, 'cartListData', temCartList);
+								return false;
+							}
+
+							uni.$emit('goodsAddCartEd', {
+								goodsId: goodsId,
+								selectedNum: 0,
+								specId: specId
+							});
+						}
+					}
+				});
+
+				return false;
+			}
+			let temNum = number; // 备份一份老值
+
+			uni.$emit('goodsAddCartEd', {
+				goodsId: goodsId,
+				selectedNum: value,
+				specId: specId
+			});
+
+			that.hideAllFn();
+			uni.showLoading();
+
+			let result = await that.addShoppingCartFn(goodsId, num, specId);
+
+			that.hideAllFn();
+
+			console.log('输入框添加购物车', result);
+			let temCartList = cloneFn(that.cartListData);
+
+			if (result.type == 'success') {
+				uni.showToast({
+					icon: 'none',
+					title: '设置购物车数量成功'
+				});
+
+				temCartList.forEach(item => {
+					if (item.goodsId == goodsId && item.specId == specId) {
+						item.isActive = true;
+						item.number = value;
+					}
+				});
+				that.$set(that, 'cartListData', temCartList);
+				that.setTabBarCartNumFn();
+			} else {
+				console.log('失败', result);
+
+				uni.showToast({
+					icon: 'none',
+					title: result.msg
+				});
+
+				uni.$emit('goodsAddCartEd', {
+					goodsId: goodsId,
+					selectedNum: temNum,
+					specId: specId
+				});
+				that.inputDomFlag = false;
+				that.$set(that, 'cartListData', temCartList);
+
+				that.$nextTick(() => {
+					that.inputDomFlag = true;
+				});
+
+				console.log('that.cartListData[index].number', that.cartListData[index].number, temNum);
+			}
+		},
+		//点击全选按钮
+		async allSelectFn() {
+			if (that.cartListData.length <= 0) {
+				return false;
+			}
+			let temCartList = cloneFn(that.cartListData); // 备份一下
+			let cartList = cloneFn(that.cartListData); // 在修改的数据
+
+			let flag, // 最终发给后台的 数字  取消 false   选中 true
+				idStr; // 最终发给后台的 id字符串 用 逗号分隔
+
+			if (that.isAllSelectCarListBtnStatus) {
+				// 目前是 所有商品 全选 了  需要 把所有商品  都 取消掉
+				cartList.forEach(item => {
+					item.isActive = false;
+				});
+
+				that.cartListData = cartList;
+
+				let selectId = temCartList.filter(item => item.isActive).map(item => item.id); // 选中的商品 id 列表
+				flag = false;
+				idStr = selectId.join(',');
+			} else {
+				// 需要把所有没有选中的商品 勾选上 状态
+				cartList.forEach(item => {
+					item.isActive = true;
+				});
+				that.cartListData = cartList;
+
+				let unSelectId = temCartList.filter(item => !item.isActive).map(item => item.id); // 没有选中的商品 id 列表
+				flag = true;
+				idStr = unSelectId.join(',');
+			}
+			console.log('给后台的 数字', flag, '\n', '给后台的 id字符串', idStr, '\n');
+
+			let result = await that.changeGoodsSelectStatusFn(idStr, flag);
+			if (result.type != 'success') {
+				uni.hideLoading();
+				uni.showToast({
+					title: result.msg,
+					icon: 'none'
+				});
+
+				that.cartListData = temCartList;
+			}
+		},
+		// 点击删除按钮
+		delSelectGoods() {
+			let temCartList = cloneFn(that.cartListData); // 备份一下
+			let cartList = cloneFn(that.cartListData); // 在修改的数据
+
+			// 已选中的 购物车商品id
+			let goodsIdList = temCartList.filter(item => item.isActive).map(item => item.goodsId);
+
+			// 已选中的 购物车商品 购物车id
+			let selectId = temCartList.filter(item => item.isActive).map(item => item.id);
+
+			if (selectId.length <= 0) {
+				uni.showToast({
+					icon: 'none',
+					title: '未选择商品'
+				});
+				return false;
+			}
+
+			uni.showModal({
+				title: '把商品从购物车删除',
+				async success(e) {
+					if (e.confirm) {
+						let idStr = selectId.join(','); // 要删除的商品id 字符串 多个用 , 分隔
+
+						let __temCart = cloneFn(cartList); // 交给deleteListItem处理的数据 克隆一下 避免改错值
+
+						let resList = deleteListItem(__temCart, selectId); // 删除后的数据
+
+						that.cartListData = resList;
+
+						let result = await that.delShoppingCartGoodsFn({
+							id: idStr,
+							type: delCartGoodsTypeCartId
+						});
+						if (result.type != 'success') {
+							uni.hideLoading();
+							uni.showToast({
+								icon: 'none',
+								title: result.msg
+							});
+							that.cartListData = temCartList;
+
+							return false;
+						}
+						goodsIdList.forEach(item => {
+							uni.$emit('goodsAddCartEd', {
+								goodsId: item,
+								selectedNum: 0
+							});
+						});
+						that.setTabBarCartNumFn();
+					}
+				}
+			});
+		},
+
+		// 选择好商品后去结算
+		async toPayFn() {
+			let that = this;
+
+			//  把库存 不足的商品过滤出来
+			let isShowList = that.cartListData.filter(item => item.isActive).filter(item => !item.isShow);
+			if (isShowList.length > 0) {
+				uni.showModal({
+					showCancel: false, //不显示取消按钮
+					title: `${isShowList.length}个商品库存不足或失效,请删除或调整购买数量`,
+					success(e) {
+						//确认后的回调
+					}
+				});
+				return false;
+			}
+			if (that.calcGoodsNum <= 0) {
+				uni.showToast({
+					title: '请选择要结算的商品',
+					icon: 'none'
+				});
+				return false;
+			}
+
+			if (that.commitBtnState) {
+				return false;
+			}
+
+			that.commitBtnState = true;
+
+			// #ifdef MP-WEIXIN
+			if (that.cartTemplateListData.length) {
+				let temIdRes = await that.requestSubscribeMessageFn(that.cartTemplateListData);
+			}
+			console.log('b');
+			// #endif
+
+			console.log('c');
+			that.hideAllFn();
+			uni.showLoading({});
+
+			let selectGoods = that.cartListData.filter(item => item.isActive);
+
+			uni.setStorageSync('selectGoods', JSON.stringify(selectGoods));
+
+			that.navigateToFn({
+				url: `/pages/order/index`
+			});
+		},
+
+		// ↓↓↓ 多规格相关方法 --------------------------------------------------------
+
+		// 设置规格框的显示隐藏
+		setGoodsSpec(bool) {
+			that.isShowGoodsSpec = bool;
+			if (!bool) {
+				that.goodsSpecSelectItemList = addSpecFilterItemActAttrFn(cloneFn(that.goodsSpecSelectItemList));
+			}
+		},
+		// 选择规格项 改变展示 状态
+		setSpecFilterItemActiveFn(arg) {
+			let { index, specFilterIndex } = arg;
+
+			console.log('外部列表修改', index, specFilterIndex);
+
+			let goodsSpecSelectItemList = cloneFn(that.goodsSpecSelectItemList);
+
+			goodsSpecSelectItemList.forEach((item, inde) => {
+				if (inde == index) {
+					item.item.forEach((it, inx) => {
+						if (inx == specFilterIndex) {
+							it.active = true;
+						} else {
+							it.active = false;
+						}
+					});
+				}
+			});
+			that.goodsSpecSelectItemList = goodsSpecSelectItemList;
+		},
+		// ↑↑↑ 多规格相关方法 --------------------------------------------------------
+		// 获取当前位置信息赋值到 storage 里 结算页面的多自提点需要这个位置信息
+		async setLocalAddressFn() {
+			// #ifdef MP-WEIXIN
+			let userLocationInfo = await that.settingInfoFn('scope.userLocation'); // 用户授权位置信息
+			console.log('用户授权位置信息 userLocationInfo', userLocationInfo);
+
+			if (userLocationInfo.type == 'success') {
+				if (userLocationInfo.isFirst) {
+					let locationInfo = await that.getLocationInfoFn();
+					console.log('locationInfo 获取位置 -aa', locationInfo);
+
+					if (locationInfo.type == 'error') {
+						that.navigateToFn({
+							url: `/packageA/set-address-page/index`
+						});
+					} else {
+						uni.setStorageSync('cartAddress', {
+							latitude: locationInfo.result.latitude,
+							longitude: locationInfo.result.longitude
+						});
+					}
+
+					return false;
+				} else {
+					if (userLocationInfo.isOk) {
+						let locationInfo = await that.getLocationInfoFn();
+						console.log('locationInfo 获取位置 -bb', locationInfo);
+
+						if (locationInfo.type == 'success') {
+							uni.setStorageSync('cartAddress', {
+								latitude: locationInfo.result.latitude,
+								longitude: locationInfo.result.longitude
+							});
+						} else {
+							that.navigateToFn({
+								url: `/packageA/set-address-page/index`
+							});
+							return false;
+						}
+					} else {
+						that.navigateToFn({
+							url: `/packageA/set-address-page/index`
+						});
+						return false;
+					}
+				}
+			} else {
+				uni.showToast({
+					icon: 'none',
+					title: userLocationInfo.msg
+				});
+				return false;
+			}
+			// #endif
+
+			// #ifdef APP-PLUS
+
+			let locationInfo = await that.getLocationInfoFn();
+			console.log('locationInfo 获取位置', locationInfo);
+			if (locationInfo.type == 'success') {
+				uni.setStorageSync('cartAddress', {
+					latitude: locationInfo.result.latitude,
+					longitude: locationInfo.result.longitude
+				});
+			} else {
+				let indexAddressInfo = assertObject(uni.getStorageSync('indexAddressInfo'));
+				uni.setStorageSync('cartAddress', {
+					latitude: indexAddressInfo.latitude,
+					longitude: indexAddressInfo.longitude
+				});
+			}
+			// #endif
+
+			// #ifdef H5
+			// 临时写死测试支付
+			let locationInfo = await that.getLocationInfoFn();
+			console.log('locationInfo 获取位置', locationInfo);
+			if (locationInfo.type == success) {
+				uni.setStorageSync('cartAddress', {
+					latitude: locationInfo.result.latitude,
+					longitude: locationInfo.result.longitude
+				});
+				return false;
+			}
+			uni.showModal({
+				showCancel: false, //不显示取消按钮
+				title: '获取定位失败',
+				success(e) {
+					//确认后的回调
+					that.toBackFn();
+				}
+			});
+			// #endif
+		},
+		// 从购物车减去一个商品
+		async cartGoodsItemBtnRemoveFn(arg) {
+			let that = this;
+
+			let { number: selectedNum, _id: id, index, goodsId, specId } = arg.currentTarget.dataset;
+			/*
+			console.log('arg.currentTarget.dataset', arg);
+			console.log('arg.currentTarget.dataset 解构的数据', selectedNum, id, index, goodsId, specId);
+			*/
+			if (selectedNum - 1 <= 0) {
+				// 判断如果小于等于0就删掉
+				uni.showModal({
+					title: '把商品从购物车删除',
+					async success(e) {
+						if (e.confirm) {
+							let temCartList = cloneFn(that.cartListData); // 备份一份原始数据
+
+							let cartList = cloneFn(that.cartListData);
+
+							cartList.splice(index, 1);
+
+							that.cartListData = cartList;
+
+							let result = await that.delShoppingCartGoodsFn({
+								id: `${id}`,
+								type: delCartGoodsTypeCartId
+							});
+
+							if (result.type == 'success') {
+								uni.$emit('goodsAddCartEd', {
+									goodsId: goodsId,
+									selectedNum: 0,
+									specId: specId
+								});
+							} else {
+								uni.hideLoading();
+								uni.showToast({
+									icon: 'none',
+									title: result.msg
+								});
+								that.cartListData = temCartList;
+							}
+
+							that.setTabBarCartNumFn();
+						}
+					}
+				});
+
+				return false;
+			}
+
+			that.hideAllFn();
+			uni.showToast({
+				icon: 'none',
+				title: '删除购物车成功'
+			});
+
+			let currentSelectedNum = selectedNum;
+
+			uni.$emit('goodsAddCartEd', {
+				goodsId: goodsId,
+				selectedNum: currentSelectedNum - 1,
+				specId: specId
+			});
+
+			let result = await that.addShoppingCartFn(goodsId, -1, specId);
+
+			if (result.type == 'success') {
+				let temCartList = cloneFn(that.cartListData);
+				temCartList.forEach(item => {
+					if (item.goodsId == goodsId && item.specId == specId) {
+						item.isActive = true;
+						item.number = currentSelectedNum - 1;
+					}
+				});
+				that.cartListData = temCartList;
+				that.setTabBarCartNumFn();
+			} else {
+				that.hideAllFn();
+				uni.showToast({
+					icon: 'none',
+					title: result.msg
+				});
+				uni.$emit('goodsAddCartEd', {
+					goodsId: that.goodsId,
+					selectedNum: currentSelectedNum,
+					specId: that.goodsSpecId
+				});
+			}
+		},
+		// 从购物车增加一个商品
+		async cartGoodsItemBtnAddFn(arg) {
+			let that = this;
+			let { number: selectedNum, goodsId, specId } = arg.currentTarget.dataset;
+
+			that.hideAllFn();
+			uni.showToast({
+				icon: 'none',
+				title: '加入购物车成功'
+			});
+			let currentSelectedNum = transNumFn(selectedNum);
+
+			uni.$emit('goodsAddCartEd', {
+				goodsId: goodsId,
+				selectedNum: currentSelectedNum + 1,
+				specId: specId
+			});
+
+			let result = await that.addShoppingCartFn(goodsId, 1, specId);
+			if (result.type != 'success') {
+				that.hideAllFn();
+				uni.showToast({
+					icon: 'none',
+					title: result.msg
+				});
+
+				uni.$emit('goodsAddCartEd', {
+					goodsId: goodsId,
+					selectedNum: currentSelectedNum,
+					specId: specId
+				});
+				return false;
+			}
+			// 开始更新购物车列表
+			that.setTabBarCartNumFn();
+
+			let temCartList = cloneFn(that.cartListData);
+			temCartList.forEach(item => {
+				if (item.goodsId == goodsId && item.specId == specId) {
+					item.isActive = true;
+					item.number = currentSelectedNum + 1;
+				}
+			});
+			that.cartListData = temCartList;
+		},
+		// 底部的商品添加购物车后更新上面的购物车列表
+		emitGetCartListFn() {
+			console.log('emitGetCartListFn runing');
+			this.renderCartListFn();
+		},
+		// 提示的气泡被点击
+		bubbleTipsClickFn() {
+			console.log('提示的气泡被点击');
+		}
+	}, // ↑↑↑↑↑ methods 结束
+	computed: {
+		// tab-bar的选中项
+		tabCurrent() {
+			for (let i = 0; i < this.MenuList.length; i++) {
+				if (this.MenuList[i].field == 'g') {
+					return i;
+				}
+			}
+			return 0;
+		},
+		/*
+			@description 全选按钮的状态
+			@return <Boolean>
+				所有商品是选中状态  返回true
+				有一个商品没有选中  返回 false
+		*/
+		isAllSelectCarListBtnStatus() {
+			let that = this;
+			if (that.cartListData.length <= 0) {
+				return false;
+			}
+			return that.cartListData.every(item => item.isActive);
+		},
+		// 返回 选中的 商品 总价钱
+		calcPrice() {
+			let that = this;
+			let cartListData = cloneFn(that.cartListData);
+
+			if (cartListData.length <= 0) {
+				return '0.00';
+			}
+			let arr = cartListData.filter(item => item.isActive).map(item => bigTimes(item.number, item.shopPrice));
+
+			if (arr.length <= 0) {
+				return '0.00';
+			}
+
+			let total = arr.reduce((item1, item2) => bigPlus(item1, item2)); // 要结算的商品的总价格
+			return toDoubleNumFn(total);
+		},
+		// 还差xx元免配送费
+		calcMiandan() {
+			return bigMinus(this.freePost, this.calcPrice);
+		},
+		// 实际的配送费
+		calcPostFee() {
+			let that = this;
+			if (that.postFee <= 0) {
+				// 后台没设置配送费
+				return `已免基础配送费`;
+			} else {
+				if (that.calcMiandan <= 0) {
+					return `已免基础配送费`;
+				} else {
+					return `还差${toDoubleNumFn(that.calcMiandan)}元免基础配送费`;
+				}
+			}
+		},
+
+		/*
+			@description 购物车 页面的 模板消息 数组
+			@return <Array>
+				返回一个数组
+		*/
+		calcTemplateList() {
+			let that = this;
+			let template = assertArray(that.calcCartTemplateList);
+			return template.filter(item => item.mini_status == 1).map(item => item.mini_template_id);
+		},
+		// 去结算的 商品总数量
+		calcGoodsNum() {
+			let that = this;
+			let cartListData = cloneFn(that.cartListData);
+
+			if (cartListData.length <= 0) {
+				return 0;
+			}
+			let arr = cartListData.filter(item => item.isActive).map(item => item.number);
+
+			if (arr.length <= 0) {
+				return 0;
+			}
+			return arr.reduce((item1, item2) => bigPlus(item1, item2)); // 要结算的商品的总数量
+		},
+		...mapState({
+			calcCartList: store => store.carList, // 购物车 列表数组
+			calcCartConfig: store => store.carConfig, //  购物车页面 相关配置
+			calcCartTemplateList: store => store.carTemplateList //  购物车页面  去支付 前 的模板消息 数组
+		})
+	}
+};
+</script>
+
+<style lang="scss" scoped>
+.page,
+page {
+	min-height: 100vh;
+	background: $bg-grey-color;
+}
+
+.user-address {
+	background: #ffffff;
+
+	.content-wrap {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		> text {
+			padding: 0 20rpx;
+			line-height: 80rpx;
+			font-size: 26rpx;
+			color: $grey1-color;
+		}
+	}
+
+	.address-box {
+		display: flex;
+		align-items: center;
+		height: 88rpx;
+
+		image {
+			margin-left: 5rpx;
+			margin-right: 24rpx;
+			width: 38rpx;
+			height: 46rpx;
+		}
+
+		text {
+			display: inline-block;
+			min-width: 50vw;
+			max-width: 60vw;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			color: $grey1-color;
+			font-size: 30rpx;
+			font-weight: 600;
+		}
+	}
+}
+
+.title-text {
+	margin: 0 20rpx;
+	border-bottom: 1px solid #f1f1f1;
+	justify-content: space-between;
+	height: 88rpx;
+	display: flex;
+	align-items: center;
+
+	.h4 {
+		font-weight: 700;
+		font-size: 36rpx;
+		color: $grey1-color;
+	}
+
+	.h5 {
+		margin-left: 1em;
+		font-size: 26rpx;
+		color: $grey2-color;
+	}
+}
+
+.go-home-block {
+	position: relative;
+	width: 750rpx;
+	height: 452rpx;
+
+	.bg-null-cart {
+		width: 750rpx;
+		height: 452rpx;
+		position: absolute;
+		z-index: 5;
+	}
+
+	text {
+		display: block;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 260rpx;
+		z-index: 10;
+		font-size: 36rpx;
+		color: $grey1-color;
+		font-weight: 600;
+	}
+
+	.navigator {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 45rpx;
+		z-index: 10;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 160rpx;
+		height: 66rpx;
+		color: #ffffff;
+		font-size: 28rpx;
+		border-radius: 10000rpx;
+	}
+}
+
+.main-cart-page-block {
+	background: $bg-grey-color;
+	padding-top: 20rpx;
+
+	.cart-block {
+		border-radius: 25rpx;
+		background-color: #ffffff;
+
+		.push-block {
+			margin: 0 20rpx;
+			border-bottom: 1px solid #f1f1f1;
+
+			.title {
+				height: 72rpx;
+				margin: 0 20rpx;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				text {
+					font-size: 24rpx;
+					color: $grey1-color;
+				}
+
+				.navigator,
+				view {
+					display: flex;
+					align-items: center;
+				}
+
+				.navigator {
+					text {
+					}
+				}
+			}
+		}
+
+		.my-goods-block {
+			.item {
+				display: flex;
+				align-items: center;
+				position: relative;
+				margin-right: 20rpx;
+				padding: 20rpx 0;
+				height: 220rpx;
+
+				&::after {
+					content: '';
+					display: block;
+					position: absolute;
+					bottom: 0;
+					left: 20rpx;
+					right: 20rpx;
+					height: 1px;
+					background: #f1f1f1;
+				}
+
+				&:last-child::after {
+					display: none;
+				}
+
+				.flag-icon {
+					padding: 0 20rpx;
+					width: 76rpx;
+					height: 100%;
+					display: flex;
+					align-items: center;
+				}
+
+				.goods-image-block {
+					position: relative;
+					width: 200rpx;
+					height: 182rpx;
+					display: flex;
+					// justify-content: center;
+					align-items: center;
+
+					.tip-info {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 180rpx;
+						height: 180rpx;
+						@include flex-center;
+						background: rgba(191, 191, 191, 0.5);
+						color: #ffffff;
+						font-size: 30rpx;
+					}
+
+					image {
+						width: 180rpx;
+						height: 180rpx;
+					}
+				}
+
+				.goods-description-block {
+					width: 404rpx;
+					height: 182rpx;
+					position: relative;
+					.goods-name {
+						height: 46rpx;
+						line-height: 46rpx;
+						font-size: 30rpx;
+						color: #374050;
+						font-weight: bold;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						overflow: hidden;
+					}
+
+					.goods-description {
+						display: flex;
+						align-items: center;
+						width: 100%;
+						height: 36rpx;
+
+						.goods-description-text {
+							width: 100%;
+							font-size: 26rpx;
+							color: #91939c;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							overflow: hidden;
+						}
+					}
+
+					.goods-spec-key-name {
+						display: flex;
+						align-items: center;
+						width: 100%;
+						height: 36rpx;
+
+						.goods-spec-key-name-text {
+							width: 100%;
+							font-size: 26rpx;
+							color: #91939c;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							overflow: hidden;
+						}
+					}
+
+					.goods-tag-block {
+						display: flex;
+						align-items: center;
+						height: 52rpx;
+						overflow: hidden;
+
+						.goods-tag {
+							display: inline-block;
+							padding: 0rpx 10rpx;
+							color: #ff6128;
+							line-height: 32rpx;
+							font-size: 18rpx;
+							border-radius: 8rpx;
+							border: 1px solid #ff6128;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							overflow: hidden;
+						}
+					}
+
+					.bottom-price-block {
+						display: flex;
+						align-items: center;
+						height: 42rpx;
+						.price-block {
+							display: flex;
+							flex-wrap: nowrap;
+							align-items: flex-end;
+							padding: 0 10rpx 0 0;
+							height: 40rpx;
+							color: #eb3c39;
+							font-weight: bold;
+
+							.price-icon {
+								display: inline-block;
+								margin-right: 2rpx;
+								line-height: 40rpx;
+								font-size: 18rpx;
+							}
+
+							.price-text {
+								flex: 1;
+								display: inline-block;
+								line-height: 40rpx;
+								font-size: 28rpx;
+								text-overflow: ellipsis;
+								white-space: nowrap;
+								overflow: hidden;
+							}
+						}
+
+						.price-right-block {
+							padding-left: 4rpx;
+							.price-line {
+								font-size: 24rpx;
+								color: #91939c;
+								text-decoration: line-through;
+							}
+						}
+					}
+
+					.control-block {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+
+						position: absolute;
+						right: 0;
+						bottom: 0;
+						width: 160rpx;
+						input {
+							display: flex;
+							margin: 0 10rpx;
+							text-align: center;
+							font-size: 26rpx;
+							color: $grey1-color;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.like-goods-list-bar {
+	line-height: 88rpx;
+	text-align: center;
+	font-size: 30rpx;
+	font-weight: 600;
+	color: $grey1-color;
+	background: $bg-grey-color;
+	.bar-title {
+		display: inline-block;
+		position: relative;
+		padding: 0 20rpx;
+		.before-dom,
+		.after-dom {
+			position: absolute;
+			top: 50%;
+		}
+		.icon-O {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 7rpx;
+			height: 7rpx;
+			background: $grey1-color;
+			border-radius: 50%;
+		}
+		.icon-I {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 50rpx;
+			height: 2rpx;
+		}
+
+		.before-dom {
+			left: 0;
+			transform: translateY(-50%) translateX(-100%);
+			.icon-I {
+				right: 0;
+				background: linear-gradient(90deg, rgba(0, 0, 0, 0), $grey1-color);
+			}
+			.icon-O {
+				right: 0;
+			}
+		}
+		.after-dom {
+			right: 0;
+			transform: translateY(-50%) translateX(100%);
+			.icon-I {
+				left: 0;
+				background: linear-gradient(-90deg, rgba(0, 0, 0, 0), $grey1-color);
+			}
+			.icon-O {
+				left: 0;
+			}
+		}
+	}
+}
+.bottom-shop-list {
+	background: $bg-grey-color;
+	font-size: 0;
+
+	.list-goods-item-div {
+		display: inline-block;
+		margin-right: 19rpx;
+		margin-bottom: 20rpx;
+
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
+	}
+}
+
+.order-btn-block {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	z-index: 500;
+	bottom: 96rpx;
+	/* #ifdef H5 */
+	bottom: 50px;
+	/* #endif */
+	padding: 0 24rpx;
+	width: 100%;
+	height: 100rpx;
+	background: #ffffff;
+
+	box-shadow: 0px 0px 6rpx #d8d8d8;
+
+	.isAll-btn {
+		display: flex;
+		align-items: center;
+		font-size: 22rpx;
+		color: $grey1-color;
+
+		height: 100%;
+		padding: 0 20rpx;
+
+		.text {
+			margin-left: 0.3em;
+		}
+	}
+
+	.price-all {
+		display: flex;
+		align-items: flex-end;
+		font-size: 23rpx;
+		color: $grey2-color;
+		@include shop-price-block-lr;
+
+		.shop-price-block-lr {
+			text-indent: 0.3em;
+		}
+	}
+
+	.order-btn {
+		@include btn-green;
+		@include flex-center;
+		width: 240rpx;
+		height: 88rpx;
+		border-radius: 10rpx;
+		font-size: 32rpx;
+	}
+}
+.cart-content-block {
+	padding-top: 20rpx;
+	padding-bottom: 20rpx;
+	.seller-item-cart {
+		margin-top: 20rpx;
+		padding: 20rpx 0;
+		background: #ffffff;
+		border-radius: 30rpx;
+		&:first-child {
+			margin-top: 0;
+		}
+		.seller-name-block {
+			display: flex;
+			.is-select {
+				width: 76rpx;
+			}
+			.seller-name-content {
+				width: 602rpx;
+				display: flex;
+				.seller-text {
+					max-width: 562rpx;
+					font-size: 26rpx;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+	.seller-goods-list {
+		.seller-goods-item {
+			display: flex;
+			position: relative;
+			padding: 20rpx 0;
+			height: 220rpx;
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				z-index: 10;
+				bottom: 0;
+				left: 20rpx;
+				right: 20rpx;
+				height: 1px;
+				background: #f1f1f1;
+			}
+			&:last-child::after {
+				display: none;
+			}
+
+			.is-select-block {
+				width: 76rpx;
+				height: 180rpx;
+			}
+			.goods-image-wrap-block {
+				width: 180rpx;
+				height: 180rpx;
+			}
+			.goods-info-block {
+				position: relative;
+				padding: 0 24rpx 0 20rpx;
+				width: 446rpx;
+				height: 180rpx;
+
+				.goods-name {
+					width: 402rpx;
+					height: 46rpx;
+					line-height: 46rpx;
+					font-size: 30rpx;
+					color: #374050;
+					font-weight: bold;
+				}
+				.goods-description_spec-key-block {
+					display: flex;
+					align-items: center;
+					width: 402rpx;
+					height: 36rpx;
+					.goods-description-text,
+					.goods-spec-key-name-text {
+						width: 402rpx;
+						font-size: 26rpx;
+						color: #91939c;
+					}
+				}
+				.goods-tag-block {
+					display: flex;
+					align-items: center;
+					width: 402rpx;
+					height: 52rpx;
+					overflow: hidden;
+					.goods-tag {
+						display: inline-block;
+						padding: 0rpx 10rpx;
+						color: #ff6128;
+						line-height: 32rpx;
+						font-size: 18rpx;
+						border-radius: 8rpx;
+						border: 1px solid #ff6128;
+					}
+				}
+				.bottom-price-block {
+					display: flex;
+					align-items: center;
+					height: 42rpx;
+					.price-block {
+						display: flex;
+						flex-wrap: nowrap;
+						align-items: baseline;
+						padding: 0 10rpx 0 0;
+						height: 40rpx;
+						color: #eb3c39;
+						font-weight: bold;
+
+						.price-icon {
+							display: inline-block;
+							margin-right: 2rpx;
+							line-height: 40rpx;
+							font-size: 18rpx;
+						}
+
+						.price-text {
+							flex: 1;
+							display: inline-block;
+							line-height: 40rpx;
+							font-size: 28rpx;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							overflow: hidden;
+						}
+					}
+
+					.price-right-block {
+						padding-left: 4rpx;
+						.price-line {
+							font-size: 24rpx;
+							color: #91939c;
+							text-decoration: line-through;
+						}
+					}
+				}
+
+				.control-block {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					position: absolute;
+					right: 24rpx;
+					bottom: 0;
+					width: 160rpx;
+					height: 54rpx;
+
+					.input-dom {
+						display: flex;
+						margin: 0 10rpx;
+						text-align: center;
+						font-size: 26rpx;
+						color: $grey1-color;
+					}
+
+					.control-btn-block {
+						width: 54rpx;
+					}
+
+					.bubble-tips {
+						position: absolute;
+						z-index: 20;
+						left: 50%;
+						transform: translateX(-50%) translateY(100%);
+						background: #374050;
+						white-space: nowrap;
+						bottom: 0;
+						&::after {
+							content: '';
+							display: block;
+							position: absolute;
+							left: 50%;
+							top: 2px;
+							transform: translateX(-50%) translateY(-100%);
+							border: 14rpx solid transparent;
+							border-bottom: 14rpx solid #374050;
+						}
+						.tips-text {
+							color: #ffffff;
+							font-size: 20rpx;
+							padding: 4rpx 12rpx;
+						}
+					}
+				}
+			}
+		}
+		.fee-wrap {
+			padding: 10rpx 24rpx 10rpx 76rpx;
+			.fee-item {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				height: 64rpx;
+				
+				&:last-child{
+					border-bottom: 1px solid #f1f1f1;
+				}
+
+				.fee-title {
+					font-size: 26rpx;
+					color: #000000;
+				}
+				.fee-price {
+					font-size: 26rpx;
+					color: #000000;
+					font-weight: bold;
+				}
+				
+			}
+		}
+
+		.seller-item-commit-btn-block {
+			display: flex;
+			justify-content: flex-end;
+			font-size: 0;
+			padding-top: 10rpx;
+
+			.seller-commit-btn {
+				display: inline-flex;
+				align-items: center;
+				margin-right: 24rpx;
+				height: 70rpx;
+				background: #fef6df;
+				overflow: hidden;
+				color: #000000;
+				font-weight: bold;
+				.left-price-block {
+					display: flex;
+					align-items: baseline;
+					padding-right: 20rpx;
+					.price-icon {
+						display: inline-block;
+						padding-left: 20rpx;
+						font-size: 20rpx;
+					}
+					.price-num {
+						display: inline-block;
+						font-size: 34rpx;
+					}
+				}
+				.right-text-block {
+					display: inline-flex;
+					align-items: center;
+					height: 100%;
+					padding: 0 20rpx;
+					font-size: 28rpx;
+				}
+			}
+		}
+	}
+}
+</style>

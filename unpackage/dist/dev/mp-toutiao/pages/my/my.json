@@ -1,0 +1,11 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "uni-badge": "/components/uni-badge/uni-badge",
+    "login-fn": "/df-components/loginFn/index",
+    "hans-tabbar": "/df-components/hans-tabbar/hans-tabbar",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "get-tel": "/df-components/loginFn/get-tel"
+  }
+}

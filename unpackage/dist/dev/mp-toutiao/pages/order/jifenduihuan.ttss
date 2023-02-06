@@ -1,0 +1,331 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-fc760848 {
+  color: #374050;
+}
+.grey2-color.data-v-fc760848 {
+  color: #91939c;
+}
+.page.data-v-fc760848 {
+  overflow: hidden;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+.seller-address.data-v-fc760848 {
+  margin-top: 20rpx;
+  color: #374050;
+  text-indent: 0.5em;
+  font-size: 26rpx;
+}
+.input-beizhu-block.data-v-fc760848 {
+  position: relative;
+  width: 370rpx;
+  height: 64rpx;
+}
+.input-beizhu-block .show-style.data-v-fc760848 {
+  width: 370rpx;
+  height: 64rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: right;
+  font-size: 26rpx;
+  line-height: 64rpx;
+}
+.input-beizhu-block .input-beizhu.data-v-fc760848 {
+  z-index: 2;
+}
+.input-beizhu-block .input-beizhu-text-view.data-v-fc760848 {
+  z-index: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.goods-list-block.data-v-fc760848 {
+  margin-top: 20rpx;
+}
+.goods-list.data-v-fc760848 {
+  border-radius: 0 0 20rpx 20rpx;
+  padding: 0 20rpx;
+  background: #ffffff;
+  margin-bottom: 10rpx;
+}
+.goods-list .item.data-v-fc760848 {
+  display: flex;
+  padding: 10rpx 0;
+  height: 200rpx;
+  border-top: 1px solid #f1f1f1;
+}
+.goods-list .item .item-image-block.data-v-fc760848 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20rpx;
+  width: 156rpx;
+  height: 100%;
+}
+.goods-list .item .item-image-block image.data-v-fc760848 {
+  width: 150rpx;
+  height: 150rpx;
+}
+.goods-list .item .item-description-block.data-v-fc760848 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+.goods-list .item .item-description-block .item-name.data-v-fc760848,
+.goods-list .item .item-description-block .item-description.data-v-fc760848 {
+  display: flex;
+  justify-content: space-between;
+}
+.goods-list .item .item-description-block .item-name.data-v-fc760848 {
+  color: #374050;
+  font-size: 30rpx;
+  margin-top: 0.2em;
+  line-height: 1.6em;
+}
+.goods-list .item .item-description-block .item-name .name-.data-v-fc760848 {
+  max-width: 12em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.goods-list .item .item-description-block .item-name .jifen.data-v-fc760848 {
+  white-space: nowrap;
+}
+.goods-list .item .item-description-block .item-description.data-v-fc760848 {
+  color: #91939c;
+  font-size: 23rpx;
+  line-height: 1.4em;
+}
+.goods-list .item .item-description-block .item-description .description-.data-v-fc760848 {
+  max-width: 16em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.goods-list .item .item-description-block .price-info-block.data-v-fc760848 {
+  text-align: right;
+  color: #91939c;
+  font-size: 23rpx;
+  line-height: 1.4em;
+}
+.goods-list .item .item-description-block .price-info-block .red-price.data-v-fc760848 {
+  color: #ea3a37;
+}
+.goods-list .textarea.data-v-fc760848 {
+  margin: 0.5em;
+  padding: 0.5em;
+  text-indent: 1em;
+  font-size: 26rpx;
+  background: #f7f7f7;
+  height: 6em;
+  width: 90%;
+  z-index: 1;
+  color: #374050;
+}
+.line-block.data-v-fc760848 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90rpx;
+  border-top: 1px solid #f1f1f1;
+}
+.line-block .h6.data-v-fc760848,
+.line-block .h5.data-v-fc760848 {
+  font-size: 26rpx;
+  color: #374050;
+}
+.line-block .h6.data-v-fc760848 {
+  display: flex;
+  align-items: center;
+  color: #374050;
+}
+.line-block .h6 .price.data-v-fc760848 {
+  margin-left: 0.5em;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.line-block .inp-block.data-v-fc760848 {
+  width: 80%;
+}
+.line-block .inp-block input.data-v-fc760848 {
+  padding-left: 0.2em;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #374050;
+  background: #f7f7f7;
+  padding: 0.4em 1em;
+}
+.line-cont-block .line-cont.data-v-fc760848 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90rpx;
+  border-top: 1px solid #f1f1f1;
+  font-size: 22rpx;
+  padding: 0 20rpx;
+}
+.deg90.data-v-fc760848 {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.useRedCard-block .useRedCard-cont.data-v-fc760848 {
+  padding: 0 20rpx;
+  display: flex;
+  justify-content: space-between;
+  height: 100rpx;
+  border-top: 1px solid #f1f1f1;
+  align-items: center;
+}
+.useRedCard-block .useRedCard-cont .card-info.data-v-fc760848 {
+  display: flex;
+  align-items: center;
+  height: 45rpx;
+}
+.useRedCard-block .useRedCard-cont .card-info .card-name.data-v-fc760848 {
+  margin-right: 0.5em;
+  font-weight: 600;
+  font-size: 30rpx;
+  color: #374050;
+}
+.useRedCard-block .useRedCard-cont .card-info .youhui.data-v-fc760848 {
+  font-size: 24rpx;
+  color: #91939c;
+}
+.useRedCard-block .useRedCard-cont .time.data-v-fc760848 {
+  font-size: 23rpx;
+  color: #91939c;
+}
+.pay-type.data-v-fc760848 {
+  margin: 20rpx 0;
+}
+.pay-type .cont-block.data-v-fc760848 {
+  padding: 0 20rpx;
+  border-radius: 20rpx;
+  background: #ffffff;
+}
+.pay-type .cont-block .h3.data-v-fc760848 {
+  line-height: 88rpx;
+  font-size: 36rpx;
+  color: #374050;
+  font-weight: 600;
+}
+.pay-type .cont-block .line-block-list .line-block.data-v-fc760848:first-child {
+  border-top: none;
+}
+.pay-type .cont-block .line-block-list .line-block.data-v-fc760848 {
+  border-top: 1px solid #f8f8f8;
+}
+.pay-type .cont-block .line-block-list .line-block .content-wrap.data-v-fc760848 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 120rpx;
+  padding: 0;
+}
+.pay-type .cont-block .line-block-list .line-block .content-wrap .left-block.data-v-fc760848 {
+  display: flex;
+  align-items: center;
+}
+.pay-type .cont-block .line-block-list .line-block .content-wrap .left-block .image-block.data-v-fc760848 {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.pay-type .cont-block .line-block-list .line-block .content-wrap .left-block .image-block image.data-v-fc760848 {
+  width: 100%;
+  height: 100%;
+}
+.pay-type .cont-block .line-block-list .line-block .content-wrap .left-block text.data-v-fc760848 {
+  color: #374050;
+  text-indent: 0.5em;
+  font-size: 26rpx;
+}
+.order-btn-block.data-v-fc760848 {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24rpx;
+  width: 100%;
+  height: 100rpx;
+  background: #ffffff;
+}
+.order-btn-block .price-all.data-v-fc760848 {
+  display: flex;
+  align-items: flex-end;
+  font-size: 23rpx;
+  color: #91939c;
+}
+.order-btn-block .price-all .shop-price-block-lr.data-v-fc760848 {
+  white-space: nowrap;
+  display: inline-block;
+}
+.order-btn-block .price-all .shop-price-block-lr .origin-price.data-v-fc760848 {
+  white-space: nowrap;
+  display: inline-block;
+  color: #ea3a37;
+  font-size: 18rpx;
+  font-weight: 900;
+}
+.order-btn-block .price-all .shop-price-block-lr .origin-price text.data-v-fc760848 {
+  color: #ea3a37;
+  font-size: 28rpx;
+}
+.order-btn-block .price-all .shop-price-block-lr .line-price.data-v-fc760848 {
+  white-space: nowrap;
+  display: inline-block;
+  text-indent: 0.6em;
+  font-size: 24rpx;
+  color: #91939c;
+  text-decoration: line-through;
+}
+.order-btn-block .price-all .shop-price-block-lr.data-v-fc760848 {
+  text-indent: 0.3em;
+}
+.order-btn-block .order-btn.data-v-fc760848 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 704rpx;
+  height: 84rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+  background-image: linear-gradient(90deg, #6ccc4f, #60c669);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240rpx;
+  height: 88rpx;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+}

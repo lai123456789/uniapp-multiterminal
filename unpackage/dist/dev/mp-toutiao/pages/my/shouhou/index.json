@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "订单售后",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "null-block": "/df-components/undefined-image/index",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "login-fn": "/df-components/loginFn/index",
+    "card-shouhou": "/pages/my/shouhou/card-shouhou"
+  }
+}

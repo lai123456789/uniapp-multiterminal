@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "活动页标题",
+  "usingComponents": {
+    "loading-css": "/df-components/loading-image/loader-css",
+    "login-fn": "/df-components/loginFn/index",
+    "fixed-cart-icon": "/df-components/fixed-cart-icon/fixed-cart-icon",
+    "goods-spec": "/df-components/global-components/goods-spec",
+    "goods-item-column": "/packageA/activity/activity-components/goods-item-column",
+    "goods-item-row": "/packageA/activity/activity-components/goods-item-row"
+  }
+}

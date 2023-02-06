@@ -1,0 +1,100 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-753b2413 {
+  color: #374050;
+}
+.grey2-color.data-v-753b2413 {
+  color: #91939c;
+}
+.detail-shopping-records-wrap.data-v-753b2413 {
+  width: 750rpx;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+.detail-shopping-records-wrap .content-wrap.data-v-753b2413 {
+  margin: 10rpx 0;
+  background: #ffffff;
+}
+.title-block.data-v-753b2413 {
+  display: flex;
+  height: 88rpx;
+}
+.title-block .title-btn.data-v-753b2413 {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 88rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #374050;
+}
+.title-block .title-btn.act .after.data-v-753b2413 {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 40rpx;
+  height: 4rpx;
+  border-radius: 10000rpx;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.shopping-records-content .item.data-v-753b2413 {
+  border-bottom: 1px solid #f5f5f5;
+  height: 86rpx;
+  display: flex;
+  align-items: center;
+}
+.shopping-records-content .item .user-image.data-v-753b2413 {
+  font-size: 0;
+}
+.shopping-records-content .item .user-image image.data-v-753b2413 {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.shopping-records-content .item .description.data-v-753b2413 {
+  text-indent: 0.5em;
+  font-size: 26rpx;
+  color: #374050;
+}
+.shopping-records-content .item .time.data-v-753b2413 {
+  text-indent: 1.5em;
+  font-size: 20rpx;
+  color: #91939c;
+}
+.shopping-records-content .load-more.data-v-753b2413 {
+  height: 88rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: #91939c;
+}

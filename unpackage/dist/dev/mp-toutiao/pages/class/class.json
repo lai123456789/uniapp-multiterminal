@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "分类",
+  "disableScroll": true,
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "null-block": "/df-components/undefined-image/index",
+    "login-fn": "/df-components/loginFn/index",
+    "goods-spec": "/df-components/global-components/goods-spec",
+    "hans-tabbar": "/df-components/hans-tabbar/hans-tabbar",
+    "list-goods-item-rows": "/df-components/global-components/list-goods-item-row-class-page"
+  }
+}

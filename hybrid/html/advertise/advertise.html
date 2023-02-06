@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>广告启动页</title>
+		<link rel="stylesheet" href="../css/advertise.css">
+		<!-- uni 的 SDK -->
+		<script type="text/javascript" src="../js/webView.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="con">
+				<div id="img"></div>
+			</div>
+			<div class="btn" id="timer">
+				<div id="info">跳过</div>
+				<div class="circleProgress_wrapper btn">
+					<div class="wrapper right">
+						<div class="circleProgress rightcircle"></div>
+					</div>
+					<div class="wrapper left">
+						<div class="circleProgress leftcircle"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		const host = `https://line.sjwxsc.com`;
+		function ajax(options) {
+			let {
+				url
+			} = options;
+			return new Promise(async (resFn) => {
+
+				let result = await fetch(`${host}${url}`);
+				if (result.status == 200) {
+					let resultObj = await result.json();
+					resFn({
+						type: 'success',
+						result: resultObj
+					});
+				} else {
+					resFn({
+						type: 'error',
+						result,
+					});
+				}
+			})
+		}
+		document.addEventListener("DOMContentLoaded", async function() {
+			let result = await ajax({
+				url: '/api/Index/GetConfig',
+			})
+			if (result.type == 'success') {
+				let imageHost = result.result.data.config.path;
+				let path = result.result.data.config.app_load_img;
+				let imgSrc = `${imageHost}${path}`;
+				var imgDom = document.getElementById("img");
+				imgDom.style.background = `url('${imgSrc}') no-repeat center #000`;
+				imgDom.style.backgroundSize = "contain";
+			} else {
+				console.log('!错误', result);
+			}
+		}, false);
+		document.addEventListener('UniAppJSBridgeReady', function() {
+			document.querySelector('.btn').addEventListener('click', function(e) {
+				if (e.isTrusted) {
+					plus.webview.currentWebview().close();
+				}
+			});
+		});
+	</script>
+</html>

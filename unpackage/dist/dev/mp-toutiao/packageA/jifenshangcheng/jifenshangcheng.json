@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "积分商城",
+  "usingComponents": {
+    "null-block": "/df-components/undefined-image/index",
+    "goods-spec": "/df-components/global-components/goods-spec",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "login-fn": "/df-components/loginFn/index"
+  }
+}

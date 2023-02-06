@@ -1,0 +1,93 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-15f4b8a9 {
+  color: #374050;
+}
+.grey2-color.data-v-15f4b8a9 {
+  color: #91939c;
+}
+.root-page.data-v-15f4b8a9 {
+  position: relative;
+  height: 1334rpx;
+}
+.root-page .bg-img-wrap.data-v-15f4b8a9 {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.root-page .bg-img-wrap .bg-img-dom.data-v-15f4b8a9 {
+  width: 100%;
+  height: 100%;
+}
+.root-page .btn-group.data-v-15f4b8a9 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 5;
+  top: 980rpx;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 378rpx;
+  height: 244rpx;
+}
+.root-page .btn-group .btn-block.data-v-15f4b8a9 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70rpx;
+  background: #0085d0;
+  border-radius: 14rpx;
+}
+.root-page .btn-group .btn-block image.data-v-15f4b8a9 {
+  margin: 0 20rpx;
+  width: 44rpx;
+  height: 52rpx;
+}
+.root-page .btn-group .btn-block .text.data-v-15f4b8a9 {
+  color: #ffffff;
+  font-size: 30rpx;
+}
+.root-page .progress-wrap.data-v-15f4b8a9 {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+}
+.root-page .progress-wrap .progress-dom.data-v-15f4b8a9 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  width: 50%;
+}

@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "navigationBarBackgroundColor": "#f5f5f5",
+  "usingComponents": {
+    "float-icon": "/df-components/global-components/float-icon",
+    "login-fn": "/df-components/loginFn/index",
+    "goods-spec": "/df-components/global-components/goods-spec",
+    "pintuan-scroll-slider": "/packageB/goods-detail/pintuan-detail-components/pintuan-scroll-slider",
+    "loading-image": "/df-components/loading-image/index",
+    "share-code-img": "/df-components/share-code-img/share-code-img",
+    "back-btn": "/packageB/goods-detail/goods-detail-components/back-btn",
+    "goods-detail-swiper": "/packageB/goods-detail/goods-detail-components/goods-detail-swiper",
+    "seller-promise-price-show": "/packageB/goods-detail/goods-detail-components/seller-promise-price-show",
+    "play-buy-history": "/df-components/global-components/play-buy-history"
+  }
+}

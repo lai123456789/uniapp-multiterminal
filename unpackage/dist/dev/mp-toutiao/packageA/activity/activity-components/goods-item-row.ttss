@@ -1,0 +1,215 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-399ab4cc {
+  color: #374050;
+}
+.grey2-color.data-v-399ab4cc {
+  color: #91939c;
+}
+.goods-row-item.data-v-399ab4cc {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 702rpx;
+  height: 216rpx;
+  border-radius: 12rpx;
+  background: #ffffff;
+  font-size: 0;
+}
+.goods-row-item .left-image-wrap.data-v-399ab4cc {
+  position: relative;
+  width: 216rpx;
+  height: 216rpx;
+  padding: 24rpx;
+}
+.goods-row-item .left-image-wrap .tag-img-wrap.data-v-399ab4cc {
+  position: absolute;
+  z-index: 10;
+  top: 20rpx;
+  left: 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.goods-row-item .left-image-wrap .tag-img-wrap .image-dom.data-v-399ab4cc {
+  width: 100%;
+  height: 100%;
+}
+.goods-row-item .right-goods-description.data-v-399ab4cc {
+  padding: 20rpx 20rpx 20rpx 0;
+  width: 486rpx;
+  position: relative;
+}
+.goods-row-item .right-goods-description .goods-name.data-v-399ab4cc {
+  width: 480rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  font-size: 32rpx;
+  color: #000000;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.goods-row-item .right-goods-description .goods-name .icon-new.data-v-399ab4cc,
+.goods-row-item .right-goods-description .goods-name .icon-hot.data-v-399ab4cc {
+  display: inline-block;
+  margin-right: 4rpx;
+  width: 28rpx;
+  height: 28rpx;
+  vertical-align: middle;
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+.goods-row-item .right-goods-description .goods-description.data-v-399ab4cc {
+  width: 480rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 26rpx;
+  color: #a5a7ac;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.goods-row-item .right-goods-description .tag-wrap.data-v-399ab4cc {
+  display: flex;
+  align-items: center;
+  width: 702rpx;
+  height: 44rpx;
+}
+.goods-row-item .right-goods-description .tag-wrap .tag-style.data-v-399ab4cc {
+  color: #f30d1d;
+  border: 1px solid #f30d1d;
+  font-size: 24rpx;
+  display: inline-block;
+  margin-right: 6rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  border-radius: 6rpx;
+  padding: 0 4rpx;
+}
+.goods-row-item .right-goods-description .price-wrap.data-v-399ab4cc {
+  width: 702rpx;
+  height: 40rpx;
+}
+.goods-row-item .right-goods-description .price-wrap .price.data-v-399ab4cc {
+  margin-right: 8rpx;
+  display: inline-block;
+  color: #f30d1d;
+}
+.goods-row-item .right-goods-description .price-wrap .price-money.data-v-399ab4cc {
+  display: inline-block;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.goods-row-item .right-goods-description .price-wrap .price-icon.data-v-399ab4cc {
+  display: inline-block;
+  font-size: 24rpx;
+}
+.goods-row-item .right-goods-description .price-wrap .price-line.data-v-399ab4cc {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #a5a7ac;
+  -webkit-text-decoration-line: line-through;
+          text-decoration-line: line-through;
+}
+.goods-row-item .right-goods-description .price-wrap .vip-price-wrap.data-v-399ab4cc {
+  display: inline-flex;
+  height: 32rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  background: #fee9cb;
+}
+.goods-row-item .right-goods-description .price-wrap .vip-price-wrap .vip-price-box.data-v-399ab4cc {
+  display: inline-block;
+  color: #000000;
+  padding: 0 8rpx;
+  height: 32rpx;
+}
+.goods-row-item .right-goods-description .price-wrap .vip-price-wrap .vip-price-box .vip-price-icon.data-v-399ab4cc {
+  display: inline-block;
+  font-size: 24rpx;
+  line-height: 32rpx;
+}
+.goods-row-item .right-goods-description .price-wrap .vip-price-wrap .vip-price-box .vip-price-money.data-v-399ab4cc {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 32rpx;
+  line-height: 32rpx;
+}
+.goods-row-item .right-goods-description .price-wrap .vip-price-wrap .vip-price-text.data-v-399ab4cc {
+  height: 32rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6rpx;
+  font-size: 26rpx;
+  color: #fee9cb;
+  background: #000000;
+}
+/* 加入购物车按钮 */
+.add-cart-btn.data-v-399ab4cc {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  width: 44rpx;
+  height: 44rpx;
+  background: #5ade51;
+  border-radius: 40%;
+}
+.add-cart-btn.data-v-399ab4cc::before, .add-cart-btn.data-v-399ab4cc::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #ffffff;
+  height: 22rpx;
+  width: 4rpx;
+  border-radius: 1000px;
+}
+.add-cart-btn.data-v-399ab4cc::before {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.add-cart-btn.data-v-399ab4cc::after {
+  -webkit-transform: translate(-50%, -50%) rotate(90deg);
+          transform: translate(-50%, -50%) rotate(90deg);
+}
+.add-cart-btn .buy-num-icon.data-v-399ab4cc {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 6rpx;
+  min-width: 20rpx;
+  height: 20rpx;
+  font-size: 16rpx;
+  border-radius: 1000px;
+  background: #fe3227;
+  color: #ffffff;
+  -webkit-transform: translate(0, -36%);
+          transform: translate(0, -36%);
+}

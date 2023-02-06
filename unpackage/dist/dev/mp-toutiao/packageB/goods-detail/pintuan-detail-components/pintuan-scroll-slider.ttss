@@ -1,0 +1,109 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-4d1242fe {
+  color: #374050;
+}
+.grey2-color.data-v-4d1242fe {
+  color: #91939c;
+}
+.pintuan-scroll-wrap.data-v-4d1242fe {
+  width: 100%;
+  height: 372rpx;
+  overflow: hidden;
+}
+.pintuan-scroll-wrap .shop-slider.data-v-4d1242fe {
+  width: 100%;
+  height: 392rpx;
+  white-space: nowrap;
+}
+.pintuan-scroll-wrap .shop-slider .shop-slider-item.data-v-4d1242fe {
+  font-size: 0;
+  position: relative;
+  display: inline-block;
+  width: 200rpx;
+  border-radius: 20rpx;
+}
+.pintuan-scroll-wrap .shop-slider .shop-img-box.data-v-4d1242fe {
+  height: 196rpx;
+  position: relative;
+}
+.pintuan-scroll-wrap .shop-slider .shop-img.data-v-4d1242fe {
+  width: 200rpx;
+  height: 196rpx;
+}
+.pintuan-scroll-wrap .shop-slider .icon-img-box.data-v-4d1242fe {
+  width: 146rpx;
+  height: 32rpx;
+  position: absolute;
+  left: 20rpx;
+  bottom: 0;
+  -webkit-transform: translateY(5rpx);
+          transform: translateY(5rpx);
+}
+.pintuan-scroll-wrap .shop-slider .shop-name.data-v-4d1242fe {
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 7em;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.pintuan-scroll-wrap .shop-slider .money-value.data-v-4d1242fe {
+  margin-left: 20rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 24rpx;
+  color: #eb3c39;
+  font-weight: 600;
+}
+.pintuan-scroll-wrap .shop-slider .money-value text.data-v-4d1242fe {
+  font-size: 18rpx;
+}
+.pintuan-scroll-wrap .shop-slider .money-value-after.data-v-4d1242fe {
+  margin-left: 20rpx;
+  font-size: 18rpx;
+  color: #91939c;
+  text-decoration: line-through;
+  line-height: 10rpx;
+}
+.pintuan-scroll-wrap .btn-buy.data-v-4d1242fe {
+  position: absolute;
+  right: 10rpx;
+  bottom: 2rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 28rpx;
+  box-shadow: 0 3rpx 15rpx #6ccc4f;
+}

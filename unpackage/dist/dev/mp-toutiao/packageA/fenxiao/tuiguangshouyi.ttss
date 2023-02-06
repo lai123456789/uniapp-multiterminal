@@ -1,0 +1,208 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-6b990366 {
+  color: #374050;
+}
+.grey2-color.data-v-6b990366 {
+  color: #91939c;
+}
+.page.data-v-6b990366 {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+.tixianjilu.data-v-6b990366 {
+  background: #ffffff;
+  text-align: right;
+}
+.tixianjilu text.data-v-6b990366 {
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #ea3a37;
+}
+.jine-block.data-v-6b990366 {
+  background: #ffffff;
+  text-align: center;
+}
+.jine-block .jine.data-v-6b990366 {
+  font-weight: 600;
+  color: #000000;
+  font-size: 46rpx;
+}
+.jine-block .jine .btn-tixian.data-v-6b990366 {
+  font-size: 22rpx;
+  color: #ffffff;
+  line-height: 36rpx;
+  padding: 0 0.4em;
+  background: #ea3a37;
+  display: inline-block;
+  border-radius: 2px;
+  margin-left: 0.2em;
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+}
+.jine-block .text.data-v-6b990366 {
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #a2a2a2;
+}
+.menu-dingdan-fensi-block.data-v-6b990366 {
+  padding-bottom: 24rpx;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: 20rpx solid #f5f5f5;
+}
+.menu-dingdan-fensi-block .fensi-block.data-v-6b990366,
+.menu-dingdan-fensi-block .dingdan-block.data-v-6b990366 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.menu-dingdan-fensi-block .line-block.data-v-6b990366 {
+  width: 2px;
+  height: 70rpx;
+  background: #d4d4d4;
+}
+.menu-dingdan-fensi-block .text-title.data-v-6b990366 {
+  color: #9c9c9c;
+  font-size: 28rpx;
+}
+.menu-dingdan-fensi-block .num.data-v-6b990366 {
+  font-weight: 600;
+  color: #000000;
+  font-size: 32;
+}
+.top-bar.data-v-6b990366 {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: #ffffff;
+  border-bottom: 1px solid #f2f2f2;
+}
+.top-bar .content-wrap.data-v-6b990366 {
+  display: flex;
+  justify-content: space-between;
+}
+.top-bar .content-wrap .item.data-v-6b990366 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 88rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #374050;
+}
+.top-bar .content-wrap .item .after.data-v-6b990366 {
+  content: "";
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 40rpx;
+  height: 2px;
+}
+.top-bar .content-wrap .item.act .after.data-v-6b990366 {
+  display: block;
+}
+.order-list.data-v-6b990366 {
+  background: #ffffff;
+  padding-bottom: 20rpx;
+}
+.order-list .item.data-v-6b990366 {
+  border-bottom: 20rpx solid #f5f5f5;
+}
+.order-list .item.data-v-6b990366:last-child {
+  border-bottom: none;
+}
+.order-list .item .top-block.data-v-6b990366 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  border-bottom: 1px solid #f0f0f0;
+}
+.order-list .item .top-block .order-ID.data-v-6b990366 {
+  font-size: 28rpx;
+  color: #414959;
+}
+.order-list .item .top-block .order-state.data-v-6b990366 {
+  font-size: 28rpx;
+  color: #ea3a37;
+}
+.order-list .item .goods-list.data-v-6b990366 {
+  padding-bottom: 20rpx;
+}
+.order-list .item .goods-list .goods-item.data-v-6b990366 {
+  display: flex;
+  margin-top: 20rpx;
+}
+.order-list .item .goods-list .goods-item .img-wrap.data-v-6b990366 {
+  width: 90rpx;
+  height: 90rpx;
+  margin-right: 0.4em;
+}
+.order-list .item .goods-list .goods-item .img-wrap image.data-v-6b990366 {
+  width: 100%;
+  height: 100%;
+}
+.order-list .item .goods-list .goods-item .description-block.data-v-6b990366 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.order-list .item .goods-list .goods-item .description-block .goods-name.data-v-6b990366 {
+  max-width: 18em;
+  font-size: 28rpx;
+  color: #414959;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.order-list .item .goods-list .goods-item .description-block .price.data-v-6b990366 {
+  font-size: 22rpx;
+  color: #a2a2a2;
+}
+.order-list .item .info-Obj-row .item-row.data-v-6b990366 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50rpx;
+  font-size: 28rpx;
+  color: #414959;
+}
+.order-list .item .info-Obj-row .item-row .val.data-v-6b990366 {
+  display: flex;
+  align-items: center;
+}

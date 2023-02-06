@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": " ",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#6ccc4e",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "goods-spec": "/df-components/global-components/goods-spec",
+    "login-fn": "/df-components/loginFn/index",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "fixed-cart-icon": "/df-components/fixed-cart-icon/fixed-cart-icon",
+    "time-count-down": "/df-components/time-count-down/index",
+    "show-goods": "/packageA/today-seckill/today-seckill-components/show-goods"
+  }
+}

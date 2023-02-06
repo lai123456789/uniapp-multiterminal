@@ -1,0 +1,112 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-54778b04 {
+  color: #374050;
+}
+.grey2-color.data-v-54778b04 {
+  color: #91939c;
+}
+.add-btn-icon-style.data-v-54778b04 {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+}
+.right-bottom-add-cart-block.data-v-54778b04 {
+  bottom: 10rpx;
+}
+.bottom-style-gongyingshangmendian .right-bottom-add-cart-block.data-v-54778b04,
+.bottom-style-classpage .right-bottom-add-cart-block.data-v-54778b04,
+.bottom-style-vip .right-bottom-add-cart-block.data-v-54778b04 {
+  bottom: 6rpx;
+}
+.bottom-price-block.data-v-54778b04 {
+  display: flex;
+  align-items: center;
+  height: 42rpx;
+}
+.bottom-price-block .price-block.data-v-54778b04 {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  margin-right: 8rpx;
+  height: 40rpx;
+  color: #eb3c39;
+  font-weight: bold;
+}
+.bottom-price-block .price-block .price-icon.data-v-54778b04 {
+  display: inline-block;
+  margin-right: 2rpx;
+  line-height: 40rpx;
+  font-size: 18rpx;
+}
+.bottom-price-block .price-block .price-text.data-v-54778b04 {
+  flex: 1;
+  display: inline-block;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.bottom-price-block .price-right-block .price-line.data-v-54778b04 {
+  font-size: 24rpx;
+  color: #91939c;
+  text-decoration: line-through;
+}
+.bottom-seller-btn.data-v-54778b04 {
+  display: flex;
+  align-items: center;
+  height: 42rpx;
+}
+.bottom-seller-btn .seller-name.data-v-54778b04 {
+  display: inline-flex;
+  align-items: center;
+  font-size: 22rpx;
+  color: #797979;
+}
+.bottom-seller-btn .seller-name .btn-text.data-v-54778b04 {
+  display: inline-block;
+}
+.right-bottom-add-cart-block.data-v-54778b04 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  right: 10rpx;
+  height: 60rpx;
+}
+.right-bottom-add-cart-block.anniushuzi.data-v-54778b04 {
+  width: 60rpx;
+}
+.right-bottom-add-cart-block .goods-selected-num.data-v-54778b04 {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: scale(0.7) translateX(22rpx) translateY(-12rpx);
+          transform: scale(0.7) translateX(22rpx) translateY(-12rpx);
+}

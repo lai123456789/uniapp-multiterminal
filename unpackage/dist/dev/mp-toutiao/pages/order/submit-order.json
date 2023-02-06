@@ -1,0 +1,18 @@
+{
+  "navigationBarTitleText": "提交订单",
+  "usingComponents": {
+    "loading-css": "/df-components/loading-image/loader-css",
+    "img-bg-css": "/df-components/img-bg-css/img-bg-css",
+    "yve-icon": "/df-components/yve-icon/yve-icon",
+    "user-address": "/pages/order/order-components/user-address",
+    "dot-ziti-modal": "/pages/order/submit-order-components/dot-ziti-modal",
+    "discount-coupon-modal": "/pages/order/submit-order-components/discount-coupon-modal",
+    "goods-coupon-modal": "/pages/order/submit-order-components/goods-coupon-modal",
+    "goods-invalid-modal": "/pages/order/submit-order-components/goods-invalid-modal",
+    "address-invalid-modal": "/pages/order/submit-order-components/address-invalid-modal",
+    "dispatch-type": "/pages/order/submit-order-components/dispatch-type",
+    "sellerzitidian-show": "/pages/order/submit-order-components/sellerzitidian-show",
+    "duozitidian-show": "/pages/order/submit-order-components/duozitidian-show",
+    "vip-card": "/pages/order/order-components/vip-card"
+  }
+}

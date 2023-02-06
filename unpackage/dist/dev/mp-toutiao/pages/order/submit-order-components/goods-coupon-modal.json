@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "img-bg-css": "/df-components/img-bg-css/img-bg-css"
+  },
+  "component": true
+}

@@ -1,0 +1,194 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-69e586e9 {
+  color: #374050;
+}
+.grey2-color.data-v-69e586e9 {
+  color: #91939c;
+}
+@-webkit-keyframes btnAnimation-data-v-69e586e9 {
+0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+}
+100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+}
+@keyframes btnAnimation-data-v-69e586e9 {
+0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+}
+100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+}
+.page.data-v-69e586e9,
+page.data-v-69e586e9 {
+  background: #ffeec8;
+}
+.top-banner-block.data-v-69e586e9 {
+  position: relative;
+}
+.top-banner-block .share-banner-bg-head.data-v-69e586e9 {
+  width: 750rpx;
+  height: 890rpx;
+}
+.top-banner-block .share-banner-btn.data-v-69e586e9 {
+  position: absolute;
+  left: 50%;
+  margin-left: -195rpx;
+  bottom: 24rpx;
+  width: 390rpx;
+  height: 80rpx;
+  -webkit-animation: btnAnimation-data-v-69e586e9 2s infinite;
+          animation: btnAnimation-data-v-69e586e9 2s infinite;
+}
+.top-banner-block .rule.data-v-69e586e9 {
+  position: absolute;
+  top: 40rpx;
+  right: 0;
+  width: 104rpx;
+  height: 48rpx;
+  border-radius: 1000rpx 0 0 1000rpx;
+  background: #ff7a2c;
+  font-size: 26rpx;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-block.data-v-69e586e9 {
+  position: relative;
+  top: -90rpx;
+  margin-bottom: -90rpx;
+}
+.btn-block .btn-image-block.data-v-69e586e9 {
+  width: 600rpx;
+  height: 150rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-block .btn-image-block image.data-v-69e586e9 {
+  width: 600rpx;
+  height: 150rpx;
+  border-radius: 10000rpx;
+  box-shadow: 1rpx 1rpx 10rpx blue;
+}
+.title-bar.data-v-69e586e9 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100rpx;
+  font-size: 36rpx;
+  color: #ffffff;
+  font-weight: 600;
+}
+.title-bar image.data-v-69e586e9 {
+  width: 80rpx;
+  height: 50rpx;
+}
+.title-bar text.data-v-69e586e9 {
+  padding: 0 0.2em;
+  color: #de343e;
+}
+.icon-wrap .icon-block.data-v-69e586e9 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 280rpx;
+  background: rgba(255, 255, 255, 0.85);
+}
+.icon-wrap .icon-block .icon-box.data-v-69e586e9 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 520rpx;
+  height: 200rpx;
+}
+.icon-wrap .icon-block .icon-box .icon-item.data-v-69e586e9 {
+  display: flex;
+  height: 200rpx;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon-wrap .icon-block .icon-box .icon-item .image-block.data-v-69e586e9 {
+  width: 120rpx;
+  height: 120rpx;
+}
+.icon-wrap .icon-block .icon-box .icon-item .image-block image.data-v-69e586e9 {
+  width: 100%;
+  height: 100%;
+}
+.icon-wrap .icon-block .icon-box .icon-item .text-block.data-v-69e586e9 {
+  font-size: 23rpx;
+  color: #a976ce;
+}
+.icon-wrap .icon-block .icon-box .icon-item .text-block text.data-v-69e586e9 {
+  font-weight: 600;
+  display: block;
+}
+.share-info-block.data-v-69e586e9 {
+  padding-bottom: 90rpx;
+}
+.share-info-block .share-info.data-v-69e586e9 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 280rpx;
+  background: rgba(0, 0, 0, 0.2);
+}
+.share-info-block .share-info .share-info-item.data-v-69e586e9 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 90rpx;
+}
+.share-info-block .share-info .share-info-item .num.data-v-69e586e9 {
+  color: #ffffff;
+  font-size: 50rpx;
+  font-weight: 600;
+}
+.share-info-block .share-info .share-info-item .text.data-v-69e586e9 {
+  color: #ffffff;
+  font-size: 20rpx;
+}

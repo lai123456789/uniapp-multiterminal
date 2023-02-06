@@ -1,0 +1,147 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-7038d507 {
+  color: #374050;
+}
+.grey2-color.data-v-7038d507 {
+  color: #91939c;
+}
+.duoziti-modal-wrap.data-v-7038d507 {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 400;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+}
+.duoziti-modal-wrap .top-block.data-v-7038d507 {
+  flex: 1;
+  width: 100%;
+}
+.duoziti-modal-wrap .bottom-list-block.data-v-7038d507 {
+  width: 100%;
+  height: 910rpx;
+  background: #ffffff;
+}
+.duoziti-modal-wrap .bottom-list-block .title-bar.data-v-7038d507 {
+  position: relative;
+  height: 96rpx;
+  border-bottom: 1px solid #f6f6f6;
+}
+.duoziti-modal-wrap .bottom-list-block .title-bar .title-text.data-v-7038d507 {
+  font-size: 30rpx;
+  color: #151515;
+  font-weight: 600;
+}
+.duoziti-modal-wrap .bottom-list-block .title-bar .close-btn.data-v-7038d507 {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 24rpx;
+}
+.duoziti-modal-wrap .bottom-list-block .list-block.data-v-7038d507 {
+  height: 814rpx;
+  overflow-x: hidden;
+  padding: 10rpx 0;
+}
+.duoziti-modal-wrap .bottom-list-block .list-block .zitidian-list-item-wrap.data-v-7038d507 {
+  padding: 10rpx 0;
+}
+.zitidian-show.data-v-7038d507 {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 0 22rpx;
+  width: 706rpx;
+  height: 228rpx;
+  background: #ffffff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 0 0 10rpx #cccccc;
+}
+.zitidian-show .left-seller-image.data-v-7038d507 {
+  position: relative;
+  width: 228rpx;
+  height: 228rpx;
+  padding: 20rpx;
+}
+.zitidian-show .left-seller-image .image-wrap.data-v-7038d507 {
+  width: 188rpx;
+  height: 188rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.zitidian-show .left-seller-image .not-range.data-v-7038d507 {
+  position: absolute;
+  z-index: 10;
+  top: 20rpx;
+  left: 20rpx;
+  width: 180rpx;
+  height: 180rpx;
+  background: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  font-size: 30rpx;
+  font-weight: 600;
+  border-radius: 10rpx;
+  letter-spacing: 4rpx;
+  overflow: hidden;
+}
+.zitidian-show .right-seller-info.data-v-7038d507 {
+  width: 498rpx;
+  padding: 20rpx 20rpx 20rpx 0;
+}
+.zitidian-show .right-seller-info .dot-store-name.data-v-7038d507 {
+  width: 380rpx;
+  height: 40rpx;
+  font-size: 30rpx;
+  color: #414141;
+  font-weight: 600;
+}
+.zitidian-show .right-seller-info .dot-store-tel.data-v-7038d507,
+.zitidian-show .right-seller-info .dot-store-open-time.data-v-7038d507,
+.zitidian-show .right-seller-info .dot-store-address-text.data-v-7038d507 {
+  width: 458rpx;
+  height: 40rpx;
+  font-size: 26rpx;
+  color: #555555;
+}
+.zitidian-show .right-seller-info .dot-store-address-text.data-v-7038d507 {
+  height: 68rpx;
+}
+.zitidian-show .select-dot-ziti-btn.data-v-7038d507 {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 76rpx;
+  height: 46rpx;
+  font-size: 26rpx;
+  color: #ffffff;
+}

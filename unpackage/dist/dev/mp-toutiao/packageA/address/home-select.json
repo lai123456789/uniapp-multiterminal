@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "附近地址",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "loading-css": "/df-components/loading-image/loader-css",
+    "address-info": "/packageA/address/address-info"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "选择地址",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "loading-css": "/df-components/loading-image/loader-css",
+    "null-block": "/df-components/undefined-image/index",
+    "address-info": "/packageA/address/address-info"
+  }
+}

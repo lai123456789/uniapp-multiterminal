@@ -1,0 +1,325 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-34acb849 {
+  color: #374050;
+}
+.grey2-color.data-v-34acb849 {
+  color: #91939c;
+}
+.activity-root.data-v-34acb849 {
+  width: 750rpx;
+  min-height: 100vh;
+  background: #feb58c;
+  /* 标题图片 */
+  /* 优惠券 */
+  /* 一个商品独占一行左图右字样式 */
+  /* 三个商品一行排列商品 上图下字样式 */
+  /* 一行排列可滑动商品 */
+}
+.activity-root image.data-v-34acb849 {
+  display: block;
+}
+.activity-root .banner-wrap.data-v-34acb849 {
+  width: 100%;
+}
+.activity-root .goods-list-banner.data-v-34acb849 {
+  overflow: hidden;
+}
+.activity-root .goods-list-banner .image-dom.data-v-34acb849 {
+  margin: 12rpx 0;
+}
+.activity-root .coupon-wrap.data-v-34acb849 {
+  height: 120px;
+}
+.activity-root .coupon-wrap .title-bar.data-v-34acb849 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 68rpx;
+  text-align: center;
+}
+.activity-root .coupon-wrap .title-text.data-v-34acb849 {
+  display: inline-block;
+  position: relative;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #ea2618;
+  letter-spacing: 2rpx;
+}
+.activity-root .coupon-wrap .title-text .text-content.data-v-34acb849 {
+  max-width: 520rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.activity-root .coupon-wrap .icon-before.data-v-34acb849,
+.activity-root .coupon-wrap .icon-after.data-v-34acb849 {
+  position: absolute;
+  top: 50%;
+  margin-top: -14rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+.activity-root .coupon-wrap .icon-before.data-v-34acb849 {
+  left: -8rpx;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+.activity-root .coupon-wrap .icon-before .after-dom.data-v-34acb849 {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 10rpx;
+  height: 10rpx;
+  background: #ea2618;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+}
+.activity-root .coupon-wrap .icon-before .before-dom.data-v-34acb849 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 16rpx;
+  height: 16rpx;
+  background: #ea2618;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+}
+.activity-root .coupon-wrap .icon-after.data-v-34acb849 {
+  right: -8rpx;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.activity-root .coupon-wrap .icon-after .after-dom.data-v-34acb849 {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16rpx;
+  height: 16rpx;
+  background: #ea2618;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+}
+.activity-root .coupon-wrap .icon-after .before-dom.data-v-34acb849 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 10rpx;
+  height: 10rpx;
+  background: #ea2618;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+}
+.activity-root .coupon-wrap .coupon-list.data-v-34acb849 {
+  overflow-y: hidden;
+  padding: 0 20rpx;
+  height: 164rpx;
+  white-space: nowrap;
+}
+.activity-root .coupon-wrap .coupon-list.data-v-34acb849::-webkit-scrollbar {
+  display: none;
+}
+.activity-root .coupon-wrap .coupon-item.data-v-34acb849 {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 8rpx;
+  padding: 16rpx 20rpx;
+  width: 188rpx;
+  height: 164rpx;
+  background: #ff6160;
+  border-radius: 8rpx;
+  color: #ffffff;
+  font-size: 0;
+  overflow: hidden;
+}
+.activity-root .coupon-wrap .coupon-item.yilingqv.data-v-34acb849 {
+  position: relative;
+  background: #d0d0d0 !important;
+}
+.activity-root .coupon-wrap .coupon-item.yilingqv.data-v-34acb849::after {
+  content: "已领取";
+  display: block;
+  position: absolute;
+  width: 80rpx;
+  height: 30rpx;
+  background: #b1b1b1;
+  color: #ffffff;
+  font-size: 20rpx;
+  text-align: center;
+  right: 0;
+  top: 0;
+  border-radius: 1000px 0 0 1000px;
+}
+.activity-root .coupon-wrap .coupon-item .price-box.data-v-34acb849 {
+  height: 64rpx;
+  text-align: center;
+}
+.activity-root .coupon-wrap .coupon-item .coupon-info.data-v-34acb849 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+.activity-root .coupon-wrap .coupon-item.data-v-34acb849:nth-child(1) {
+  margin-left: 0;
+}
+.activity-root .coupon-wrap .price-icon.data-v-34acb849 {
+  display: inline-block;
+  margin-right: 2rpx;
+  font-size: 24rpx;
+  vertical-align: text-bottom;
+}
+.activity-root .coupon-wrap .price-money.data-v-34acb849 {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 44rpx;
+  vertical-align: super;
+}
+.activity-root .coupon-wrap .coupon-name.data-v-34acb849 {
+  width: 100%;
+  font-size: 26rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.activity-root .coupon-wrap .coupon-use-range.data-v-34acb849 {
+  width: 100%;
+  font-size: 24rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.activity-root .goods-list-row .goods-row-item-wrap.data-v-34acb849 {
+  overflow: hidden;
+  padding: 5rpx 0;
+}
+.activity-root .goods-list-column-listpage-wrap.data-v-34acb849 {
+  width: 702rpx;
+  margin: 0 auto;
+  font-size: 0;
+}
+.activity-root .goods-list-column-listpage-wrap .goods-column-item-div.data-v-34acb849 {
+  display: inline-block;
+  margin-right: 12rpx;
+  margin-bottom: 12rpx;
+}
+.activity-root .goods-list-column-listpage-wrap .goods-column-item-div.data-v-34acb849:nth-child(3n) {
+  margin-right: 0 !important;
+}
+.activity-root .load-more-btn.data-v-34acb849 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20rpx auto;
+  width: 702rpx;
+  height: 80rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+  background: #ffffff;
+}
+.activity-root .load-more-btn .btn-text.data-v-34acb849 {
+  font-size: 28rpx;
+  color: #000000;
+}
+.activity-root .load-more-btn .btn-icon.data-v-34acb849 {
+  position: relative;
+  margin: 0 4rpx;
+  width: 20rpx;
+  height: 10rpx;
+  overflow: hidden;
+}
+.activity-root .load-more-btn .btn-icon .after.data-v-34acb849 {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10rpx;
+  height: 10rpx;
+  border: 1px solid #000000;
+  -webkit-transform: translateY(-50%) translateX(-50%) rotate(45deg);
+          transform: translateY(-50%) translateX(-50%) rotate(45deg);
+}
+.activity-root .load-more-image-btn.data-v-34acb849 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.activity-root .load-more-image-btn .image-dom.data-v-34acb849 {
+  margin: 20rpx auto;
+  width: 300rpx;
+  height: 70rpx;
+}
+.activity-root .bottom-line.data-v-34acb849 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  width: 702rpx;
+  height: 80rpx;
+  color: #bd8c84;
+  font-size: 28rpx;
+}
+.activity-root .bottom-line .after.data-v-34acb849,
+.activity-root .bottom-line .before.data-v-34acb849 {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 168rpx;
+  height: 1px;
+  background: #bd8c84;
+}
+.activity-root .bottom-line .after.data-v-34acb849 {
+  right: 60rpx;
+}
+.activity-root .bottom-line .before.data-v-34acb849 {
+  left: 60rpx;
+}
+.activity-root .goods-list-scroll.data-v-34acb849 {
+  width: 750rpx;
+  height: 476rpx;
+  font-size: 0;
+  overflow: hidden;
+}
+.activity-root .goods-list-scroll .scroll-view-dom.data-v-34acb849 {
+  white-space: nowrap;
+  height: 490rpx;
+}
+.activity-root .goods-list-scroll .scroll-view-dom .goods-column-scroll-item-div.data-v-34acb849 {
+  display: inline-block;
+  margin-right: 10rpx;
+}
+.activity-root .goods-list-scroll .scroll-view-dom .goods-column-scroll-item-div.data-v-34acb849:nth-child(1) {
+  margin-left: 24rpx;
+}
+.activity-root .goods-list-scroll .scroll-view-dom .goods-column-scroll-item-div.data-v-34acb849:nth-last-child(1) {
+  margin-right: 24rpx;
+}

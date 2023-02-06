@@ -1,0 +1,105 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-5d75225f {
+  color: #374050;
+}
+.grey2-color.data-v-5d75225f {
+  color: #91939c;
+}
+.root-page.data-v-5d75225f {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.root-page .search-input-block.data-v-5d75225f {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  height: 98rpx;
+}
+.root-page .search-input-block .input-wrap.data-v-5d75225f {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  height: 100%;
+  background: #f4f4f4;
+}
+.root-page .search-input-block .input-wrap .input-dom.data-v-5d75225f {
+  flex: 1;
+  padding: 0 0.3em;
+  font-size: 26rpx;
+}
+.root-page .map-block.data-v-5d75225f {
+  position: relative;
+}
+.root-page .map-block .address-icon.data-v-5d75225f {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  width: 50rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  text-align: center;
+}
+.root-page .not-address-info-msg.data-v-5d75225f {
+  font-size: 28rpx;
+  color: #4b4b4b;
+}
+.root-page .top-location-block.data-v-5d75225f {
+  position: fixed;
+  z-index: 20;
+  top: 98rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+.root-page .top-location-block .not-address-info-msg.data-v-5d75225f {
+  text-align: center;
+  line-height: 200rpx;
+}
+.root-page .bottom-location-block.data-v-5d75225f {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+.root-page .bottom-location-block .bottom-location-list.data-v-5d75225f {
+  height: 100%;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+.root-page .bottom-location-block .bottom-location-list .not-address-info-msg.data-v-5d75225f {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}

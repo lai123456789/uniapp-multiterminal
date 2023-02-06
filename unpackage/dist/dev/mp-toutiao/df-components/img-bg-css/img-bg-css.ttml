@@ -1,0 +1,1 @@
+<view class="{{(((('data-v-1a299363')+' '+'img-bg-css')+' '+(showBgCss?'':'hideBgCss'))+' '+(isLoaded?'loaded':''))}}"><image class="img-bg-css-image data-v-1a299363" src="{{src}}" data-event-opts="{{[['load',[['loadedFn',['$event']]]]]}}" bindload="__e"></image></view>

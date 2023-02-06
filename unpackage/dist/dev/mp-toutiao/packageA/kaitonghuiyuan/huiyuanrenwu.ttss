@@ -1,0 +1,275 @@
+@charset "UTF-8";
+/*
+	万象优鲜生鲜系统(简称: 万象优鲜)
+	软著证书号: 6907220
+	软著登记号: 2021SR0182903
+	手机: 18310199838
+	电话: 4006697689
+	邮箱: 3319653051@qq.com
+	著作权人: 北京世间万象网络科技有限公司
+	版权所有: 北京世间万象网络科技有限公司
+	任何组织和个人未经本单位许可与授权, 不得擅自复制、更改内容本系统受版权法保护如未经授权而擅自复制或传播本系统(或其中部分), 将受到严厉的刑事及民事制裁，并将在法律许可范围内受到最大可能的起诉!
+*/
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 自定义变量↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  */
+.grey1-color.data-v-3f7bb81f {
+  color: #374050;
+}
+.grey2-color.data-v-3f7bb81f {
+  color: #91939c;
+}
+.page.data-v-3f7bb81f {
+  min-height: 100vh;
+  background-image: linear-gradient(-225deg, #fff0ca, #ffe49f);
+}
+.user-info-block .content-wrap.data-v-3f7bb81f {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+}
+.user-info-block .content-wrap .image-block.data-v-3f7bb81f {
+  width: 60rpx;
+  height: 60rpx;
+}
+.user-info-block .content-wrap .image-block image.data-v-3f7bb81f {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+}
+.user-info-block .content-wrap .user-name.data-v-3f7bb81f {
+  color: #474245;
+  font-size: 30rpx;
+  margin: 0 0.5em;
+}
+.user-info-block .content-wrap .user-flag .tag-block.data-v-3f7bb81f {
+  border-radius: 10000rpx;
+  border: 1px solid #f4cb79;
+  color: #f4cb79;
+}
+.now-progress.data-v-3f7bb81f {
+  background: #ffffff;
+  padding-bottom: 48rpx;
+}
+.now-progress .h4.data-v-3f7bb81f {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 250rpx;
+  height: 46rpx;
+  font-size: 22rpx;
+  color: #ffd9b7;
+  background-image: linear-gradient(90deg, #6b3d15, #9c6022);
+  border-radius: 0 0 20rpx 20rpx;
+}
+.now-progress .h3.data-v-3f7bb81f {
+  margin-top: 20rpx;
+  font-weight: 600;
+  font-size: 34rpx;
+  color: #374050;
+  line-height: 50rpx;
+}
+.now-progress .h3.data-v-3f7bb81f,
+.now-progress .h5.data-v-3f7bb81f {
+  text-align: center;
+}
+.now-progress .h5.data-v-3f7bb81f {
+  font-size: 22rpx;
+  color: #91939c;
+  line-height: 32rpx;
+}
+.now-progress .progress-block.data-v-3f7bb81f {
+  margin: 35rpx;
+  padding: 50rpx 35rpx 45rpx;
+  border: 1px dashed #e6e6e6;
+  border-radius: 30rpx;
+}
+.scroll-view-wrap.data-v-3f7bb81f {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.scroll-view-wrap.data-v-3f7bb81f::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 4px;
+  background: #fee0a9;
+}
+.ended-block.data-v-3f7bb81f {
+  font-size: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+.ended-block .cont.data-v-3f7bb81f {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -16rpx;
+  width: 62rpx;
+  height: 62rpx;
+  border: 2px solid #ffba00;
+  color: #4a2d14;
+  font-size: 22rpx;
+  border-radius: 50%;
+  background: #fff6e2;
+}
+.ended-block .tag-block.data-v-3f7bb81f {
+  background-image: linear-gradient(90deg, #f8d795, #febc49);
+  color: #ffffff;
+  font-size: 16rpx;
+  border: none;
+}
+.ended-block .tag-block.defaultStyle.data-v-3f7bb81f {
+  background-image: linear-gradient(90deg, #a9a9a9, #c7c7c7);
+}
+.red-pack-item.data-v-3f7bb81f {
+  width: 72rpx;
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.red-pack-item .image-block.data-v-3f7bb81f {
+  width: 62rpx;
+  height: 74rpx;
+  position: relative;
+  font-size: 0;
+}
+.red-pack-item .image-block image.data-v-3f7bb81f {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+.red-pack-item .image-block text.data-v-3f7bb81f {
+  position: absolute;
+  z-index: 15;
+  color: #ffffff;
+  font-size: 24rpx;
+  bottom: 0.1em;
+  text-align: center;
+  width: 100%;
+}
+.red-pack-item .tag-block.data-v-3f7bb81f {
+  position: relative;
+  z-index: 10;
+  margin-top: 18rpx;
+  background: #ffe2e2;
+  border: none;
+}
+.red-pack-item .tag-block.data-v-3f7bb81f::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-60%) rotate(45deg);
+          transform: translateX(-50%) translateY(-60%) rotate(45deg);
+  width: 16rpx;
+  height: 16rpx;
+  background: #ffe2e2;
+}
+.navigator-btn.data-v-3f7bb81f {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 480rpx;
+  height: 80rpx;
+  background-image: linear-gradient(90deg, #ff9600, #f4bd4f);
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.title-line.data-v-3f7bb81f {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100rpx;
+  color: #f7b310;
+  font-size: 26rpx;
+}
+.title-line .line-block.data-v-3f7bb81f {
+  width: 140rpx;
+  height: 2px;
+  background: #f7b310;
+}
+.history-wrap.data-v-3f7bb81f {
+  padding-bottom: 20rpx;
+}
+.history-block.data-v-3f7bb81f {
+  margin-top: 20rpx;
+  background: #ffffff;
+}
+.history-block.data-v-3f7bb81f:first-child {
+  margin-top: 0;
+}
+.history-block .line-block.data-v-3f7bb81f {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20rpx;
+  height: 100rpx;
+  border-bottom: 1px solid #ececec;
+}
+.history-block .line-block .left-block.data-v-3f7bb81f {
+  display: flex;
+  align-items: center;
+}
+.history-block .line-block .left-block .h4.data-v-3f7bb81f {
+  margin-right: 0.5em;
+  font-size: 30rpx;
+  color: #374050;
+  font-weight: 600;
+}
+.history-block .line-block .left-block .tag-block.data-v-3f7bb81f {
+  background: #e4e4e4;
+  border: none;
+  color: #91939c;
+}
+.history-block .content-block.data-v-3f7bb81f {
+  padding: 66rpx;
+}
+.deg90.data-v-3f7bb81f {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.distraction-block.data-v-3f7bb81f {
+  padding-bottom: 20rpx;
+}
+.distraction-block .distraction-content.data-v-3f7bb81f {
+  background: #f8cb59;
+  color: #ffffff;
+  padding-bottom: 20rpx;
+}
+.distraction-block .distraction-content .title.data-v-3f7bb81f {
+  font-size: 30rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+.distraction-block .distraction-content .list-text.data-v-3f7bb81f {
+  padding-left: 0.5em;
+  padding: 0 0.5em;
+  font-size: 22rpx;
+  line-height: 40rpx;
+}

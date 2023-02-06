@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "会员专属任务",
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "loading-css": "/df-components/loading-image/loader-css"
+  }
+}

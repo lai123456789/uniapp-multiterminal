@@ -1,0 +1,13 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "list-goods-item-row": "/df-components/global-components/list-goods-item-row",
+    "goods-spec": "/df-components/global-components/goods-spec",
+    "login-fn": "/df-components/loginFn/index",
+    "to-top-btn": "/df-components/to-top-btn/index",
+    "menu-block": "/packageA/eat/food-detail/food-detail-components/menu-block",
+    "loading-image": "/df-components/loading-image/index",
+    "play-buy-history": "/df-components/global-components/play-buy-history"
+  }
+}
